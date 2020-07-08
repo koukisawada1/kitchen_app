@@ -3,7 +3,7 @@ class Recipe < ApplicationRecord
 	attachment :image
 
 	belongs_to :user
-	belongs to :genre
+	belongs_to :genre
 	belongs_to :type
 	has_many :comments
 	has_many :likes
