@@ -43,3 +43,10 @@ Type.create!(
     }
   ]
 )
+
+User.create!(
+      email: "test@test.com",
+      name: "test",
+      password: "password",
+      password_confirmation: "password",
+      )
