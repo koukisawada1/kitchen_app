@@ -3,11 +3,12 @@ class Recipe < ApplicationRecord
 	attachment :image
 
 	belongs_to :user
-	belongs_to :genre
-	belongs_to :type
 	has_many :comments
 	has_many :likes
 	has_many :recipe_tag
+
+	accepts_nested_attributes_for :genres
+    accepts_nested_attributes_for :types
 
 	# recipeにいいねしていたらtureを返す
 	def liked_by?(user)
