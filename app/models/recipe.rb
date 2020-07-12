@@ -6,11 +6,6 @@ class Recipe < ApplicationRecord
 	has_many :comments
 	has_many :likes
 	has_many :recipe_tag
-	has_many :genres
-	has_many :types
-
-	accepts_nested_attributes_for :genres
-    accepts_nested_attributes_for :types
 
 	# recipeにいいねしていたらtureを返す
 	def liked_by?(user)
