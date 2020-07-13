@@ -1,5 +1,5 @@
 class Genre < ApplicationRecord
 
-	has_many :recipes, optional: true
+	has_many :recipes
 
 end
