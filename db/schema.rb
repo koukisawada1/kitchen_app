@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2020_07_09_173738) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.integer "recipe_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -49,6 +48,8 @@ ActiveRecord::Schema.define(version: 2020_07_09_173738) do
     t.integer "quantity"
     t.text "material"
     t.text "make"
+    t.integer "genre_id"
+    t.integer "type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
@@ -68,7 +69,6 @@ ActiveRecord::Schema.define(version: 2020_07_09_173738) do
   end
 
   create_table "types", force: :cascade do |t|
-    t.integer "recipe_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

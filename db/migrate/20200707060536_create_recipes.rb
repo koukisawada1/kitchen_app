@@ -8,6 +8,8 @@ class CreateRecipes < ActiveRecord::Migration[5.2]
       t.integer :quantity
       t.text :material
       t.text :make
+      t.integer :genre_id
+      t.integer :type_id
       t.timestamps
     end
   end
