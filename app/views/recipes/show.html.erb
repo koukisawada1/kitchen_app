@@ -1,13 +1,13 @@
 <div class="container">
     <div class="row">
-    	<div class="col-md-4">
-    		<%= @recipe.title %>
+    	<div class="col-md-12">
+    		<p><%= @recipe.title %></p>
     	</div>
-    	<div class="col-md-4">
-    		<%= @recipe.body %>
+    	<div class="col-md-12">
+    		<p><%= @recipe.body %></p>
     	</div>
     	<div class="col-md-7">
-    		<%= attachment_image_tag(@recipe, :image, fallback: "no_image.jpg", size: '100x100') %>
+    		<%= attachment_image_tag(@recipe, :image, fallback: "no_image2.jpg", size: '300x300') %>
     	</div>
     	<div class="col-md-5">
     		<div class="col-md-5">
@@ -44,7 +44,7 @@
     		<p class="text-center">コメントを投稿する<p>
 	    	<div class="text-center">
 	    		<%= form_for [@recipe, @comment] do |f| %>
-	    			<p><%= f.text_area :comment, style: "width: 100%;" %></p>
+	    			<p><%= f.text_area :comment, style: "width: 80%;" %></p>
 	    			<p><%= f.submit "コメントを投稿する", class: "btn btn-success" %></p>
 	    		<% end %>
 	    	</div>
@@ -52,24 +52,21 @@
     	<div class="col-md-12">
     		<p class="text-center">コメント一覧</p>
     	</div>
-    	<% @comments.each do |comment| %>
-    		<div class="col-md-2">
-    			<%= attachment_image_tag(comment.user, :image, fallback: "no_image.jpg", size: '100x100') %>
-    		</div>
-    		<div class="col-md-2">
-    			<%= comment.user.name %>さん
-    		</div>
-    		<div class="col-md-2">
-    			<%= comment.created_at.to_s(:datetime_jp) %>
-    		</div>
-    		<div class="col-md-5">
-    			<%= comment.comment %>
-    		</div>
-    		<div class="col-md-1">
-    			<% if comment.user == current_user %>
-    				<%= link_to "削除する", class: "btn btn-danger btn-md" %>
-    			<% end %>
-    		</div>
-    	<% end %>
+    	<table class="table">
+    	<tbody>
+    		<% @comments.each do |comment| %>
+    			<tr>
+		    		<td><%= attachment_image_tag(comment.user, :image, fallback: "no_image.jpg", size: '100x100') %></td>
+		    		<td><%= comment.user.name %>さん</td>
+		    		<td><%= comment.created_at.to_s(:datetime_jp) %></td>
+		    		<td><%= comment.comment %></td>
+		    		<td>
+		    			<% if comment.user == current_user %>
+		    			<%= link_to "削除する", recipe_comments_path(@recipe), method: :delete, class: "btn btn-danger btn-md" %>
+		    			<% end %>
+		    		</td>
+		    	</tr>
+    		<% end %>
+    	</tbody>
     </div>
 </div>
