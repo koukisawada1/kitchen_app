@@ -1,1 +1,75 @@
-<p>レシピ詳細ページ</p>
+<div class="container">
+    <div class="row">
+    	<div class="col-md-4">
+    		<%= @recipe.title %>
+    	</div>
+    	<div class="col-md-4">
+    		<%= @recipe.body %>
+    	</div>
+    	<div class="col-md-7">
+    		<%= attachment_image_tag(@recipe, :image, fallback: "no_image.jpg", size: '100x100') %>
+    	</div>
+    	<div class="col-md-5">
+    		<div class="col-md-5">
+    			<%= attachment_image_tag(@recipe.user, :image, fallback: "no_image.jpg", size: '100x100') %>
+    		</div>
+    		<div class="col-md-7">
+    			<%= link_to user_path(@recipe.user) do %>
+    				<%= @recipe.user.name %>さんのレシピ
+    			<% end %>
+    		</div>
+    		<div class="col-md-12">
+    			<%= @recipe.material %>
+    		</div>
+    		<div class="col-md-6">
+    			<p class="text-center"><%= @recipe.quantity %>人前</p>
+    		</div>
+    		<div class="col-md-6">
+    			<p class="text-center"><%= @recipe.price %>円前後</p>
+    		</div>
+    	</div>
+    </div>
+    <div class="row">
+    	<div class="col-md-7">
+    		<%= @recipe.make %>
+    	</div>
+    	<div class="col-md-5">
+    		<% if @recipe.user != current_user %>
+    			<% if @recipe.liked_by?(current_user) %>
+    				<p class="textcenter">保存済みです</p>
+    			<% else %>
+    				<p class="text-center"><%= link_to "お気に入りレシピに保存する" %></p>
+    			<% end %>
+    		<% end %>
+    		<p class="text-center">コメントを投稿する<p>
+	    	<div class="text-center">
+	    		<%= form_for [@recipe, @comment] do |f| %>
+	    			<p><%= f.text_area :comment, style: "width: 100%;" %></p>
+	    			<p><%= f.submit "コメントを投稿する", class: "btn btn-success" %></p>
+	    		<% end %>
+	    	</div>
+    	</div>
+    	<div class="col-md-12">
+    		<p class="text-center">コメント一覧</p>
+    	</div>
+    	<% @comments.each do |comment| %>
+    		<div class="col-md-2">
+    			<%= attachment_image_tag(comment.user, :image, fallback: "no_image.jpg", size: '100x100') %>
+    		</div>
+    		<div class="col-md-2">
+    			<%= comment.user.name %>さん
+    		</div>
+    		<div class="col-md-2">
+    			<%= comment.created_at.to_s(:datetime_jp) %>
+    		</div>
+    		<div class="col-md-5">
+    			<%= comment.comment %>
+    		</div>
+    		<div class="col-md-1">
+    			<% if comment.user == current_user %>
+    				<%= link_to "削除する", class: "btn btn-danger btn-md" %>
+    			<% end %>
+    		</div>
+    	<% end %>
+    </div>
+</div>
