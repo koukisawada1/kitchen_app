@@ -3,9 +3,6 @@ class RecipesController < ApplicationController
 	def index
 	end
 
-	def like_index
-	end
-
 	def show
 	end
 

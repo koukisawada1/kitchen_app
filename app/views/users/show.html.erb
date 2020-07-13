@@ -1,2 +1,35 @@
-<p>ユーザ詳細画面</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+        	<%= attachment_image_tag(@user, :image, fallback: "no_image.jpg", size: '300x300') %>
+        </div>
+        <div class="col-md-6">
+        	<p><%= @user.name %>さん</p>
+        	<p><%= @user.introduction %></p>
+        	<% if @user = current_user %>
+        		<p><%= link_to "お気に入りレシピ", user_likes_path %></p>
+        	<% end %>
+        </div>
+        <div class="col-md-12 text-center">
+        	<p><%= @user.name %>さんの投稿レシピ一覧</p>
+        </div>
+        <% @recipes.each do |recipe| %>
+	        <%= link_to recipe_path(recipe.id) do %>
+	        	<div class="col-md-4">
+	        		<%= attachment_image_tag(recipe, :image, fallback: "no_image2.jpg", size: '100x100') %>
+	        	</div>
+	        <% end %>
+	        <div class="col-md-4">
+	    		<p><%= recipe.title %></p>
+	       		<p><%= recipe.body %></p>
+	       	</div>
+	       	<div class="col-md-4">
+	       		<p>お気に入り <%= recipe.likes.count %></p>
+	       		<p>コメント <%= recipe.comments.count %></p>
+	       		<p><%= recipe.quantity %>人前</p>
+	       		<p><%= recipe.price %>円前後</p>
+	       	</div>
+        <% end %>
+    </div>
+</div>
 
