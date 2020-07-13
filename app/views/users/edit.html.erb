@@ -1,1 +1,33 @@
-<p>ユーザ情報編集画面</p>
+<div class="container">
+    <div class="row">
+		<h4>編集画面</h4>
+		<%= form_for(@user) do |f| %>
+			<div class="col-md-6">
+				<%= f.label :image, "プロフィール画像" %>
+				<%= f.attachment_field :image, class: "user_image" %>
+			</div>
+			<div class="col-md-6">
+				<table class="table">
+				    <tbody>
+				        <tr>
+							<td><%= f.label :name, "名前" %></td>
+							<td><%= f.text_field :name, placeholder: "名前" %></td>
+						</tr>
+						<tr>
+							<td><%= f.label :email, "メールアドレス" %></td>
+							<td><%= f.text_field :email, placeholder: "メールアドレス" %></td>
+						</tr>
+						<tr>
+							<td><%= f.label :introduction, "自己紹介文" %></td>
+							<td><%= f.text_area :introduction, placeholder: "自己紹介文" %></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="text-center">
+				<%= f.submit '編集内容を保存する', class: "btn btn-primary" %>
+				<p>退会する</p>
+			</div>
+		<% end %>
+	</div>
+</div>

@@ -8,6 +8,7 @@
         	<p><%= @user.introduction %></p>
         	<% if @user = current_user %>
         		<p><%= link_to "お気に入りレシピ", user_likes_path %></p>
+                <p><%= link_to "編集", edit_user_path(@user) %></p>
         	<% end %>
         </div>
         <div class="col-md-12 text-center">

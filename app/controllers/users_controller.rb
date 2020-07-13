@@ -10,6 +10,13 @@ class UsersController < ApplicationController
 	end
 
 	def update
+		if @user.update(user_params)
+			flash[:notice] = "情報を更新しました"
+			redirect_to user_path(@user)
+		else
+			flash[:alert] = "入力情報を確認してください"
+			render "edit"
+		end
 	end
 
 	def unsubscribe
