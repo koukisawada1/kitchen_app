@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
-    	<p>レシピ一覧ページ</p>
-    	<div class="col-md-4">
+    	<p class="text-center">レシピ一覧ページ</p>
+    	<div class="col-md-4 text-center">
 	    	<p>タグ</p>
 	    	<% @tags.each do |tag| %>
 	    			<p>・<%= tag.name %></p>
@@ -21,35 +21,39 @@
     	</div>
     	<div class="col-md-8">
     		<p><%= @title %></p>
-	    	<% @recipes.each do |recipe| %>
-	    		<div class="col-md-12">
-		    		<div class="col-md-5">
-		    			<%= link_to recipe_path(recipe) do %>
-		    				<%= attachment_image_tag(recipe, :image, fallback: "no_image2.jpg", size: '100x100') %>
-		    			<% end %>
-		    		</div>
-		    		<div class="col-md-7">
-		    			<div class="col-md-10">
-		    				<%= recipe.title %>
-		    			</div>
-		    			<div class="col-md-2">
-		    				<span class="glyphicon glyphicon-heart-empty"><%= recipe.likes.count %></span>
-		    			</div>
-		    			<div class="col-md-6">
-		    				<%= recipe.user.name %>
-		    			</div>
-		    			<div class="col-md-3">
-		    				<%= recipe.quantity %>人前
-		    			</div>
-		    			<div class="col-md-3">
-		    				<%= recipe.price %>円前後
-		    			</div>
-		    			<div class="col-md-12">
-		    				<%= recipe.body %>
-		    			</div>
-		    		</div>
-	    		</div>
-	    	<% end %>
+    		<table class="table">
+    			<tbody>
+	    			<% @recipes.each do |recipe| %>
+			    		<tr>
+				    		<td>
+				    			<%= link_to recipe_path(recipe) do %>
+				    			<%= attachment_image_tag(recipe, :image, fallback: "no_image2.jpg", size: '200x200') %>
+				    			<% end %>
+				    		</td>
+				    		<td>
+				    			<div class="col-md-10">
+				    				<%= recipe.title %>
+				    			</div>
+				    			<div class="col-md-2">
+				    				<span class="glyphicon glyphicon-heart-empty"><%= recipe.likes.count %></span>
+				    			</div>
+				    			<div class="col-md-6">
+				    				<%= recipe.user.name %>さん
+				    			</div>
+				    			<div class="col-md-3">
+				    				<%= recipe.quantity %>人前
+				    			</div>
+				    			<div class="col-md-3">
+				    				<%= recipe.price %>円前後
+				    			</div>
+				    			<div class="col-md-12">
+				    				<%= recipe.body %>
+				    			</div>
+				    		</td>
+			    		</tr>
+			    	<% end %>
+			    </tbody>
+			</table>
 	    </div>
     </div>
 </div>
