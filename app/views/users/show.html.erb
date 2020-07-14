@@ -7,8 +7,24 @@
         	<p><%= @user.name %>さん</p>
         	<p><%= @user.introduction %></p>
         	<% if @user == current_user %>
-        		<p><%= link_to "お気に入りレシピ", user_likes_path %></p>
-                <p><%= link_to "編集", edit_user_path(@user) %></p>
+        		<div class="col-md-6">
+                    <p><%= link_to "フォロー", user_followed_path(@user) %></p>
+                </div>
+                <div class="col-md-6">
+                    <p><%= link_to "フォロワー", user_follower_path(@user) %></p>
+                </div>
+                <div class="col-md-6">
+                    <p><%= link_to "お気に入りレシピ", user_likes_path %></p>
+                </div>
+                <div class="col-md-6">
+                    <p><%= link_to "会員情報を編集する", edit_user_path(@user) %></p>
+                </div>
+            <% else %>
+                <% if current_user.following?(@user) %>
+                    <%= link_to 'フォローを外す', user_relationships_path(@user), method: :delete %>
+                <% else %>
+                    <%= link_to 'フォローする', user_relationships_path(@user), method: :post %>
+                <% end %>
         	<% end %>
         </div>
         <div class="col-md-12 text-center">

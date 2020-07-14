@@ -38,7 +38,9 @@
 				    				<span class="glyphicon glyphicon-heart-empty"><%= recipe.likes.count %></span>
 				    			</div>
 				    			<div class="col-md-6">
-				    				<%= recipe.user.name %>さん
+				    				<%= link_to user_path(recipe.user) do %>
+				    					<%= recipe.user.name %>さんのレシピ
+				    				<% end %>
 				    			</div>
 				    			<div class="col-md-3">
 				    				<%= recipe.quantity %>人前

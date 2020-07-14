@@ -15,8 +15,17 @@
     		</div>
     		<div class="col-md-7">
     			<%= link_to user_path(@recipe.user) do %>
-    				<%= @recipe.user.name %>さんのレシピ
+    				<p><%= @recipe.user.name %>さんのレシピ</p>
     			<% end %>
+                <% if user_signed_in? %>
+                    <% if @recipe.user != current_user %>
+                        <% if current_user.following?(@recipe.user) %>
+                            <p><%= link_to 'フォローを外す', user_relationships_path(@recipe.user), method: :delete %></p>
+                        <% else %>
+                            <p><%= link_to 'フォローする', user_relationships_path(@recipe.user.id), method: :post %></p>
+                        <% end %>
+                    <% end %>
+                <% end %>
     		</div>
     		<div class="col-md-12">
     			<%= @recipe.material %>
@@ -34,16 +43,20 @@
     		<%= @recipe.make %>
     	</div>
     	<div class="col-md-5">
-    		<% if @recipe.user != current_user %>
-    			<%= render 'likes/likes' %>
-    		<% end %>
-    		<p class="text-center">コメントを投稿する<p>
-	    	<div class="text-center">
-	    		<%= form_for [@recipe, @comment] do |f| %>
-	    			<p><%= f.text_area :comment, style: "width: 80%;" %></p>
-	    			<p><%= f.submit "コメントを投稿する", class: "btn btn-success" %></p>
-	    		<% end %>
-	    	</div>
+        	<% if user_signed_in? %>
+                <% if @recipe.user != current_user %>
+        			<%= render 'likes/likes' %>
+        		<% end %>
+        		<p class="text-center">コメントを投稿する<p>
+    	    	<div class="text-center">
+    	    		<%= form_for [@recipe, @comment] do |f| %>
+    	    			<p><%= f.text_area :comment, style: "width: 80%;" %></p>
+    	    			<p><%= f.submit "コメントを投稿する", class: "btn btn-success" %></p>
+    	    		<% end %>
+    	    	</div>
+            <% else %>
+                <span class="glyphicon glyphicon-heart-empty">マイレシピ登録数<%= @recipe.likes.count %></span>
+            <% end %>
     	</div>
     	<div class="col-md-12">
     		<p class="text-center">コメント一覧</p>
