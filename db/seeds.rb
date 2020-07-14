@@ -80,6 +80,13 @@ User.create!(
       introduction: "元料理人です。よろしくお願いします",
       password: "password",
       password_confirmation: "password"
+    },
+    {
+      email: "6@6",
+      name: "ネイマール",
+      introduction: "中華料理が好きです。よろしくお願いします",
+      password: "password",
+      password_confirmation: "password"
     }
   ]
   )
@@ -87,7 +94,7 @@ for i in 1..15 do
   Recipe.create!(
     [
       {
-        user_id: rand(1..5),
+        user_id: rand(1..6),
         title: "レシピタイトル#{i}",
         body: "料理紹介文",
         price: rand(2..5) * 100,
@@ -100,3 +107,58 @@ for i in 1..15 do
     ]
     )
 end
+for i in 7..15 do
+  User.create!(
+    [
+      {
+        email: "#{i}@#{i}",
+        name: "テスト#{i}",
+        introduction: "中華料理が好きです。よろしくお願いします",
+        password: "password",
+        password_confirmation: "password"
+      }
+    ]
+    )
+end
+
+for i in 1..15 do
+  Like.create!(
+    [
+      {
+        user_id: i,
+        recipe_id: rand(1..5)
+      },
+      {
+        user_id: i,
+        recipe_id: rand(6..10)
+      },
+      {
+        user_id: i,
+        recipe_id: rand(11..15)
+      }
+    ]
+    )
+end
+
+for i in 1..15 do
+  Comment.create!(
+    [
+      {
+        user_id: i,
+        recipe_id: rand(1..5),
+        comment: "とても美味しかったです#{i}"
+      },
+      {
+        user_id: i,
+        recipe_id: rand(6..10),
+        comment: "簡単に出来ました#{i}"
+      },
+      {
+        user_id: i,
+        recipe_id: rand(11..15),
+        comment: "また作ります！#{i}"
+      }
+    ]
+    )
+end
+
