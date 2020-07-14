@@ -1,0 +1,11 @@
+<div class="text-center">
+	<% if @recipe.liked_by?(current_user) %>
+		<%= link_to recipe_likes_path(@recipe), method: :delete do %>
+				<span class="glyphicon glyphicon-heart"><%= @recipe.likes.count%>レシピ登録済みです</span>
+		<% end %>
+	<% else %>
+		<%= link_to recipe_likes_path(@recipe), method: :post do %>
+			<span class="glyphicon glyphicon-heart-empty"><%= @recipe.likes.count %>お気に入りレシピに登録する</span>
+		<% end %>
+	<% end %>
+</div>

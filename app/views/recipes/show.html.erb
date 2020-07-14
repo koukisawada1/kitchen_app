@@ -35,11 +35,7 @@
     	</div>
     	<div class="col-md-5">
     		<% if @recipe.user != current_user %>
-    			<% if @recipe.liked_by?(current_user) %>
-    				<p class="textcenter">保存済みです</p>
-    			<% else %>
-    				<p class="text-center"><%= link_to "お気に入りレシピに保存する" %></p>
-    			<% end %>
+    			<%= render 'likes/likes' %>
     		<% end %>
     		<p class="text-center">コメントを投稿する<p>
 	    	<div class="text-center">
