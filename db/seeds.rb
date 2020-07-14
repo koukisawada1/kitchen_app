@@ -162,3 +162,30 @@ for i in 1..15 do
     )
 end
 
+for i in 1..15 do
+  Relationship.create!(
+    [
+      {
+        follower_id: i,
+        followed_id: rand(1..3)
+      },
+      {
+        follower_id: i,
+        followed_id: rand(4..6)
+      },
+      {
+        follower_id: i,
+        followed_id: rand(7..9)
+      },
+      {
+        follower_id: i,
+        followed_id: rand(10..12)
+      },
+      {
+        follower_id: i,
+        followed_id: rand(13..15)
+      }
+    ]
+    )
+end
+
