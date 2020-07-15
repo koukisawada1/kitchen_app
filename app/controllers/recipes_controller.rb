@@ -37,6 +37,12 @@ class RecipesController < ApplicationController
 		@type = Type.find_by(id: @recipe.type_id)
 	end
 
+	def edit_confirm
+		@recipe = Recipe.find(params[:id])
+		@genre = Genre.find_by(id: @recipe.genre_id)
+		@type = Type.find_by(id: @recipe.type_id)
+	end
+
 	def create
 		@recipe = Recipe.new(recipe_params)
 		@recipe.user_id = current_user.id
@@ -51,6 +57,8 @@ class RecipesController < ApplicationController
 
 	def edit
 		@recipe = Recipe.find(params[:id])
+		@genres = Genre.all
+		@types = Type.all
 	end
 
 	def update

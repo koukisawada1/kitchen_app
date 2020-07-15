@@ -1,0 +1,43 @@
+		 <div class="row">
+    		<div class="col-md-6">
+    			<p>料理画像</p>
+    			<%= f.hidden_field :image, value:@recipe.image %>
+   				<%= attachment_image_tag(@recipe, :image, fallback: "no_image2.jpg", size: '300x300') %>
+    		</div>
+    		<div class="col-md-6">
+   				<p>レシピタイトル</p>
+   				<%= f.hidden_field :title, value:@recipe.title %>
+    			<p><%= @recipe.title %></p>
+    			<p>レシピ紹介文</p>
+    			<%= f.hidden_field :body, value:@recipe.body %>
+    			<p><%= @recipe.body %></p>
+   				<div class="col-md-6">
+   					<%= f.hidden_field :quantity, value:@recipe.quantity %>
+    				<p>分量：<%= @recipe.quantity %>人前</p>
+    			</div>
+    			<div class="col-md-6">
+    				<%= f.hidden_field :price, value:@recipe.price %>
+   					<p>費用：<%= @recipe.price %>円前後</p>
+   				</div>
+   				<div class="col-md-6">
+    				<%= f.hidden_field :genre_id, value:@recipe.genre_id %>
+    				<p>ジャンル：<%= @genre.name %></p>
+    			</div>
+    			<div class="col-md-6">
+   					<%= f.hidden_field :type_id, value:@recipe.type_id %>
+   					<p>種別：<%= @type.name %></p>
+   				</div>
+    		</div>
+    	</div>
+    	<div class="row">
+   			<div class="col-md-6">
+   				<p>材料</p>
+   				<%= f.hidden_field :material, value:@recipe.material %>
+				<p><%= @recipe.material %></p>
+    		</div>
+    		<div class="col-md-6">
+   				<p>作り方</p>
+				<%= f.hidden_field :make, value:@recipe.make %>
+				<p><%= @recipe.make %></p>
+    		</div>
+    	</div>
