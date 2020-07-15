@@ -32,13 +32,17 @@ class RecipesController < ApplicationController
 
 # 確認画面
 	def confirm
+		@recipe = Recipe.new(recipe_params)
+		@genre = Genre.find_by(id: @recipe.genre_id)
+		@type = Type.find_by(id: @recipe.type_id)
 	end
 
 	def create
-		recipe = Recipe.new(recipe_params)
-		if recipe.save
+		@recipe = Recipe.new(recipe_params)
+		@recipe.user_id = current_user.id
+		if @recipe.save
 			flash[:notice] = "レシピを投稿しました"
-			redirect_to recipe_path(recipe.id)
+			redirect_to user_path(@recipe.user)
 		else
 			flash[:alert] = "入力内容を確認したください"
 			render "new"
@@ -69,7 +73,7 @@ class RecipesController < ApplicationController
 	private
 
 	def recipe_params
-		params.require(:recipe).permit(:title, :image, :body, :price, :quantity, :material, :make)
+		params.require(:recipe).permit(:title, :image, :body, :price, :quantity, :material, :make, :genre_id, :type_id, :user_id)
 	end
 
 end

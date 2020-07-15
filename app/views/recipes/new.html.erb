@@ -2,7 +2,7 @@
 	<div class="row">
 		<h3>レシピを投稿する</h3>
 	</div>
-    <%= form_for(@recipe) do |f| %>
+    <%= form_for(@recipe, url: confirm_recipes_path) do |f| %>
     	<div class="row">
     		<div class="col-md-6">
     			<p>料理画像</p>
