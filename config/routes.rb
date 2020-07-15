@@ -21,8 +21,10 @@ Rails.application.routes.draw do
   		resource :comments, only: [:create, :destroy]
   		collection do
   			post :confirm
-        post :edit_confirm
   		end
+      member do
+        patch :edit_confirm
+      end
   	end
 
 end
