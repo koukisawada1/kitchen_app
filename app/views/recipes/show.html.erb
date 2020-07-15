@@ -67,7 +67,7 @@
     			<tr>
 		    		<td><%= attachment_image_tag(comment.user, :image, fallback: "no_image.jpg", size: '100x100') %></td>
 		    		<td><%= comment.user.name %>さん</td>
-		    		<td><%= comment.created_at.to_s(:datetime_jp) %></td>
+		    		<td><%= comment.created_at.strftime("%Y/%m/%d %H:%M") %></td>
 		    		<td><%= comment.comment %></td>
 		    		<td>
 		    			<% if comment.user == current_user %>
