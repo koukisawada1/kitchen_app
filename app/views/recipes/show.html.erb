@@ -62,6 +62,12 @@
     	    			<p><%= f.submit "コメントを投稿する", class: "btn btn-success" %></p>
     	    		<% end %>
     	    	</div>
+                <% if @recipe.user == current_user %>
+                    <div class="text-center">
+                        <%= link_to "レシピを編集する", edit_recipe_path(@recipe), class: "btn btn-primary btn-md" %>
+                        <%= link_to "レシピを削除する", recipe_path(@recipe), "data-confirm" => "レシピを削除します。よろしいですか？", class: "btn btn-danger btn-md", method: :delete %>
+                    </div>
+                <% end %>
             <% else %>
                 <span class="glyphicon glyphicon-heart-empty">マイレシピ登録数<%= @recipe.likes.count %></span>
             <% end %>
