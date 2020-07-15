@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
 			@recipes = @type.recipes
 			@title = @type.name
 		else
-			@recipes = Recipe.all
+			@recipes = Recipe.find(Like.group(:recipe_id).order('count(recipe_id) desc').pluck(:recipe_id))
 			@title = "全てのレシピ"
 		end
 	end
