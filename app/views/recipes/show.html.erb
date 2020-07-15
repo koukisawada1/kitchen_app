@@ -27,15 +27,23 @@
                     <% end %>
                 <% end %>
     		</div>
-    		<div class="col-md-12">
-    			<%= @recipe.material %>
-    		</div>
-    		<div class="col-md-6">
-    			<p class="text-center"><%= @recipe.quantity %>人前</p>
-    		</div>
-    		<div class="col-md-6">
-    			<p class="text-center"><%= @recipe.price %>円前後</p>
-    		</div>
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <p class="text-center">ジャンル:<%= @recipe.genre.name %></p>
+                </div>
+                <div class="col-md-6">
+                    <p class="text-center">種別:<%= @recipe.type.name %></p>
+                </div>
+        		<div class="col-md-12">
+        			<%= @recipe.material %>
+        		</div>
+        		<div class="col-md-6">
+        			<p class="text-center"><%= @recipe.quantity %>人前</p>
+        		</div>
+        		<div class="col-md-6">
+        			<p class="text-center"><%= @recipe.price %>円前後</p>
+        		</div>
+            </div>
     	</div>
     </div>
     <div class="row">
