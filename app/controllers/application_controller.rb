@@ -18,4 +18,5 @@ class ApplicationController < ActionController::Base
     #sign_upの際にnameのデータ操作を許。追加したカラム。
   end
 
+  Refile.secret_key = '44a1cadb2e1af5580b9e05dd2fa2c7a04094b1614c97910eab056096c40e67f1ceec4e6496f03d7de3d503de5dfadfa41db1ff48ae537ec788164727c6b46a46'
 end
