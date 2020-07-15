@@ -17,10 +17,17 @@
 @import "bootstrap";
 @import 'font-awesome';
 
-.navbar {
+header {
 	background-color: #FFFFFF;
+	height: 60px;
 }
 
-header {
+footer {
+	background-color: silver;
+	height: 60px;
+	margin-top: 30px;
+}
+
+.navbar {
 	background-color: #FFFFFF;
 }
