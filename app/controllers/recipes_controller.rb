@@ -25,7 +25,9 @@ class RecipesController < ApplicationController
 	end
 
 	def new
-		recipe = Recipe.new
+		@recipe = Recipe.new
+		@genres = Genre.all
+		@types = Type.all
 	end
 
 # 確認画面
