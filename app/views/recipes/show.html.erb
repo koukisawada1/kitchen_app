@@ -48,7 +48,7 @@
     </div>
     <div class="row">
     	<div class="col-md-7">
-    		<%= @recipe.make %>
+    		<%= simple_format(@recipe.make) %>
     	</div>
     	<div class="col-md-5">
         	<% if user_signed_in? %>
@@ -58,7 +58,9 @@
         		<p class="text-center">コメントを投稿する<p>
     	    	<div class="text-center">
     	    		<%= form_for [@recipe, @comment] do |f| %>
-    	    			<p><%= f.text_area :comment, style: "width: 80%;" %></p>
+    	    			<p>
+                            <%= f.text_area :comment, style: "width: 100%;", class: "form-control" %>
+                        </p>
     	    			<p><%= f.submit "コメントを投稿する", class: "btn btn-success" %></p>
     	    		<% end %>
     	    	</div>
