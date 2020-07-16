@@ -15,7 +15,7 @@
           <p><%= @recipe.title %></p>
           <p>レシピ紹介文</p>
           <%= f.hidden_field :body, value:@recipe.body %>
-          <p><%= @recipe.body %></p>
+          <p><%= simple_format(@recipe.body) %></p>
           <div class="col-md-6">
             <%= f.hidden_field :quantity, value:@recipe.quantity %>
             <p>分量：<%= @recipe.quantity %>人前</p>
@@ -38,12 +38,12 @@
         <div class="col-md-6">
           <p>材料</p>
           <%= f.hidden_field :material, value:@recipe.material %>
-        <p><%= @recipe.material %></p>
+        <p><%= simple_format(@recipe.material) %></p>
         </div>
         <div class="col-md-6">
           <p>作り方</p>
         <%= f.hidden_field :make, value:@recipe.make %>
-        <p><%= @recipe.make %></p>
+        <p><%= simple_format(@recipe.make) %></p>
         </div>
       </div>
 
