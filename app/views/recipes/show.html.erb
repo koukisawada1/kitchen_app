@@ -114,7 +114,7 @@
         		    		<td><%= comment.comment %></td>
         		    		<td>
         		    			<% if comment.user == current_user %>
-        		    			<%= link_to "削除する", recipe_comment_path(comment.recipe_id, comment.id), method: :delete, class: "btn btn-danger btn-md" %>
+        		    			<%= link_to "削除する", recipe_comment_path(comment.recipe_id, comment.id), method: :delete, class: "btn btn-danger btn-md", "data-confirm" => "コメントを削除します。よろしいですか？" %>
         		    			<% end %>
         		    		</td>
         		    	</tr>
