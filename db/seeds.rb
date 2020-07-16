@@ -96,17 +96,24 @@ User.create!(
     }
   ]
   )
+reci1 = "1.今回は「キユーピー マヨネーズ」を使います。"
+reci2 = "2.キャベツは4cm角に切る。鶏むね肉はひと口大のそぎ切りにする。"
+reci3 = "3.フライパンにマヨネーズ大さじ1を入れて中火にかけ、マヨネーズが溶けはじめたら鶏むね肉を加え、火が通るまで炒める。"
+reci4 = "4.残りのマヨネーズとみそを混ぜたものを加え、全体になじませたらキャベツを入れ、炒め合わせる。"
+reci5 = "5.炒めた具材をフライパンの端に寄せ、空いたスペースに溶いた卵を流し入れ、半熟状にする。"
+reci6 = "6.具材と卵をさっと炒め合わせる。"
+
 for i in 1..15 do
   Recipe.create!(
     [
       {
         user_id: rand(1..6),
         title: "レシピタイトル#{i}",
-        body: "料理紹介文",
+        body: "料理紹介文おいしくて\n簡単なレシピです",
         price: rand(2..5) * 100,
         quantity: rand(1..4),
-        material: "材料名#{i}",
-        make: "作り方",
+        material: "材料名#{i}\nにんじん　１個\nささみ　１個\n醤油　大さじ１\nキャベツ　１個",
+        make: "作り方#{i}\n#{reci1}\n#{reci2}\n#{reci3}\n#{reci4}\n#{reci5}\n#{reci6} ",
         image: File.open("./app/assets/images/recipe_image#{i}.jpg"),
         genre_id: rand(1..5),
         type_id: rand(1..7)
