@@ -12,7 +12,7 @@ class Recipe < ApplicationRecord
 
 	# recipeにいいねしていたらtureを返す
 	def liked_by?(user)
-    	Like.where(user_id: user.id).exists?
+    	likes.where(user_id: user.id).exists?
     end
 
 end

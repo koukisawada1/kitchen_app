@@ -11,10 +11,10 @@ class LikesController < ApplicationController
 	end
 
 	def destroy
-		@recipe = Recipe.find(params[:recipe_id])
-		@like = current_user.likes.find_by(recipe_id: @recipe.id)
-		@like.destroy
-		redirect_to recipe_path(@recipe)
+		recipe = Recipe.find(params[:recipe_id])
+		like = current_user.likes.find_by(recipe_id: recipe.id)
+		like.destroy
+		redirect_to recipe_path(recipe)
 	end
 
 
