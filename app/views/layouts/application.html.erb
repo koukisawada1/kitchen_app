@@ -13,7 +13,11 @@
     <header class="navbar navbar-inverse">
       <div class="container">
         <nav>
-          <ul class="left nav navbar-nav navbar-left"><%= link_to 'LOGO', root_path %></ul>
+          <ul class="left nav navbar-nav navbar-left">
+            <%= link_to root_path do %>
+              <h2 class="title"><span class="glyphicon glyphicon-cutlery">10分キッチン</span></h2>
+            <% end %>
+          </ul>
         </nav>
         <nav>
           <ul class="nav navbar-nav navbar-right">
