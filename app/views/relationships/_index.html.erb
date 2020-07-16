@@ -1,19 +1,23 @@
-<table>
+<table class="table">
 	<tbody>
-		<% @users.each do |user| %>
+		<% users.each do |user| %>
 			<tr>
 				<td>
 					<%= link_to user_path(user) do %>
-						<%= attachment_image_tag(user, :image, fallback: "no_image.jpg", size: '100x100') %>
-				</td>
+						<%= attachment_image_tag(user, :image, fallback: "no_image.jpg", size: '130x130', class: "img-circle") %>
 					<% end %>
-				<td><%= user.name %></td>
+				</td>
+				<td>
+					<h4><%= user.name %>さん</h4>
+					<h5><%= simple_format(user.introduction) %></h5>
+					<h5>レシピ投稿数：<%= user.recipes.count %>件</h5>
+				</td>
 				<td>
 					<% if user != current_user %>
 						<% if current_user.following?(user) %>
-							<%= link_to 'フォローを外す', user_relationships_path(user.id), method: :delete %>
+							<%= link_to 'フォロー中', user_relationships_path(user.id), method: :delete, class: "btn btn-info", "data-confirm" => "フォローを外しますか？" %>
 						<% else %>
-							<%= link_to 'フォローする', user_relationships_path(user.id), method: :post %>
+							<%= link_to 'フォローする', user_relationships_path(user.id), method: :post, class: "btn btn-default" %>
 						<% end %>
 					<% end %>
 				</td>

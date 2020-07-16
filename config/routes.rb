@@ -7,8 +7,6 @@ Rails.application.routes.draw do
 
   	resources :users, only: [:show, :edit, :update] do
       resource :relationships,only: [:create, :destroy]
-      get 'follower' => 'relationships#follower', as: 'follower'
-      get 'followed' => 'relationships#followed', as: 'followed'
   		member do
 	  		get :unsubscribe
 	  		patch :leave
