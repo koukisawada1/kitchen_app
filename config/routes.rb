@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     get 'user_likes' => 'likes#index'
   	resources :recipes do
   		resource :likes, only: [:create, :destroy]
-  		resource :comments, only: [:create, :destroy]
+  		resources :comments, only: [:create, :destroy]
   		collection do
   			post :confirm
   		end

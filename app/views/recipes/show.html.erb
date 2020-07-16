@@ -1,52 +1,55 @@
 <div class="container">
     <div class="row">
-    	<div class="col-md-12">
-    		<p><%= @recipe.title %></p>
-    	</div>
-    	<div class="col-md-12">
-    		<p><%= @recipe.body %></p>
-    	</div>
-    	<div class="col-md-7">
-    		<%= attachment_image_tag(@recipe, :image, fallback: "no_image2.jpg", size: '300x300') %>
-    	</div>
-    	<div class="col-md-5">
-    		<div class="col-md-5">
-    			<%= attachment_image_tag(@recipe.user, :image, fallback: "no_image.jpg", size: '100x100') %>
-    		</div>
-    		<div class="col-md-7">
-    			<%= link_to user_path(@recipe.user) do %>
-    				<p><%= @recipe.user.name %>さんのレシピ</p>
-    			<% end %>
-                <% if user_signed_in? %>
-                    <% if @recipe.user != current_user %>
-                        <% if current_user.following?(@recipe.user) %>
-                            <p><%= link_to 'フォローを外す', user_relationships_path(@recipe.user), method: :delete %></p>
-                        <% else %>
-                            <p><%= link_to 'フォローする', user_relationships_path(@recipe.user.id), method: :post %></p>
+        <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-12">
+        		<p><%= @recipe.title %></p>
+        	</div>
+        	<div class="col-md-12">
+        		<p><%= @recipe.body %></p>
+        	</div>
+        	<div class="col-md-7">
+        		<%= attachment_image_tag(@recipe, :image, fallback: "no_image2.jpg", size: '400x400') %>
+        	</div>
+        	<div class="col-md-5">
+        		<div class="col-md-5">
+        			<%= attachment_image_tag(@recipe.user, :image, fallback: "no_image.jpg", size: '100x100', class: "img-circle") %>
+        		</div>
+        		<div class="col-md-7">
+        			<%= link_to user_path(@recipe.user) do %>
+        				<p><%= @recipe.user.name %>さんのレシピ</p>
+        			<% end %>
+                    <% if user_signed_in? %>
+                        <% if @recipe.user != current_user %>
+                            <% if current_user.following?(@recipe.user) %>
+                                <p><%= link_to 'フォローを外す', user_relationships_path(@recipe.user), method: :delete %></p>
+                            <% else %>
+                                <p><%= link_to 'フォローする', user_relationships_path(@recipe.user.id), method: :post %></p>
+                            <% end %>
                         <% end %>
                     <% end %>
-                <% end %>
-    		</div>
-            <div class="col-md-12">
-                <div class="col-md-6">
-                    <p class="text-center">ジャンル:<%= @recipe.genre.name %></p>
+        		</div>
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        <p class="text-center">ジャンル:<%= @recipe.genre.name %></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="text-center">種別:<%= @recipe.type.name %></p>
+                    </div>
+            		<div class="col-md-12">
+            			<%= @recipe.material %>
+            		</div>
+            		<div class="col-md-6">
+            			<p class="text-center"><%= @recipe.quantity %>人前</p>
+            		</div>
+            		<div class="col-md-6">
+            			<p class="text-center"><%= @recipe.price %>円前後</p>
+            		</div>
                 </div>
-                <div class="col-md-6">
-                    <p class="text-center">種別:<%= @recipe.type.name %></p>
-                </div>
-        		<div class="col-md-12">
-        			<%= @recipe.material %>
-        		</div>
-        		<div class="col-md-6">
-        			<p class="text-center"><%= @recipe.quantity %>人前</p>
-        		</div>
-        		<div class="col-md-6">
-        			<p class="text-center"><%= @recipe.price %>円前後</p>
-        		</div>
-            </div>
-    	</div>
+        	</div>
+        </div>
     </div>
     <div class="row">
+    <div class="col-md-10 col-md-offset-1">
     	<div class="col-md-7">
     		<%= simple_format(@recipe.make) %>
     	</div>
@@ -55,15 +58,9 @@
                 <% if @recipe.user != current_user %>
         			<%= render 'likes/likes' %>
         		<% end %>
-        		<p class="text-center">コメントを投稿する<p>
-    	    	<div class="text-center">
-    	    		<%= form_for [@recipe, @comment] do |f| %>
-    	    			<p>
-                            <%= f.text_area :comment, style: "width: 100%;", class: "form-control" %>
-                        </p>
-    	    			<p><%= f.submit "コメントを投稿する", class: "btn btn-success" %></p>
-    	    		<% end %>
-    	    	</div>
+        		<p class="text-center">
+    	    	  <%= render 'comments/comment' %>
+                </p>
                 <% if @recipe.user == current_user %>
                     <div class="text-center">
                         <%= link_to "レシピを編集する", edit_recipe_path(@recipe), class: "btn btn-primary btn-md" %>
@@ -74,25 +71,30 @@
                 <span class="glyphicon glyphicon-heart-empty">マイレシピ登録数<%= @recipe.likes.count %></span>
             <% end %>
     	</div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-10 col-md-offset-1">
     	<div class="col-md-12">
-    		<p class="text-center">コメント一覧</p>
+    		<h3>コメント</h3>
     	</div>
     	<table class="table">
         	<tbody>
         		<% @comments.each do |comment| %>
         			<tr>
-    		    		<td><%= attachment_image_tag(comment.user, :image, fallback: "no_image.jpg", size: '100x100') %></td>
+    		    		<td><%= attachment_image_tag(comment.user, :image, fallback: "no_image.jpg", size: '100x100', class: "img-circle") %></td>
     		    		<td><%= comment.user.name %>さん</td>
     		    		<td><%= comment.created_at.strftime("%Y/%m/%d %H:%M") %></td>
     		    		<td><%= comment.comment %></td>
     		    		<td>
     		    			<% if comment.user == current_user %>
-    		    			<%= link_to "削除する", recipe_comments_path(@recipe), method: :delete, class: "btn btn-danger btn-md" %>
+    		    			<%= link_to "削除する", recipe_comment_path(comment.recipe_id, comment.id), method: :delete, class: "btn btn-danger btn-md" %>
     		    			<% end %>
     		    		</td>
     		    	</tr>
         		<% end %>
         	</tbody>
         </table>
+    </div>
     </div>
 </div>
