@@ -1,60 +1,118 @@
 <div class="container">
-	<div class="row text-center">
-		<div class="col-md-12">
-			<p>人気のレシピ</p>
-		</div>
-		<div class="col-md-6">
-			<p>1位</p>
-		</div>
-		<div class="col-md-6">
-			<p>2位</p>
-		</div>
-		<% @like_recipes.each do |recipe|%>
-			<div class="col-md-6">
-				<%= link_to recipe_path(recipe) do %>
-				    <%= attachment_image_tag(recipe, :image, fallback: "no_image2.jpg", size: '300x300') %>
-				<% end %>
-				<p><%= recipe.title %></p>
-				<p><%= recipe.body %></p>
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+                    <div class="panel-heading">
+                    	<h3>人気のレシピ</h3>
+                    </div>
+                    <div class="panel-body">
+						<% @like_recipes.each do |recipe|%>
+							<div class="col-md-6">
+								<div class="panel panel-default">
+                    				<div class="panel-heading">
+                    					<h4><%= recipe.title %></h4>
+                    				</div>
+                    				<div class="panel-body">
+										<%= link_to recipe_path(recipe) do %>
+										    <%= attachment_image_tag(recipe, :image, fallback: "no_image2.jpg", size: '350x350') %>
+										<% end %>
+										<h5><%= simple_format(recipe.body) %></h5>
+										<div class="col-md-4">
+											<%= attachment_image_tag(recipe.user, :image, fallback: "no_image.jpg", size: '80x80', class: "img-circle") %>
+										</div>
+										<div class="col-md-8">
+											<h5><%= recipe.user.name %>さんのレシピ</h5>
+											<p>
+												<span class="glyphicon glyphicon-heart" style="color: tomato;"><%= recipe.likes.count %></span>&nbsp;
+												<span class="glyphicon glyphicon-comment"><%= recipe.comments.count %></span>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						<% end %>
+					</div>
+				</div>
 			</div>
-		<% end %>
+		</div>
 	</div>
-	<div class="row text-center">
-		<div class="col-md-12">
-			<p>新着レシピ</p>
-		</div>
-		<% @recipes.each do |recipe|%>
-			<div class="col-md-6">
-				<%= link_to recipe_path(recipe) do %>
-				    <%= attachment_image_tag(recipe, :image, fallback: "no_image2.jpg", size: '300x300') %>
-				<% end %>
-				<p><%= recipe.title %></p>
-				<p><%= recipe.body %></p>
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+                    <div class="panel-heading">
+                    	<h3>新着レシピ</h3>
+                    </div>
+                    <div class="panel-body">
+						<% @recipes.each do |recipe|%>
+							<div class="col-md-6">
+								<div class="panel panel-default">
+                    				<div class="panel-heading">
+                    					<h4><%= recipe.title %></h4>
+                    				</div>
+                    				<div class="panel-body">
+										<%= link_to recipe_path(recipe) do %>
+										    <%= attachment_image_tag(recipe, :image, fallback: "no_image2.jpg", size: '350x350') %>
+										<% end %>
+										<h5><%= simple_format(recipe.body) %></h5>
+										<div class="col-md-4">
+											<%= attachment_image_tag(recipe.user, :image, fallback: "no_image.jpg", size: '80x80', class: "img-circle") %>
+										</div>
+										<div class="col-md-8">
+											<h5><%= recipe.user.name %>さんのレシピ</h5>
+											<p>
+												<span class="glyphicon glyphicon-heart" style="color: tomato;"><%= recipe.likes.count %></span>&nbsp;
+												<span class="glyphicon glyphicon-comment"><%= recipe.comments.count %></span>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						<% end %>
+					</div>
+				</div>
 			</div>
-		<% end %>
+		</div>
 	</div>
-	<div class="row text-center">
-		<div class="col-md-12">
-			<p>ジャンル・種別からレシピを探す</p>
-		</div>
-		<div class="col-md-6">
-			<p>ジャンル</p>
-			<div class="text-center">
-				<% @genres.each do |genre| %>
-					<%= link_to recipes_path(genre_id: genre.id) do %>
-	    				<p>・<%= genre.name %></p>
-	    			<% end %>
-	    		<% end %>
-			</div>
-		</div>
-		<div class="col-md-6">
-			<p>種別</p>
-			<div class="text-center">
-				<% @types.each do |type| %>
-					<%= link_to recipes_path(type_id: type.id) do %>
-	    				<p>・<%= type.name %></p>
-	    			<% end %>
-				<% end %>
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+                    <div class="panel-heading">
+                    	<h3>ジャンル・種別からレシピを探す</h3>
+                    </div>
+                    <div class="panel-body">
+						<div class="col-md-6">
+							<div class="panel panel-default">
+			                    <div class="panel-heading">
+			                    	<h4>ジャンル</h4>
+			                    </div>
+			                    <div class="panel-body">
+									<% @genres.each do |genre| %>
+										<%= link_to recipes_path(genre_id: genre.id) do %>
+						    				<h5>・<%= genre.name %></h5>
+						    			<% end %>
+						    		<% end %>
+						    	</div>
+						    </div>
+						</div>
+						<div class="col-md-6">
+							<div class="panel panel-default">
+			                    <div class="panel-heading">
+			                    	<h4>種別</h4>
+			                	</div>
+			                    <div class="panel-body">
+									<% @types.each do |type| %>
+										<%= link_to recipes_path(type_id: type.id) do %>
+						    				<h5>・<%= type.name %></h5>
+						    			<% end %>
+									<% end %>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
