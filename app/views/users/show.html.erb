@@ -12,8 +12,6 @@
                         <%= link_to user_followed_path(@user) do %>
                             <p>フォロー　<%= @user.followed.count %></p>
                         <% end %>
-                    </div>
-                    <div class="col-md-6">
                         <%= link_to user_follower_path(@user) do %>
                             <p>フォロワー　<%= @user.follower.count %></p>
                         <% end %>
@@ -26,7 +24,7 @@
                     </div>
                 <% else %>
                     <div class="col-md-6">
-                        <p>フォロー　<%= @user.followed.count %></p>
+                        <p>フォロー中　<%= @user.followed.count %></p>
                     </div>
                     <div class="col-md-6">
                         <p>フォロワー　<%= @user.follower.count %></p>
@@ -55,8 +53,10 @@
                                 <p><%= simple_format(recipe.body) %></p>
                             </td>
                             <td>
-                                <p>お気に入り <%= recipe.likes.count %></p>
-                                <p>コメント <%= recipe.comments.count %></p>
+                                <p>
+                                    <span class="glyphicon glyphicon-heart" style="color: tomato;"><%= recipe.likes.count %></span>&nbsp;
+                                    <span class="glyphicon glyphicon-comment"><%= recipe.comments.count %></span>
+                                </p>
                                 <p><%= recipe.quantity %>人前</p>
                                 <p><%= recipe.price %>円前後</p>
                             </td>
