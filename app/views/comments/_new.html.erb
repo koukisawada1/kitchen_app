@@ -7,17 +7,18 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<%= render 'layouts/error', model: @comment %>
+				<%= render 'layouts/error', model: comment %>
 				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
 				<h4 class="modal-title">コメント</h4>
 			</div>
-			<%= form_for [@recipe, @comment] do |f| %>
+			<%= form_for [recipe, comment] do |f| %>
 				<div class="modal-body">
 					<%= f.text_area :comment, style: "width: 100%;", class: "form-control" %>
 				</div>
 				<div class="modal-footer">
 					<p>
-						<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>&nbsp;<%= f.submit "コメントを投稿する", class: "btn btn-primary" %>
+						<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>&nbsp;
+						<%= f.submit "コメントを投稿する", class: "btn btn-primary" %>
 					</p>
 				</div>
 			<% end %>

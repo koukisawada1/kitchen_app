@@ -2,11 +2,11 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
         	<div class="col-md-12">
-        		<h3><%= @recipe.comments.count %> 件のコメント</h3>
+        		<h3><%= comments.count %> 件のコメント</h3>
         	</div>
         	<table class="table">
             	<tbody>
-            		<% @comments.each do |comment| %>
+            		<% comments.each do |comment| %>
             			<tr>
         		    		<td><%= attachment_image_tag(comment.user, :image, fallback: "no_image.jpg", size: '80x80', class: "img-circle") %></td>
         		    		<td><%= comment.user.name %>さん</td>
@@ -14,7 +14,7 @@
         		    		<td><%= comment.comment %></td>
         		    		<td>
         		    			<% if comment.user == current_user %>
-        		    			<%= link_to "削除する", recipe_comment_path(comment.recipe_id, comment.id), method: :delete, class: "btn btn-danger btn-md", "data-confirm" => "コメントを削除します。よろしいですか？" %>
+        		    			<%= link_to "削除する", recipe_comment_path(comment.recipe_id, comment.id), method: :delete, remote: true, class: "btn btn-danger btn-md", "data-confirm" => "コメントを削除します。よろしいですか？" %>
         		    			<% end %>
         		    		</td>
         		    	</tr>

@@ -18,12 +18,13 @@ class CommentsController < ApplicationController
 	def destroy
 		@recipe = Recipe.find(params[:recipe_id])
 		@comment = Comment.find_by(id: params[:id], recipe_id: @recipe.id)
+		@comments = @recipe.comments.order(created_at: :desc)
 		if @comment.user_id != current_user.id
 			flash[:alert] = "不正なアクセスです"
 			redirect_to root_path
 		end
 		@comment.destroy
-		redirect_to recipe_path(@recipe)
+		render :index
 	end
 
 private
