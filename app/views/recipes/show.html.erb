@@ -19,13 +19,21 @@
         		<%= attachment_image_tag(@recipe, :image, fallback: "no_image2.jpg", class: "img-responsive") %>
         	</div>
         	<div class="col-md-5">
-        		<div class="col-md-4">
+        		<div class="col-md-3">
         			<%= attachment_image_tag(@recipe.user, :image, fallback: "no_image.jpg", size: '80x80', class: "img-circle") %>
         		</div>
-        		<div class="col-md-8">
+        		<div class="col-md-9">
         			<%= link_to user_path(@recipe.user) do %>
         				<h4><%= @recipe.user.name %>さんのレシピ</h4>
         			<% end %>
+                    <% if @recipe.user == current_user %>
+                        <div class="col-md-6">
+                            <%= link_to "レシピを編集する", edit_recipe_path(@recipe), class: "btn btn-primary btn-sm" %>
+                        </div>
+                        <div class="col-md-6">
+                            <%= link_to "レシピを削除する", recipe_path(@recipe), "data-confirm" => "レシピを削除します。よろしいですか？", class: "btn btn-danger btn-sm", method: :delete %>
+                        </div>
+                    <% end %>
                     <!-- フォローボタンの表示 -->
                     <%= render 'relationships/follow', user: @recipe.user %>
         		</div>
@@ -85,12 +93,6 @@
                             <!-- コメント投稿ボタン・フォーム（モーダル） -->
             	    	    <%= render 'comments/new', recipe: @recipe, comment: @comment %>
                         </div>
-                        <% if @recipe.user == current_user %>
-                            <div class="text-center">
-                                <%= link_to "レシピを編集する", edit_recipe_path(@recipe), class: "btn btn-primary btn-md" %>
-                                <%= link_to "レシピを削除する", recipe_path(@recipe), "data-confirm" => "レシピを削除します。よろしいですか？", class: "btn btn-danger btn-md", method: :delete %>
-                            </div>
-                        <% end %>
                     <% end %>
         	   </div>
             </div>
