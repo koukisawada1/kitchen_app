@@ -17,7 +17,8 @@ class RecipesController < ApplicationController
 			@recipes = @tag.tag_recipes
 			@title = @tag.name
 		else
-			@recipes = Recipe.find(Like.group(:recipe_id).order('count(recipe_id) desc').pluck(:recipe_id))
+			# @recipes = Recipe.find(Like.group(:recipe_id).order('count(recipe_id) desc').pluck(:recipe_id)).page(params[:page])
+			@recipes = Recipe.all.page(params[:page]).reverse_order
 			@title = "全てのレシピ"
 		end
 	end
