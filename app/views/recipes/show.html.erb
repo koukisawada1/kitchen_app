@@ -4,14 +4,14 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
-        		        <h4><%= @recipe.title %></h4>
+        		        <h3><%= @recipe.title %></h3>
                     </div>
                 </div>
         	</div>
         	<div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
-        		        <p><%= simple_format(@recipe.body) %></p>
+        		        <h4><%= simple_format(@recipe.body) %></h4>
                     </div>
                 </div>
         	</div>
@@ -24,15 +24,19 @@
         		</div>
         		<div class="col-md-8">
         			<%= link_to user_path(@recipe.user) do %>
-        				<p><%= @recipe.user.name %>さんのレシピ</p>
+        				<h4><%= @recipe.user.name %>さんのレシピ</h4>
         			<% end %>
+                    <h5>
+                        <span class="glyphicon glyphicon-heart" style="color: tomato;"><%= @recipe.likes.count %></span>&nbsp;
+                        <span class="glyphicon glyphicon-comment"><%= @recipe.comments.count %></span>
+                    </h5>
                     <%= render 'relationships/follow', user: @recipe.user %>
         		</div>
                 <div class="col-md-12">
                     <div class="panel panel-default">
-                        <div class="panel-heading">材料</div>
+                        <div class="panel-heading"><h4>材料</h4></div>
                         <div class="panel-body">
-        			          <%= simple_format(@recipe.material) %>
+        		           <h5><%= simple_format(@recipe.material) %></h5>
                         </div>
                     </div>
             	</div>
@@ -45,38 +49,34 @@
         <div class="col-md-10 col-md-offset-1">
         	<div class="col-md-7">
                 <div class="panel panel-default">
-                    <div class="panel-heading">作り方</div>
+                    <div class="panel-heading"><h4>作り方</h4></div>
                     <div class="panel-body">
-            		  <%= simple_format(@recipe.make) %>
+            		   <h5><%= simple_format(@recipe.make) %></h5>
                     </div>
                 </div>
         	</div>
         	<div class="col-md-5">
                 <div class="col-md-12">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <th>ジャンル</th>
-                                        <tr><%= @recipe.genre.name %></tr>
-                                    </tr>
-                                    <tr>
-                                        <th>種別</th>
-                                        <tr><%= @recipe.type.name %></tr>
-                                    </tr>
-                                    <tr>
-                                        <th>分量</th>
-                                        <tr><%= @recipe.quantity %>人前</tr>
-                                    </tr>
-                                    <tr>
-                                        <th>価格</th>
-                                        <tr><%= @recipe.price %>円前後</tr>
-                                    </tr>
-                                </tbody>
-                            </table>
-            　          </div>
-                    </div>
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="active">ジャンル</td>
+                                <td><%= @recipe.genre.name %></td>
+                            </tr>
+                            <tr>
+                                <td class="active">種別</td>
+                                <td><%= @recipe.type.name %></td>
+                            </tr>
+                            <tr>
+                                <td class="active">分量</td>
+                                <td><%= @recipe.quantity %>人前</td>
+                            </tr>
+                            <tr>
+                                <td class="active">価格</td>
+                                <td><%= @recipe.price %>円前後</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 	<% if user_signed_in? %>
                         <% if @recipe.user != current_user %>
                 			<%= render 'likes/likes' %>
@@ -90,8 +90,6 @@
                                 <%= link_to "レシピを削除する", recipe_path(@recipe), "data-confirm" => "レシピを削除します。よろしいですか？", class: "btn btn-danger btn-md", method: :delete %>
                             </div>
                         <% end %>
-                    <% else %>
-                        <span class="glyphicon glyphicon-heart-empty">マイレシピ登録数<%= @recipe.likes.count %></span>
                     <% end %>
         	   </div>
             </div>
@@ -102,13 +100,13 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
         	<div class="col-md-12">
-        		<h3>コメント</h3>
+        		<h3><%= @recipe.comments.count %> 件のコメント</h3>
         	</div>
         	<table class="table">
             	<tbody>
             		<% @comments.each do |comment| %>
             			<tr>
-        		    		<td><%= attachment_image_tag(comment.user, :image, fallback: "no_image.jpg", size: '100x100', class: "img-circle") %></td>
+        		    		<td><%= attachment_image_tag(comment.user, :image, fallback: "no_image.jpg", size: '80x80', class: "img-circle") %></td>
         		    		<td><%= comment.user.name %>さん</td>
         		    		<td><%= comment.created_at.strftime("%Y/%m/%d %H:%M") %></td>
         		    		<td><%= comment.comment %></td>
