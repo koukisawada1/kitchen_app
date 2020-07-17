@@ -26,10 +26,6 @@
         			<%= link_to user_path(@recipe.user) do %>
         				<h4><%= @recipe.user.name %>さんのレシピ</h4>
         			<% end %>
-                    <h5>
-                        <span class="glyphicon glyphicon-heart" style="color: tomato;"><%= @recipe.likes.count %></span>&nbsp;
-                        <span class="glyphicon glyphicon-comment"><%= @recipe.comments.count %></span>
-                    </h5>
                     <!-- フォローボタンの表示 -->
                     <%= render 'relationships/follow', user: @recipe.user %>
         		</div>

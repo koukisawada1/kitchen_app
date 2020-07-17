@@ -1,14 +1,16 @@
 <p class="text-center">
 	<% if @recipe.liked_by?(current_user) %>
 		<%= link_to recipe_likes_path(@recipe.id), method: :delete, "data-confirm" => "マイレシピから削除します。よろしいですか？" do %>
-				<button type="button" class="btn btn-default">
-					<span class="glyphicon glyphicon-heart"><%= @recipe.likes.count%>マイレシピに登録済みです</span>
+				<button type="button" class="btn btn-warning">
+					<span class="glyphicon glyphicon-heart" style="color: tomato;"></span>&nbsp;
+					<span><%= @recipe.likes.count%>マイレシピに登録済みです</span>
 				</button>
 		<% end %>
 	<% else %>
 		<%= link_to recipe_likes_path(@recipe), method: :post do %>
 			<button type="button" class="btn btn-default">
-				<span class="glyphicon glyphicon-heart-empty"><%= @recipe.likes.count %>マイレシピに登録する</span>
+				<span class="glyphicon glyphicon-heart-empty"></span>&nbsp;
+				<span><%= @recipe.likes.count %>マイレシピに登録する</span>
 			</button>
 		<% end %>
 	<% end %>
