@@ -65,6 +65,8 @@ class RecipesController < ApplicationController
 			flash[:notice] = "レシピを更新しました"
 			redirect_to recipe_path(@recipe.id)
 		else
+			@genres = Genre.all
+			@types = Type.all
 			flash[:alert] = "入力内容を確認してください"
 			render "edit"
 		end

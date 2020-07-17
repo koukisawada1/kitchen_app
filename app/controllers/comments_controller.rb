@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
 			flash[:notice] = "コメントを投稿しました"
 			redirect_to recipe_path(@recipe)
 		else
+			@comments = @recipe.comments
 			flash[:alert] = "入力内容を確認してください"
 			render "recipes/show"
 		end
