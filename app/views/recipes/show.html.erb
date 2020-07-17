@@ -30,6 +30,7 @@
                         <span class="glyphicon glyphicon-heart" style="color: tomato;"><%= @recipe.likes.count %></span>&nbsp;
                         <span class="glyphicon glyphicon-comment"><%= @recipe.comments.count %></span>
                     </h5>
+                    <!-- フォローボタンの表示 -->
                     <%= render 'relationships/follow', user: @recipe.user %>
         		</div>
                 <div class="col-md-12">
@@ -79,10 +80,12 @@
                     </table>
                 	<% if user_signed_in? %>
                         <% if @recipe.user != current_user %>
+                            <!-- いいねボタンの表示 -->
                 			<%= render 'likes/likes' %>
                 		<% end %>
                 		<p class="text-center">
-            	    	  <%= render 'comments/comment' %>
+                            <!-- コメント投稿ボタン・フォーム（モーダル） -->
+            	    	    <%= render 'comments/new' %>
                         </p>
                         <% if @recipe.user == current_user %>
                             <div class="text-center">
@@ -96,29 +99,7 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-        	<div class="col-md-12">
-        		<h3><%= @recipe.comments.count %> 件のコメント</h3>
-        	</div>
-        	<table class="table">
-            	<tbody>
-            		<% @comments.each do |comment| %>
-            			<tr>
-        		    		<td><%= attachment_image_tag(comment.user, :image, fallback: "no_image.jpg", size: '80x80', class: "img-circle") %></td>
-        		    		<td><%= comment.user.name %>さん</td>
-        		    		<td><%= comment.created_at.strftime("%Y/%m/%d %H:%M") %></td>
-        		    		<td><%= comment.comment %></td>
-        		    		<td>
-        		    			<% if comment.user == current_user %>
-        		    			<%= link_to "削除する", recipe_comment_path(comment.recipe_id, comment.id), method: :delete, class: "btn btn-danger btn-md", "data-confirm" => "コメントを削除します。よろしいですか？" %>
-        		    			<% end %>
-        		    		</td>
-        		    	</tr>
-            		<% end %>
-            	</tbody>
-            </table>
-        </div>
-    </div>
-</div>
+<!-- コメント一覧表示 -->
+<%= render 'comments/index' %>
+
+
