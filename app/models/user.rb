@@ -21,9 +21,9 @@ class User < ApplicationRecord
     has_many :follower_user, through: :followed, source: :follower
 
     # バリテーション
-    validates :email, presence: true
+    validates :email, presence: true, uniqueness: true
     validates :introduction, length: { maximum: 200 }
-    validates :name, presence: true, length: { maximum: 15 }
+    validates :name, presence: true, length: { in: 2..20 }
 
     # ユーザーをフォローする
     def follow(user_id)
