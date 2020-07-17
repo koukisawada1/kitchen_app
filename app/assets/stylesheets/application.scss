@@ -30,7 +30,10 @@ html,body {
 
 header {
 	background-color: #FFFFFF;
-	height: 60px;
+	height: 70px;
+	a {
+		color: black;
+	}
 }
 
 main {
@@ -55,4 +58,5 @@ footer {
 
 .title {
 	color: black;
+	font-size: 32px;
 }
