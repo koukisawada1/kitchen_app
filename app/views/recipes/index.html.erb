@@ -7,7 +7,9 @@
                 </div>
                 <div class="panel-body">
 					<% @tags.each do |tag| %>
-				    	<h5>・<%= tag.name %></h5>
+				    	<%= link_to recipes_path(tag_id: tag.id) do %>
+				    		<h4>・<%= tag.name %></h4>
+				    	<% end %>
 				    <% end %>
 				</div>
 			</div>

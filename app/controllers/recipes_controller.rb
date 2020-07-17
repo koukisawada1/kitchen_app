@@ -12,6 +12,10 @@ class RecipesController < ApplicationController
 			@type = Type.find(params[:type_id])
 			@recipes = @type.recipes
 			@title = @type.name
+		elsif params[:tag_id]
+			@tag = Tag.find(params[:tag_id])
+			@recipes = @tag.tag_recipes
+			@title = @tag.name
 		else
 			@recipes = Recipe.find(Like.group(:recipe_id).order('count(recipe_id) desc').pluck(:recipe_id))
 			@title = "全てのレシピ"

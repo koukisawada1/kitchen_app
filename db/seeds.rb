@@ -44,6 +44,29 @@ Type.create!(
   ]
   )
 
+Tag.create!(
+  [
+    {
+      name: "高タンパク"
+    },
+    {
+      name: "ヘルシー"
+    },
+    {
+      name: "スタミナ"
+    },
+    {
+      name: "爽やか"
+    },
+    {
+      name: "夏ランチ"
+    },
+    {
+      name: "おつまみ"
+    }
+  ]
+  )
+
 User.create!(
   [
     {
@@ -121,6 +144,18 @@ for i in 1..15 do
     ]
     )
 end
+
+for i in 1..15 do
+  RecipeTag.create!(
+    [
+      {
+        tag_id: rand(1..3),
+        recipe_id: i
+      }
+    ]
+    )
+end
+
 for i in 7..15 do
   User.create!(
     [
