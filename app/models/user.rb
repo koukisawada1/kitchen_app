@@ -11,10 +11,19 @@ class User < ApplicationRecord
     # userがどrecipeにいいねしているかを表示する
     has_many :like_recipes, through: :likes, source: :recipe
     has_many :comments, dependent: :destroy
-    has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # フォロー取得
-    has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
-    has_many :following_user, through: :follower, source: :followed # 自分がフォローしている人
-    has_many :follower_user, through: :followed, source: :follower # 自分をフォローしている人
+    # フォロー取得
+    has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+    # フォロワー取得
+    has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+    # 自分がフォローしている人
+    has_many :following_user, through: :follower, source: :followed
+    # 自分をフォローしている人
+    has_many :follower_user, through: :followed, source: :follower
+
+    # バリテーション
+    validates :email, presence: true
+    validates :introduction, length: { maximum: 200 }
+    validates :name, presence: true, length: { maximum: 15 }
 
     # ユーザーをフォローする
     def follow(user_id)
