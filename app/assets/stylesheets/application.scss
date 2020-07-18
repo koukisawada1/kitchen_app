@@ -27,16 +27,20 @@ html,body {
 	height: 100%;
 
 }
-
-header {
-	background-color: #FFFFFF;
-	height: 70px;
-	
-}
-
 a {
 	color: black;
 }
+
+/*ヘッダー*/
+header {
+	background-color: #FFFFFF;
+	height: 80px;
+	margin-bottom: 20px;
+	.login-user {
+		margin-top: 20px;
+	}
+}
+
 
 main {
 	min-height: 100%;
@@ -54,11 +58,77 @@ footer {
 	margin-top: 30px;
 }
 
-.navbar {
-	background-color: #FFFFFF;
-}
 
-.title {
-	color: black;
-	font-size: 32px;
+/*ハンバーガーメニュー*/
+#hm-icon{
+  position: fixed;
+  right: 25px;
+  top: 25px;
+  z-index: 10;
+}
+.menu-trigger,
+.menu-trigger span {
+  display: inline-block;
+  transition: all .4s;
+  box-sizing: border-box;
+}
+.menu-trigger {
+  position: relative;
+  width: 35px;
+  height: 44px;
+}
+.menu-trigger span {
+  position: absolute;
+  left: 0;
+  width: 35px;
+  height: 4px;
+  background-color: #000;
+  border-radius: 4px;
+}
+.menu-trigger span:nth-of-type(1) {
+  top: 0;
+}
+.menu-trigger span:nth-of-type(2) {
+  top: 15px;
+}
+.menu-trigger span:nth-of-type(3) {
+  bottom: 10px;
+}
+.menu-trigger.active span:nth-of-type(1) {
+  -webkit-transform: translateY(15px) rotate(-45deg);
+  transform: translateY(15px) rotate(-45deg);
+  background-color: #fff;
+}
+.menu-trigger.active span:nth-of-type(2) {
+  opacity: 0;
+}
+.menu-trigger.active span:nth-of-type(3) {
+  -webkit-transform: translateY(-15px) rotate(45deg);
+  transform: translateY(-15px) rotate(45deg);
+  background-color: #fff;
+}
+/* ------------------------ */
+/* ------ spメニュー ------ */
+/* ------------------------ */
+#sp-menu {
+  position: absolute;
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color:rgba(0,0,0,0.7);
+  color: #fff;
+  width: 25%;
+  min-height: 100%;
+  display: none;
+  z-index: 9;
+  font-size: 25px;
+}
+#sp-menu li{
+  text-align: center;
+  margin-top: 30px;
+}
+#sp-menu a{
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: bold;
 }

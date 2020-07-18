@@ -18,6 +18,13 @@
 
 
 $(function(){
+
+	$('.menu-trigger').on('click', function(event) {
+    $(this).toggleClass('active');
+    $('#sp-menu').fadeToggle();
+    event.preventDefault();
+  });
+
     // inputのidから情報の取得
     $('#product-image').on('change', function (e) {
 // ここから既存の画像のurlの取得
