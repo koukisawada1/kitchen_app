@@ -46,7 +46,8 @@
         <p><%= simple_format(@recipe.make) %></p>
         </div>
       </div>
-
+      <%= f.hidden_field :name, value:@tag_list %>
+      <%= @tag_list %>
     <div class="col-md-12 text-center">
         <%= f.submit 'レシピを投稿する', class: "btn btn-success" %>
     </div>
