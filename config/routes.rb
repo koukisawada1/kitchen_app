@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   	resources :recipes do
   		resource :likes, only: [:create, :destroy]
   		resources :comments, only: [:create, :destroy]
-  		collection do
-  			post :confirm
+  		member do
+  			get :confirm
   		end
   	end
 

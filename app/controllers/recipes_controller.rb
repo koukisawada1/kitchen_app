@@ -6,15 +6,15 @@ class RecipesController < ApplicationController
 		@tags = Tag.all
 		if params[:genre_id]
 			@genre = Genre.find(params[:genre_id])
-			@recipes = @genre.recipes
+			@recipes = @genre.recipes.page(params[:page]).reverse_order
 			@title = @genre.name
 		elsif params[:type_id]
 			@type = Type.find(params[:type_id])
-			@recipes = @type.recipes
+			@recipes = @type.recipes.page(params[:page]).reverse_order
 			@title = @type.name
 		elsif params[:tag_id]
 			@tag = Tag.find(params[:tag_id])
-			@recipes = @tag.tag_recipes
+			@recipes = @tag.recipes.page(params[:page]).reverse_order
 			@title = @tag.name
 		else
 			# @recipes = Recipe.find(Like.group(:recipe_id).order('count(recipe_id) desc').pluck(:recipe_id)).page(params[:page])
@@ -37,10 +37,9 @@ class RecipesController < ApplicationController
 
 # 確認画面
 	def confirm
-		@recipe = Recipe.new(recipe_params)
-		@genre = Genre.find_by(id: @recipe.genre_id)
-		@type = Type.find_by(id: @recipe.type_id)
-		@tag_list = params[:recipe][:name].split(",")
+		@recipe = Recipe.find(params[:id])
+		@genre = @recipe.genre
+		@type = @recipe.type
 	end
 
 	def create
@@ -49,8 +48,8 @@ class RecipesController < ApplicationController
 		tag_list = params[:recipe][:name].split(",")
 		if @recipe.save
 			@recipe.save_recipes(tag_list)
-			flash[:notice] = "レシピを投稿しました"
-			redirect_to user_path(@recipe.user)
+			# flash[:notice] = "レシピを投稿しました"
+			redirect_to confirm_recipe_path(@recipe)
 		else
 			flash[:alert] = "入力内容を確認したください"
 			render "new"
@@ -61,7 +60,7 @@ class RecipesController < ApplicationController
 		@recipe = Recipe.find(params[:id])
 		@genres = Genre.all
 		@types = Type.all
-		@tag_list = @blog.tags.pluck(:tag_name).join(",")
+		@tag_list = @recipe.tags.pluck(:name).join(",")
 	end
 
 	def update
@@ -70,7 +69,7 @@ class RecipesController < ApplicationController
 		if @recipe.update(recipe_params)
 			@recipe.save_recipes(tag_list)
 			flash[:notice] = "レシピを更新しました"
-			redirect_to recipe_path(@recipe.id)
+			redirect_to confirm_recipe_path(@recipe)
 		else
 			@genres = Genre.all
 			@types = Type.all
