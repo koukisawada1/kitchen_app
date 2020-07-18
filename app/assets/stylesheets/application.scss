@@ -37,7 +37,7 @@ header {
 	height: 80px;
 	margin-bottom: 20px;
 	.login-user {
-		margin-top: 20px;
+		margin-top: 16px;
 	}
 }
 
@@ -68,7 +68,7 @@ footer {
 /*ハンバーガーメニュー*/
 #hm-icon{
   position: fixed;
-  right: 25px;
+  right: 100px;
   top: 25px;
   z-index: 10;
 }
@@ -132,6 +132,9 @@ footer {
 #sp-menu li{
   text-align: center;
   margin-top: 30px;
+}
+#sp-menu li:nth-of-type(1) {
+  margin-top: 100px;
 }
 #sp-menu a{
   color: #FFFFFF;

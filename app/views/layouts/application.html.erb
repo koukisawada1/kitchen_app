@@ -19,16 +19,16 @@
               <h2 class="title"><span class="glyphicon glyphicon-cutlery">10分キッチン</span></h2>
             <% end %>
           </div>
-          <% if user_signed_in? %>
-            <div class="col-md-5 text-right login-user">
+          <div class="col-md-8 text-right login-user">
+            <% if user_signed_in? %>
               <h4>
                 <%= link_to user_path(current_user.id) do %>
                   <%= attachment_image_tag(current_user, :image, fallback: "no_image.jpg", size: '40x40', class: "img-circle") %>
                     ようこそ<%= current_user.name %>さん！
                 <% end %>
               </h4>
-            <div>
-          <% end %>
+            <% end %>
+          <div>
           <div class="col-md-2">
             <div id="hm-icon">
               <a class="menu-trigger" href="#">
@@ -40,16 +40,18 @@
             <div id="sp-menu">
               <ul>
                 <% if user_signed_in? %>
+                  <li><%= link_to 'トップページ', root_path %></li>
                   <li><%= link_to 'About', about_path %></li>
                   <li><%= link_to 'マイページ', user_path(current_user.id) %></li>
                   <li><%= link_to 'レシピ一覧', recipes_path %></li>
                   <li><%= link_to 'レシピ投稿', new_recipe_path %></li>
                   <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, "data-confirm" => "ログアウトします。よろしいですか？" %></li>
                 <% else %>
-                  <li><%= link_to '新規登録', new_user_registration_path %></li>
-                  <li><%= link_to 'ログイン', new_user_session_path %></li>
-                  <li><%= link_to 'About', about_path %></li>
+                  <li><%= link_to 'トップページ', root_path %></li>
                   <li><%= link_to 'レシピ一覧', recipes_path %></li>
+                  <li><%= link_to 'About', about_path %></li>
+                  <li><%= link_to 'ログイン', new_user_session_path %></li>
+                  <li><%= link_to '新規登録', new_user_registration_path %></li>
                 <% end %>
               </ul>
             </div>
