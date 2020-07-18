@@ -26,16 +26,36 @@
             </ul>
             <div class="tab-content">
                 <div class="tab-pane active" id="ContentA">
-                    <%= render 'user_recipes', recipes: @user.recipes %>
+                    <!-- 投稿したレシピがあるかで判断 -->
+                    <% if @user.recipes.empty? %>
+                        <h3 class="text-center"><%= @user.name %>さんが投稿したレシピはありません</h3>
+                    <% else %>
+                        <%= render 'user_recipes', recipes: @user.recipes %>
+                    <% end %>
                 </div>
                 <div class="tab-pane" id="ContentB">
-                    <%= render 'user_recipes', recipes: @user.like_recipes %>
+                    <!-- お気に入りレシピがあるか判断 -->
+                    <% if @user.like_recipes.empty? %>
+                        <h3 class="text-center">お気に入りレシピはありません</h3>
+                    <% else %>
+                        <%= render 'user_recipes', recipes: @user.like_recipes %>
+                    <% end %>
                 </div>
                 <div class="tab-pane" id="ContentC">
-                    <%= render 'relationships/index', users: @user.following_user %>
+                    <!-- フォロー中のユーザーがいるか判断 -->
+                    <% if @user.following_user.empty? %>
+                        <h3 class="text-center">フォロー中のユーザーはいません</h3>
+                    <% else %>
+                        <%= render 'relationships/index', users: @user.following_user %>
+                    <% end %>
                 </div>
                 <div class="tab-pane" id="ContentD">
-                    <%= render 'relationships/index', users: @user.follower_user %>
+                    <!-- フォロワーがいるか判断 -->
+                    <% if @user.follower_user.empty? %>
+                        <h3 class="text-center">フォロワーはいません</h3>
+                    <% else %>
+                        <%= render 'relationships/index', users: @user.follower_user %>
+                    <% end %>
                 </div>
             </div>
         </div>
