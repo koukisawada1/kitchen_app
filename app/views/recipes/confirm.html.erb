@@ -1,52 +1,75 @@
 <div class="container">
-	<div class="row">
-		<p>レシピ投稿確認</p>
-	</div>
-    <div class="row">
-        <div class="col-md-6">
-          <p>料理画像</p>
-          <%= attachment_image_tag(@recipe, :image, fallback: "no_image2.jpg", size: '300x300') %>
-        </div>
-        <div class="col-md-6">
-          <p>レシピタイトル</p>
-          <p><%= @recipe.title %></p>
-          <p>レシピ紹介文</p>
-          <p><%= simple_format(@recipe.body) %></p>
-          <div class="col-md-6">
-            <p>分量：<%= @recipe.quantity %>人前</p>
-          </div>
-          <div class="col-md-6">
-            <p>費用：<%= @recipe.price %>円前後</p>
-          </div>
-          <div class="col-md-6">
-            <p>ジャンル：<%= @genre.name %></p>
-          </div>
-          <div class="col-md-6">
-            <p>種別：<%= @type.name %></p>
-          </div>
-        </div>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+  		<h3 class="text-center">レシピ投稿確認</h3>
+  	</div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="col-md-7">
+        <p>料理画像</p>
+        <%= attachment_image_tag(@recipe, :image, fallback: "no_image2.jpg", size: '300x300') %>
       </div>
-      <div class="row">
-        <div class="col-md-6">
-          <p>材料</p>
-        <p><%= simple_format(@recipe.material) %></p>
-        </div>
-        <div class="col-md-6">
-          <p>作り方</p>
-        <p><%= simple_format(@recipe.make) %></p>
-        </div>
+      <div class="col-md-5">
+        <h4><%= @recipe.title %></h4>
+        <h4><%= simple_format(@recipe.body) %></h4>
       </div>
+      <div class="col-md-5">
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td class="active">ジャンル</td>
+              <td><%= @recipe.genre.name %></td>
+            </tr>
+            <tr>
+              <td class="active">種別</td>
+              <td><%= @recipe.type.name %></td>
+            </tr>
+            <tr>
+              <td class="active">分量</td>
+              <td><%= @recipe.quantity %>人前</td>
+            </tr>
+            <tr>
+              <td class="active">価格</td>
+              <td><%= @recipe.price %>円前後</td>
+            </tr>
+          </tbody>
+        </table>
         <% @recipe.tags.each do |tag| %>
-          <p><%= tag.name %></p>
+          <h4><span class="badge">＃<%= tag.name %></span></h4>
         <% end %>
-    <div class="col-md-8 col-md-offset-2">
-      <div class="col-md-6">
-          <%= link_to "閉じる", user_path(@recipe.user), class: "btn btn-primary btn-sm" %>
-      </div>
-      <div class="col-md-6">
-          <%= link_to "書き直す", edit_recipe_path(@recipe), class: "btn btn-primary btn-sm" %>
       </div>
     </div>
-
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="col-md-7">
+        <div class="panel panel-default">
+          <div class="panel-heading"><h4>作り方</h4></div>
+          <div class="panel-body">
+            <h4><%= simple_format(@recipe.make) %></h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="panel panel-default">
+          <div class="panel-heading"><h4>材料</h4></div>
+            <div class="panel-body">
+              <h4><%= simple_format(@recipe.material) %></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4 confirm-btn">
+        <%= link_to "閉じる", user_path(@recipe.user), class: "btn btn-primary", style: "width: 100%;" %>
+      </div>
+      <div class="col-md-4 col-md-offset-4 confirm-btn">
+        <%= link_to "書き直す", edit_recipe_path(@recipe), class: "btn btn-primary", style: "width: 100%;" %>
+      </div>
+    </div>
+  </div>
 </div>
 

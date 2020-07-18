@@ -119,8 +119,13 @@
     </div>
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
-        <p>タグ</p>
-        <%= f.text_field :name, value: @tag_list %>
+        <div class="panel panel-default">
+          <div class="panel-heading">タグをつける（タグを複数つける場合は『 , 』で区切ってください）</div>
+            <div class="panel-body">
+              <%= f.text_field :name, value: @tag_list, class: "form-control" %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
    	<div class="text-center">
