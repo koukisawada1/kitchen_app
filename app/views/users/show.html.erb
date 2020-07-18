@@ -12,18 +12,20 @@
                         <p><%= link_to "プロフィールを編集する", edit_user_path(@user), class: "btn btn-default" %></p>
                     </div>
             	<% end %>
-                <%= render 'relationships/follow', user: @user %>
+                <div id="follow">
+                    <%= render 'relationships/follow', user: @user %>
+                </div>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#ContentA" data-toggle="tab">投稿レシピ <span class="badge"> <%= @user.recipes.count %> </span></a></li>
-                <li><a href="#ContentB" data-toggle="tab">お気に入りレシピ <span class="badge"> <%= @user.like_recipes.count %> </span></a></li>
-                <li><a href="#ContentC" data-toggle="tab">フォロー中 <span class="badge"> <%= @user.following_user.count %> </span></a></li>
-                <li><a href="#ContentD" data-toggle="tab">フォロワー <span class="badge"> <%= @user.follower_user.count %> </span></a></li>
-            </ul>
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#ContentA" data-toggle="tab">投稿レシピ <span class="badge"> <%= @user.recipes.count %> </span></a></li>
+                    <li><a href="#ContentB" data-toggle="tab">お気に入りレシピ <span class="badge"> <%= @user.like_recipes.count %> </span></a></li>
+                    <li><a href="#ContentC" data-toggle="tab">フォロー中 <span class="badge"> <%= @user.following_user.count %> </span></a></li>
+                    <li><a href="#ContentD" data-toggle="tab">フォロワー <span class="badge"> <%= @user.follower_user.count %> </span></a></li>
+                </ul>
             <div class="tab-content">
                 <div class="tab-pane active" id="ContentA">
                     <!-- 投稿したレシピがあるかで判断 -->
@@ -42,20 +44,10 @@
                     <% end %>
                 </div>
                 <div class="tab-pane" id="ContentC">
-                    <!-- フォロー中のユーザーがいるか判断 -->
-                    <% if @user.following_user.empty? %>
-                        <h3 class="text-center">フォロー中のユーザーはいません</h3>
-                    <% else %>
-                        <%= render 'relationships/index', users: @user.following_user %>
-                    <% end %>
+                    <%= render 'relationships/index', users: @user.following_user %>
                 </div>
                 <div class="tab-pane" id="ContentD">
-                    <!-- フォロワーがいるか判断 -->
-                    <% if @user.follower_user.empty? %>
-                        <h3 class="text-center">フォロワーはいません</h3>
-                    <% else %>
-                        <%= render 'relationships/index', users: @user.follower_user %>
-                    <% end %>
+                    <%= render 'relationships/index', users: @user.follower_user %>
                 </div>
             </div>
         </div>
