@@ -50,11 +50,16 @@
 				    			<% end %>
 				    		</td>
 				    		<td>
-				    			<div class="col-md-12">
-				    				<h5><%= recipe.title %></h5>
+				    			<div class="col-md-7">
+				    				<h4><%= recipe.title %></h4>
 				    			</div>
-				    			<div class="col-md-12">
+				    			<div class="col-md-7">
 				    				<h5><%= simple_format(recipe.body) %></h5>
+				    			</div>
+				    			<div class="col-md-5">
+				    				<% recipe.tags.each do |tag| %>
+				    					<h5><span class="badge">＃<%= tag.name %></span></h5>
+				    				<% end %>
 				    			</div>
 				    			<div class="col-md-12">
 				    				<h5>分量：<%= recipe.quantity %>人前</h5>
@@ -73,7 +78,7 @@
 									</p>
 				    			</div>
 				    			<div class="col-md-12 text-right">
-				    				<h5><%= link_to "レシピ詳細を見る", recipe_path(recipe) %></h5>
+				    				<h5><%= link_to "レシピ詳細を見る >", recipe_path(recipe) %></h5>
 				    			</div>
 				    		</td>
 			    		</tr>
