@@ -151,6 +151,10 @@ for i in 1..15 do
       {
         tag_id: rand(1..3),
         recipe_id: i
+      },
+      {
+        tag_id: rand(4..6),
+        recipe_id: i
       }
     ]
     )
