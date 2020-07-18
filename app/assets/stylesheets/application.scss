@@ -35,10 +35,19 @@ a {
 header {
 	background-color: #FFFFFF;
 	height: 80px;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 	.login-user {
 		margin-top: 16px;
 	}
+  .title {
+    margin-top: 25px;
+    font-size: 35px;
+  }
+}
+.user-icon {
+  position: fixed;
+  right: 217px;
+  top: 21px;
 }
 
 /*メイン共通*/
@@ -140,4 +149,41 @@ footer {
   color: #FFFFFF;
   text-decoration: none;
   font-weight: bold;
+}
+
+/*検索フォームモーダル*/
+
+.open-btn {
+  font-size: 34px;
+  position: fixed;
+  right: 160px;
+  top: 21px;
+}
+.close-btn {
+  font-size: 34px;
+  position: fixed;
+  right: 160px;
+  top: 21px;
+}
+.modal{
+    display: none;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.modal__bg{
+    background: rgba(255,255,255,0.9);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+}
+.modal__content{
+    padding: 30px;
+    position: fixed;
+    /*left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);*/
+    width: 100%;
 }

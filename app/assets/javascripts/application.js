@@ -19,11 +19,21 @@
 
 $(function(){
 
+// ハンバーガーメニュー
 	$('.menu-trigger').on('click', function(event) {
     $(this).toggleClass('active');
     $('#sp-menu').fadeToggle();
     event.preventDefault();
   });
+
+    $('.js-modal-open').on('click',function(){
+        $('.js-modal').fadeIn();
+        return false;
+    });
+    $('.js-modal-close').on('click',function(){
+        $('.js-modal').fadeOut();
+        return false;
+    });
 
     // inputのidから情報の取得
     $('#product-image').on('change', function (e) {
