@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
+    before_action :header_action
+
 	#デバイス機能実行前にconfigure_permitted_parametersの実行をする。
 	protect_from_forgery with: :exception
 
@@ -16,6 +18,12 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :image, :introduction])
     #sign_upの際にnameのデータ操作を許。追加したカラム。
+  end
+
+  def header_action
+    @genres = Genre.all
+    @types = Type.all
+    @tags = Tag.all
   end
 
   Refile.secret_key = '44a1cadb2e1af5580b9e05dd2fa2c7a04094b1614c97910eab056096c40e67f1ceec4e6496f03d7de3d503de5dfadfa41db1ff48ae537ec788164727c6b46a46'

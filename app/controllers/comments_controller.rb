@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+	before_action :header_action
 
 	def create
 		@recipe = Recipe.find(params[:recipe_id])
@@ -30,5 +31,11 @@ class CommentsController < ApplicationController
 private
 	def comment_params
 		params.require(:comment).permit(:comment)
+	end
+
+	def header_action
+		@genres = Genre.all
+		@types = Type.all
+		@tags = Tag.all
 	end
 end
