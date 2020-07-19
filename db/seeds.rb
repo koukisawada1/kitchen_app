@@ -1,18 +1,23 @@
 Genre.create!(
   [
     {
+      image: File.open("./app/assets/images/genre1.jpg"),
       name: "和食"
     },
     {
+      image: File.open("./app/assets/images/genre2.jpg"),
       name: "洋食"
     },
     {
+      image: File.open("./app/assets/images/genre3.jpg"),
       name: "中華料理"
     },
     {
+      image: File.open("./app/assets/images/genre4.jpg"),
       name: "韓国料理"
     },
     {
+      image: File.open("./app/assets/images/genre5.jpg"),
       name: "その他"
     }
   ]
@@ -21,24 +26,31 @@ Genre.create!(
 Type.create!(
   [
     {
+      image: File.open("./app/assets/images/type1.jpg"),
       name: "ご飯・麺・パン"
     },
     {
+      image: File.open("./app/assets/images/type2.jpg"),
       name: "主菜"
     },
     {
+      image: File.open("./app/assets/images/type3.jpg"),
       name: "副菜"
     },
     {
+      image: File.open("./app/assets/images/type4.jpg"),
       name: "丼"
     },
     {
+      image: File.open("./app/assets/images/type5.jpg"),
       name: "汁物・スープ"
     },
     {
+      image: File.open("./app/assets/images/type6.jpg"),
       name: "お菓子・デサート"
     },
     {
+      image: File.open("./app/assets/images/type7.jpg"),
       name: "その他"
     }
   ]
@@ -132,7 +144,7 @@ for i in 1..15 do
       {
         user_id: rand(1..6),
         title: "レシピタイトル#{i}",
-        body: "料理紹介文おいしくて\n簡単なレシピです",
+        body: "おいしくて簡単なレシピです\n低価格で短時間でできるのでぜひ作ってみてください！",
         price: rand(2..5) * 100,
         quantity: rand(1..4),
         material: "材料名#{i}\nにんじん　１個\nささみ　１個\n醤油　大さじ１\nキャベツ　１個",

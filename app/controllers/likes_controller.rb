@@ -13,10 +13,4 @@ class LikesController < ApplicationController
 		@like.destroy
 	end
 
-private
-	def header_action
-		@genres = Genre.all
-		@types = Type.all
-		@tags = Tag.all
-	end
 end

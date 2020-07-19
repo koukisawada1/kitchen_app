@@ -1,5 +1,4 @@
 class RecipesController < ApplicationController
-	before_action :header_action
 
 	def index
 		if params[:genre_id]
@@ -80,12 +79,6 @@ class RecipesController < ApplicationController
 
 	def recipe_params
 		params.require(:recipe).permit(:title, :image, :body, :price, :quantity, :material, :make, :genre_id, :type_id, :user_id)
-	end
-
-	def header_action
-		@genres = Genre.all
-		@types = Type.all
-		@tags = Tag.all
 	end
 
 end

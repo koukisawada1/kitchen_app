@@ -32,28 +32,42 @@
                   </span>
                 </div>
               </div>
-
               <!-- 検索モーダルジャンル一覧 -->
-              <a class="genre-modal-open search-form" href="#">
-                <span class="glyphicon glyphicon-search" aria-hidden="true"> ジャンルから探す</span>
-              </a>
-              <a class="type-modal-open search-form" href="#">
-                <span class="glyphicon glyphicon-search" aria-hidden="true"> 種別から探す</span>
-              </a>
-              <a class="tag-modal-open search-form" href="#">
-                <span class="glyphicon glyphicon-search" aria-hidden="true"> タグから探す</span>
-              </a>
-
-              <div class="genre-modal">
-                <% @genres.each do |genre| %>
-                  <div class="col-xs-4 text-center">
-                    <div class="col-md-12 recipe-items">
-                      <%= link_to recipes_path(genre_id: genre.id) do %>
-                        <p><%= genre.name %></p>
-                    　<% end %>
+              <div class="row">
+                <div class="col-md-10 col-md-offset-1 col-xs-offset-1">
+                  <div class="row">
+                    <div class="col-md-4 col-xs-4">
+                      <a class="genre-modal-open" href="#">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"> ジャンルから探す</span>
+                      </a>
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                      <a class="type-modal-open" href="#">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"> 種別から探す</span>
+                      </a>
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                      <a class="tag-modal-open" href="#">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"> タグから探す</span>
+                      </a>
                     </div>
                   </div>
-                <% end %>
+                </div>
+              </div>
+
+              <div class="genre-modal">
+                <div class="row">
+                  <% @genres.each do |genre| %>
+                    <%= link_to recipes_path(genre_id: genre.id) do %>
+                      <div class="col-md-4 col-xs-4 text-center">
+                        <div class="col-md-12 modal-contents">
+                          <%= attachment_image_tag(genre, :image, fallback: "no_image2.jpg", class: "img-responsive", style: "height: 180px;") %>
+                          <p><%= genre.name %></p>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
                 <div class="col-xs-12 text-center">
                   <a class="genre-modal-close" href="#">閉じる</a>
                 </div>
@@ -61,15 +75,18 @@
 
               <!-- 検索モーダル種別一覧 -->
               <div class="type-modal">
-                <% @types.each do |type| %>
-                  <div class="col-xs-4 text-center">
-                    <div class="col-md-12 recipe-items">
-                      <%= link_to recipes_path(type_id: type.id) do %>
-                        <p><%= type.name %></p>
-                    　<% end %>
-                    </div>
-                  </div>
-                <% end %>
+                <div class="row">
+                  <% @types.each do |type| %>
+                    <%= link_to recipes_path(type_id: type.id) do %>
+                      <div class="col-md-3 col-xs-4 text-center">
+                        <div class="col-md-12 modal-contents">
+                          <%= attachment_image_tag(type, :image, fallback: "no_image2.jpg", class: "img-responsive", style: "height: 175px;") %>
+                          <p><%= type.name %></p>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
                 <div class="col-xs-12 text-center">
                   <a class="type-modal-close" href="#">閉じる</a>
                 </div>
@@ -77,15 +94,17 @@
 
               <!-- 検索モーダルタグ一覧 -->
               <div class="tag-modal">
-                <% @tags.each do |tag| %>
-                  <div class="col-xs-6 text-center">
-                    <div class="col-md-12 recipe-items">
-                      <%= link_to recipes_path(tag_id: tag.id) do %>
-                        <p><%= tag.name %></p>
-                    　<% end %>
-                    </div>
-                  </div>
-                <% end %>
+                <div class="row">
+                  <% @tags.each do |tag| %>
+                    <%= link_to recipes_path(tag_id: tag.id) do %>
+                      <div class="col-md-3 col-xs-6 text-center">
+                        <div class="col-md-12">
+                          <h4><%= tag.name %></h4>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
                 <div class="col-xs-12 text-center">
                   <a class="tag-modal-close" href="#">閉じる</a>
                 </div>

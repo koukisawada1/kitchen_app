@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 	before_action :authenticate_user!
 	before_action :set_user
-	before_action :header_action
 
 	def show
 		@recipes = @user.recipes
@@ -37,12 +36,6 @@ private
 
 	def set_user
 		@user = User.find(params[:id])
-	end
-
-	def header_action
-		@genres = Genre.all
-		@types = Type.all
-		@tags = Tag.all
 	end
 
 end
