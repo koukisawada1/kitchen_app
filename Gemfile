@@ -77,3 +77,7 @@ gem "jquery-rails"
 gem "kaminari",'~> 1.2.1'
 gem "font-awesome-rails"
 gem 'rails-i18n'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
+
