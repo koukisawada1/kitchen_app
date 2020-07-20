@@ -1,14 +1,4 @@
-<div class="top-image">
-	<div class="top-image-content">
-		<div class="top-image-title">
-			<h3>10分キッチン</h3>
-		</div>
-		<div class="top-image-modal-open">
-			<h4>会員登録</h4>
-			<h4>ログイン</h4>
-		</div>
-	</div>
-</div>
+
 
 <div class="container">
 	<div class="row">
@@ -18,7 +8,7 @@
 		<div class="row">
 			<% @like_recipes.each do |recipe|%>
 				<%= link_to recipe_path(recipe) do %>
-					<div class="col-sm-4 col-xs-12 recipe-items">
+					<div class="col-sm-4 col-xs-11 recipe-items">
 						<div class="col-md-12 col-xs-12 recipes">
 							<%= attachment_image_tag(recipe, :image, fallback: "no_image2.jpg", class: "img-responsive") %>
 							<div class="row">

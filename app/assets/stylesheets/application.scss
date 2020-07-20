@@ -25,35 +25,61 @@
 
 html,body {
 	height: 100%;
+  width: 100%;
   font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+  /*background-image: url(/assets/top-image.jpg);*/
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 a {
 	color: black;
 }
-
+.body-image {
+  width: 100%;
+  height: 100%;
+  background-image: url(/assets/top-image.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -2;
+}
+.body-image2 {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.35);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
 /*ヘッダー*/
 header {
-	background-color: #FFFFFF;
+	/*background-color: #FFFFFF;*/
 	height: 65px;
 	margin-bottom: 10px;
 	.login-user {
 		margin-top: 16px;
 	}
   .title {
-    margin-top: 20px;
-    font-size: 35px;
+    position: fixed;
+    left: 40px;
+    top: 20px;
+    font-size: 32px;
+    z-index: 10;
+    color: #FFFFFF;
+  }
+  a {
+    font-size: 38px;
   }
 }
-.user-icon {
-  position: fixed;
-  right: 217px;
-  top: 21px;
-}
+
 /*ハンバーガーメニュー*/
 #hm-icon{
   position: fixed;
-  right: 40px;
-  top: 25px;
+  right: 35px;
+  top: 20px;
   z-index: 10;
 }
 .menu-trigger,
@@ -61,6 +87,11 @@ header {
   display: inline-block;
   transition: all .4s;
   box-sizing: border-box;
+}
+#hm-icon {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  padding: 18px 10px 0px 10px;
 }
 .menu-trigger {
   position: relative;
@@ -72,7 +103,7 @@ header {
   left: 0;
   width: 35px;
   height: 4px;
-  background-color: #000;
+  background-color: black;
   border-radius: 4px;
 }
 .menu-trigger span:nth-of-type(1) {
@@ -112,6 +143,12 @@ header {
   display: none;
   z-index: 9;
   font-size: 25px;
+  a {
+    font-size: 25px;
+  }
+  span {
+    font-size: 30px;
+  }
 }
 #sp-menu ul {
   width: 30%;
@@ -142,8 +179,12 @@ header {
 .open-btn {
   font-size: 34px;
   position: fixed;
-  right: 100px;
-  top: 21px;
+  right: 95px;
+  top: 19px;
+  z-index: 10;
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  padding: 12px 11px 8px 11px;
 }
 .close-btn {
   font-size: 34px;
@@ -195,7 +236,7 @@ header {
   }
 }
 .modal-contents {
-  background-color: #F5F5F5;
+  background: rgba(255,255,255,0.8);
   margin-bottom: 20px;
   height: 235px;
   padding-top: 10px;
@@ -245,19 +286,15 @@ header {
   text-align: center;
 }
 .genre-modal-close, .type-modal-close, .tag-modal-close {
-  background-color: #FFFFFF;
+  background: rgba(255,255,255,0.8);
   padding: 12px 20px;
+  border-radius: 20px;
+  font-size: 20px;
 }
 
 /*メイン共通*/
 main {
 	min-height: 100%;
-	height: auto;
-  /* フッターの高さ分だけ、ネガティブインデントを指定 */
-  margin: 0 auto -60px;
-  /* フッターの高さ分だけ、パディングを指定 */
-  padding: 0 0 60px;
-  background-color: #F5F5F5;
 }
 /*レシピ一覧*/
 .recipe-items {
@@ -286,26 +323,32 @@ main {
   border : solid 1px #DCDCDC;
 }
 /*top*/
-.top-image {
+/*.top-image {
   background-image: url(/assets/top-image.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 700px;
+  height: 100%;
   margin-bottom: 50px;
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 .top-image-content {
   width: 100%;
-  height: 700px;
+  height: 100%;
   /*padding: 300px;*/
-  text-align: center;
-  background-color: rgba(0,0,0,0.5);
+  /*text-align: center;
+  background-color: rgba(255,255,255,0.4);
   color: #FFFFFF;
+  position: fixed;
+  left: 0;
+  top: 0;
   h3 {
     padding-top: 150px;
     font-size: 50px;
-  }
-}
+  }*/
+/*}*/
 .top-image-modal-open {
   margin-top: 30px;
 }
@@ -326,10 +369,92 @@ main {
 
 /*フッター*/
 footer {
-	background-color: silver;
 	width: 100%;
 	height: 60px;
-	margin-top: 30px;
+	margin-top: 50px;
+  background-color: #9E9E9E;
+  text-align: center;
+  z-index: 1;
+}
+footer .copyright {
+  float: left;
+  width: 50%;
+  background-color: #9E9E9E;
+}
+footer .copyright p {
+  font-size: 0.7em;
+  line-height: 70px;
+  padding-left: 10%;
+  letter-spacing: 1px;
+  color: #ffffff;
+  font-size: 14px;
+  background-color: #9E9E9E;
+}
+footer .sns {
+  float: right;
+  width: 50%;
+}
+footer .sns a {
+  font-weight: bold;
+  line-height: 80px;
+  float: left;
+  -webkit-transition: all, 0.3s;
+          transition: all, 0.3s;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+}
+footer .sns a:hover {
+  -webkit-transition: all, 0.3s;
+          transition: all, 0.3s;
+  background-color: #222222;
+}
+footer .sns .insta {
+  font-size: 1.2em;
+  width: 20%;
+  height: 100%;
+  background-color: #e4405f;
+}
+footer .sns .fb {
+  font-size: 1.2em;
+  width: 20%;
+  background-color: #3b5999;
+}
+footer .sns .tw {
+  font-size: 1.2em;
+  height: 100%;
+  width: 20%;
+  background-color: #55acee;
+}
+footer .sns .contact {
+  font-size: 0.8em;
+  width: 40%;
+  background-color: #26C6DA;
+}
+@media (max-width: 767px) {
+  .contents {
+    margin-bottom: 200px;
+  }
+  footer {
+    height: auto;
+  }
+  footer .copyright {
+    width: 100%;
+  }
+  footer .copyright p {
+    padding: 0;
+    text-align: center;
+  }
+  footer .sns {
+    width: 100%;
+  }
+  #sp-menu ul {
+    width: 50%;
+    a {
+      font-size: 25px;
+    }
+  }
 }
 
 /*確認ページ*/
