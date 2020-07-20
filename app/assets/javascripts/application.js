@@ -24,17 +24,46 @@ $(function(){
     $(this).toggleClass('active');
     $('#sp-menu').fadeToggle();
     event.preventDefault();
-  });
-
+     });
+// ヘッダー検索フォーム
     $('.js-modal-open').on('click',function(){
         $('.js-modal').fadeIn();
         return false;
     });
     $('.js-modal-close').on('click',function(){
-        $('.js-modal').fadeOut();
+        $('.js-modal, .genre-modal, .type-modal, .tag-modal').fadeOut();
+        return false;
+    });
+// ジャンル一覧モーダル
+    $('.genre-modal-open').on('click',function(){
+        $('.genre-modal').fadeIn();
+        return false;
+    });
+    $('.genre-modal-close, .type-modal-open, .tag-modal-open').on('click',function(){
+        $('.genre-modal').fadeOut();
+        return false;
+    });
+// 種別一覧モーダル
+    $('.type-modal-open').on('click',function(){
+        $('.type-modal').fadeIn();
+        return false;
+    });
+    $('.type-modal-close, .genre-modal-open, .tag-modal-open').on('click',function(){
+        $('.type-modal').fadeOut();
+        return false;
+    });
+// タグ一覧モーダル
+    $('.tag-modal-open').on('click',function(){
+        $('.tag-modal').fadeIn();
+        return false;
+    });
+    $('.tag-modal-close, .genre-modal-open, .type-modal-open ').on('click',function(){
+        $('.tag-modal').fadeOut();
         return false;
     });
 
+
+// 画像プレビューs
     // inputのidから情報の取得
     $('#product-image').on('change', function (e) {
 // ここから既存の画像のurlの取得
@@ -44,5 +73,5 @@ $(function(){
     }
 // ここまで
     reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
-});
+    });
 });

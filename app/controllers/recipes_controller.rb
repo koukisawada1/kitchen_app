@@ -1,9 +1,6 @@
 class RecipesController < ApplicationController
 
 	def index
-		@genres = Genre.all
-		@types = Type.all
-		@tags = Tag.all
 		if params[:genre_id]
 			@genre = Genre.find(params[:genre_id])
 			@recipes = @genre.recipes.page(params[:page]).reverse_order
@@ -31,8 +28,6 @@ class RecipesController < ApplicationController
 
 	def new
 		@recipe = Recipe.new
-		@genres = Genre.all
-		@types = Type.all
 	end
 
 # 確認画面
@@ -58,8 +53,6 @@ class RecipesController < ApplicationController
 
 	def edit
 		@recipe = Recipe.find(params[:id])
-		@genres = Genre.all
-		@types = Type.all
 		@tag_list = @recipe.tags.pluck(:name).join(",")
 	end
 
@@ -71,8 +64,6 @@ class RecipesController < ApplicationController
 			flash[:notice] = "レシピを更新しました"
 			redirect_to confirm_recipe_path(@recipe)
 		else
-			@genres = Genre.all
-			@types = Type.all
 			flash[:alert] = "入力内容を確認してください"
 			render "edit"
 		end

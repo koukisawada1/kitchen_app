@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+	before_action :header_action
 
 	def create
 		@recipe = Recipe.find(params[:recipe_id])
@@ -11,4 +12,5 @@ class LikesController < ApplicationController
 		@like = current_user.likes.find_by(recipe_id: @recipe.id)
 		@like.destroy
 	end
+
 end

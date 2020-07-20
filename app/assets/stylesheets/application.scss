@@ -34,13 +34,13 @@ a {
 /*ヘッダー*/
 header {
 	background-color: #FFFFFF;
-	height: 80px;
-	margin-bottom: 40px;
+	height: 65px;
+	margin-bottom: 10px;
 	.login-user {
 		margin-top: 16px;
 	}
   .title {
-    margin-top: 25px;
+    margin-top: 20px;
     font-size: 35px;
   }
 }
@@ -49,35 +49,10 @@ header {
   right: 217px;
   top: 21px;
 }
-
-/*メイン共通*/
-main {
-	min-height: 100%;
-	height: auto;
-  	/* フッターの高さ分だけ、ネガティブインデントを指定 */
-  	margin: 0 auto -60px;
-  	/* フッターの高さ分だけ、パディングを指定 */
-  	padding: 0 0 60px;
-}
-
-/*フッター*/
-footer {
-	background-color: silver;
-	width: 100%;
-	height: 60px;
-	margin-top: 30px;
-}
-
-/*確認ページ*/
-.confirm-btn {
-  margin-top: 30px;
-}
-
-
 /*ハンバーガーメニュー*/
 #hm-icon{
   position: fixed;
-  right: 100px;
+  right: 40px;
   top: 25px;
   z-index: 10;
 }
@@ -112,7 +87,7 @@ footer {
 .menu-trigger.active span:nth-of-type(1) {
   -webkit-transform: translateY(15px) rotate(-45deg);
   transform: translateY(15px) rotate(-45deg);
-  background-color: #fff;
+  background-color: black;
 }
 .menu-trigger.active span:nth-of-type(2) {
   opacity: 0;
@@ -120,7 +95,7 @@ footer {
 .menu-trigger.active span:nth-of-type(3) {
   -webkit-transform: translateY(-15px) rotate(45deg);
   transform: translateY(-15px) rotate(45deg);
-  background-color: #fff;
+  background-color: black;
 }
 /* ------------------------ */
 /* ------ spメニュー ------ */
@@ -132,58 +107,244 @@ footer {
   top: 0;
   background-color:rgba(0,0,0,0.7);
   color: #fff;
-  width: 25%;
+  width: 100%;
   min-height: 100%;
   display: none;
   z-index: 9;
   font-size: 25px;
 }
-#sp-menu li{
-  text-align: center;
+#sp-menu ul {
+  width: 30%;
+  min-height: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color: #FFFFFF;
+  list-style: none;
+}
+#sp-menu li {
+  margin-left: 50px;
   margin-top: 30px;
 }
 #sp-menu li:nth-of-type(1) {
   margin-top: 100px;
 }
-#sp-menu a{
-  color: #FFFFFF;
+#sp-menu a {
+  color: black;
   text-decoration: none;
   font-weight: bold;
 }
+#sp-menu span {
+  color: black;
+}
 
 /*検索フォームモーダル*/
-
 .open-btn {
   font-size: 34px;
   position: fixed;
-  right: 160px;
+  right: 100px;
   top: 21px;
 }
 .close-btn {
   font-size: 34px;
   position: fixed;
-  right: 160px;
-  top: 21px;
+  right: 80px;
+  top: 15px;
 }
 .modal{
-    display: none;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    width: 100%;
+  display: none;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 .modal__bg{
-    background: rgba(255,255,255,0.9);
-    height: 100vh;
-    position: absolute;
-    width: 100%;
+  background: rgba(0,0,0,0.7);
+  height: 100%;
+  position: absolute;
+  width: 100%;
 }
-.modal__content{
-    padding: 30px;
-    position: fixed;
-    /*left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%,-50%);*/
-    width: 100%;
+.modal__content {
+  padding: 10px;
+  height: 160px;
+  position: fixed;
+  left: 50%;
+  position: absolute;
+  top: 14%;
+  transform: translate(-50%,-50%);
+  width: 80%;
+  background-color: #F5F5F5;
 }
+.search-form {
+  padding: 30px;
+  margin-left: 10%;
+  font-size: 20px;
+}
+/*ジャンル・種別・タグモーダル一覧*/
+.genre-modal, .type-modal, .tag-modal{
+  display: none;
+  height: 220%;
+  position: fixed;
+  left: 50%;
+  position: absolute;
+  top: 230%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  p {
+    font-size: 16px;
+  }
+}
+.modal-contents {
+  background-color: #F5F5F5;
+  margin-bottom: 20px;
+  height: 235px;
+  padding-top: 10px;
+  img {
+    margin: 10px auto;
+  }
+  p {
+    font-size: 18px;
+  }
+}
+.tag-modal {
+  h4 {
+    position: relative;
+    display: inline-block;
+    height: 50px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    padding: 1rem 2rem 1rem 3rem;
+    color: black;
+    background: #FFA500;
+    width: 180px;
+    font-size: 25px;
+  }
+  h4:before {
+    position: absolute;
+    top: 0;
+    left: -30px;
+    content: '';
+    border-width: 25px 30px 25px 0;
+    border-style: solid;
+    border-color: transparent #FFA500 transparent transparent;
+  }
+  h4:after {
+    position: absolute;
+    top: calc(50% - 7px);
+    left: -7px;
+    width: 14px;
+    height: 14px;
+    content: '';
+    border-radius: 50%;
+    background: #fff;
+  }
+}
+
+.genre-modal-open, .type-modal-open, .tag-modal-open {
+  font-size: 20px;
+  text-align: center;
+}
+.genre-modal-close, .type-modal-close, .tag-modal-close {
+  background-color: #FFFFFF;
+  padding: 12px 20px;
+}
+
+/*メイン共通*/
+main {
+	min-height: 100%;
+	height: auto;
+  /* フッターの高さ分だけ、ネガティブインデントを指定 */
+  margin: 0 auto -60px;
+  /* フッターの高さ分だけ、パディングを指定 */
+  padding: 0 0 60px;
+  background-color: #F5F5F5;
+}
+/*レシピ一覧*/
+.recipe-items {
+  padding-top: 10px;
+  margin-bottom: 15px;
+  /*border : solid 1px #DCDCDC;
+  background-color: #FFFFFF;*/
+}
+.recipes {
+  padding: 5px;
+  margin-bottom: 15px;
+  border : solid 1px #DCDCDC;
+  background-color: #FFFFFF;
+  box-shadow: 1.5px 1.5px 2px #696969;
+  .col-md-4 {
+    padding-top: 8px;
+  }
+  h4 {
+    font-size: 26px;
+  }
+}
+/*ログイン・登録ページ*/
+.login {
+  margin-top: 50px;
+  background-color: #FFFFFF;
+  border : solid 1px #DCDCDC;
+}
+/*top*/
+.top-image {
+  background-image: url(/assets/top-image.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 700px;
+  margin-bottom: 50px;
+}
+.top-image-content {
+  width: 100%;
+  height: 700px;
+  /*padding: 300px;*/
+  text-align: center;
+  background-color: rgba(0,0,0,0.5);
+  color: #FFFFFF;
+  h3 {
+    padding-top: 150px;
+    font-size: 50px;
+  }
+}
+.top-image-modal-open {
+  margin-top: 30px;
+}
+.top-recipe-title {
+  margin: 30px;
+}
+
+/*ユーザー詳細ペーシ*/
+.user-profile {
+  margin-bottom: 40px;
+}
+.user-show-nav {
+  padding: 15px;
+}
+.image-select {
+  margin-top: 30px;
+}
+
+/*フッター*/
+footer {
+	background-color: silver;
+	width: 100%;
+	height: 60px;
+	margin-top: 30px;
+}
+
+/*確認ページ*/
+.confirm-btn {
+  margin-top: 30px;
+}
+
+@media screen and (min-width:767px) {
+  .recipes {
+    .img-responsive {
+      height: 270px;
+    }
+  }
+}
+
+
+
+
