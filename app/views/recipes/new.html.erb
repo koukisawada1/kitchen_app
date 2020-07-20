@@ -1,43 +1,42 @@
-<div class="container">
+<div class="container recipe-form">
   <div class="row">
       <h3>レシピを投稿する</h3>
   </div>
   <%= form_for(@recipe) do |f| %>
     <%= render 'layouts/error', model: @recipe %>
     <div class="row">
-        <div class="col-md-6">
-          <p>料理画像</p>
-          <div class="product-image">
-            <%= attachment_image_tag @recipe, :image, class: "img-square", fallback: "no_image2.jpg", size: '450x400' %>
-          </div>
-          <%= f.attachment_field :image %>
+      <div class="col-md-6">
+        <p>料理画像</p>
+        <div class="product-image">
+          <%= attachment_image_tag @recipe, :image, class: "img-square", fallback: "no_image2.jpg", size: '450x400' %>
         </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <%= f.label :title, "レシピタイトル" %>
-            <%= f.text_field :title, placeholder: "レシピタイトル30文字以内", rows: "3", class: "form-control", required: true %>
-          </div>
-          <div class="form-group">
-            <%= f.label :body, "レシピ紹介文" %>
-            <%= f.text_area :body, placeholder: "このレシピの魅力、ポイントなど短い文で紹介してください", rows: "5", class: "form-control", required: true %>
-          </div>
-          <div class="form-group">
-            <%= f.label :quantity, "分量" %>
-            <%= f.select :quantity, ["-- 選択してください --",*(1..4)], class: "form-control", required: true %>人前
-          </div>
-          <div class="form-group">
-            <%= f.label :price, "費用" %>
-            <%= f.select :price, ["-- 選択してください --",100,200,300,400,500], class: "form-control", required: true %>円前後
-          </div>
-          </div>
+        <%= f.attachment_field :image %>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= f.label :title, "レシピタイトル" %>
+          <%= f.text_field :title, placeholder: "レシピタイトル30文字以内", rows: "3", class: "form-control", required: true %>
         </div>
+        <div class="form-group">
+          <%= f.label :body, "レシピ紹介文" %>
+          <%= f.text_area :body, placeholder: "このレシピの魅力、ポイントなど短い文で紹介してください", rows: "5", class: "form-control", required: true %>
+        </div>
+        <div class="form-group">
+          <%= f.label :quantity, "分量" %>
+          <%= f.select :quantity, ["-- 選択してください --",*(1..4)], class: "form-control", required: true %>人前
+        </div>
+        <div class="form-group">
+          <%= f.label :price, "費用" %>
+          <%= f.select :price, ["-- 選択してください --",100,200,300,400,500], class: "form-control", required: true %>円前後
+        </div>
+      </div>
     </div>
 
     <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <div class="col-md-12">
-          <p>材料</p>
-        </div>
+      <div class="col-md-12">
+        <h4>材料</h4>
+      </div>
+      <div class="row">
         <div class="col-md-7">
           <%= f.text_area :material, rows: "15", class: "form-control", required: true %>
         </div>
@@ -64,10 +63,10 @@
     </div>
 
     <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <div class="col-md-12">
-          <p>作り方</p>
-        </div>
+      <div class="col-md-12">
+        <h4>作り方</h4>
+      </div>
+      <div class="row">
         <div class="col-md-7">
           <%= f.text_area :make, rows: "15", class: "form-control", required: true %>
         </div>
@@ -89,39 +88,36 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1">
+    <div class="row genre">
+      <div class="col-md-12">
         <div class="panel panel-default">
           <div class="panel-heading">料理ジャンル</div>
-            <div class="panel-body">
-              <% @genres.each do |genre| %>
+          <div class="panel-body">
+            <% @genres.each do |genre| %>
                 <label><%= f.radio_button :genre_id, genre.id, required: true %><%= genre.name %></label>
-              <% end %>
-            </div>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-10 col-md-offset-1">
+      <div class="col-md-12">
         <div class="panel panel-default">
           <div class="panel-heading">料理種別</div>
-            <div class="panel-body">
-              <% @types.each do |type| %>
-                <label><%= f.radio_button :type_id, type.id, required: true %><%= type.name %></label>
-              <% end %>
-            </div>
+          <div class="panel-body">
+            <% @types.each do |type| %>
+              <label><%= f.radio_button :type_id, type.id, required: true %><%= type.name %></label>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-10 col-md-offset-1">
+      <div class="col-md-12">
         <div class="panel panel-default">
           <div class="panel-heading">タグをつける（タグを複数つける場合は『 , 』で区切ってください）</div>
-            <div class="panel-body">
-              <%= f.text_field :name, value: @tag_list, class: "form-control" %>
-            </div>
+          <div class="panel-body">
+            <%= f.text_field :name, value: @tag_list, class: "form-control" %>
           </div>
         </div>
       </div>

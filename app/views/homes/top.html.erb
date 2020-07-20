@@ -1,87 +1,89 @@
-
+<div class="top-image">
+	<div class="top-image-content">
+		<h3>SmartKitchen</h3>
+		<div class="row">
+			<div class="col-sm-4 col-sm-offset-4">
+				<% if user_signed_in? %>
+					<h4 class="text-center">ようこそ <%= current_user.name %>さん</h4>
+				<% else %>
+					<div class="col-sm-6 text-center">
+					    <h4>ログイン</h4>
+					</div>
+					<div class="col-sm-6 text-center">
+					    <h4>新規登録</h4>
+					</div>
+				<% end %>
+			</div>
+		</div>
+		<div class="top-image-body">
+			<div class="top-image-text1">
+				<p>レシピの投稿・共有サイトです。</p>
+			</div>
+			<div class="top-image-text2">
+				<p>自分が考えた短時間で低価格のレシピを投稿することができ、<br>普段あまり料理をしない人に対してもハードルの低いレシピを共有することができます。</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="top-nav">
+	<div class="container">
+	    <div class="row">
+	      	<div class="col-sm-3 col-xs-6">
+	      		<%= link_to new_recipe_path do %>
+				    <div class="top-contents">
+				    	
+				    	<div class="top-content-text">
+				    		<p><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 	<h4>レシピを書く</h4></p>
+				    	</div>
+				    </div>
+				<% end %>
+			</div>
+			<div class="col-sm-3 col-xs-6">
+				<%= link_to recipes_path do %>
+				    <div class="top-contents">
+				    	<div class="top-content-image2"></div>
+				    	<div class="top-content-text">
+				    		<p><span class="glyphicon glyphicon-th" aria-hidden="true"></span> <h4>レシピ一覧</h4></p>
+				    	</div>
+				    </div>
+				<% end %>
+			</div>
+			<div class="col-sm-3 col-xs-6">
+				<a class="js-modal-open" href="#">
+				    <div class="top-contents">
+				    	<div class="top-content-image3"></div>
+				    	<div class="top-content-text">
+				    		<p><span class="glyphicon glyphicon-th" aria-hidden="true"></span> <h4>レシピを探す</h4></p>
+				    	</div>
+				    </div>
+				</a>
+			</div>
+			<div class="col-sm-3 col-xs-6">
+				<%= link_to about_path do %>
+				    <div class="top-contents">
+				    	<div class="top-content-image4"></div>
+				    	<div class="top-content-text">
+				    		<p><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> <h4>About</h4></p>
+				    	</div>
+				    </div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
 
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12 top-recipe-title">
-            <h3>人気のレシピ</h3>
+            <p>人気のレシピ</p>
         </div>
-		<div class="row">
-			<% @like_recipes.each do |recipe|%>
-				<%= link_to recipe_path(recipe) do %>
-					<div class="col-sm-4 col-xs-11 recipe-items">
-						<div class="col-md-12 col-xs-12 recipes">
-							<%= attachment_image_tag(recipe, :image, fallback: "no_image2.jpg", class: "img-responsive") %>
-							<div class="row">
-								<div class="col-md-12 col-xs-12">
-									<h4><%= recipe.title %></h4>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-12 col-xs-12">
-									<% recipe.tags.each do |tag| %>
-										<span class="badge"> <%= tag.name %></span>
-									<% end %>
-									<h5><%= simple_format(recipe.body) %></h5>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-8 col-xs-8">
-									<%= attachment_image_tag(recipe.user, :image, fallback: "no_image.jpg", size: '40x40', class: "img-circle") %>
-									<%= recipe.user.name %>さん <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-								</div>
-								<div class="col-md-4 col-xs-4">
-									<p>
-										<span class="glyphicon glyphicon-heart" style="color: tomato;"><%= recipe.likes.count %></span>&nbsp;
-										<span class="glyphicon glyphicon-comment"><%= recipe.comments.count %></span>
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				<% end %>
-			<% end %>
-		</div>
+        <%= render 'recipes/index', recipes: @like_recipes %>
 	</div>
 	<div class="row">
 		<div class="col-xs-12 top-recipe-title">
-            <h3>新着レシピ</h3>
+            <p>新着レシピ</p>
         </div>
-		<div class="row">
-			<% @recipes.each do |recipe|%>
-				<%= link_to recipe_path(recipe) do %>
-					<div class="col-sm-4 col-xs-12 recipe-items">
-						<div class="col-md-12 col-xs-12 recipes">
-							<%= attachment_image_tag(recipe, :image, fallback: "no_image2.jpg", class: "img-responsive") %>
-							<div class="row">
-								<div class="col-md-12 col-xs-12">
-									<h4><%= recipe.title %></h4>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-12 col-xs-12">
-									<% recipe.tags.each do |tag| %>
-										<span class="badge"> <%= tag.name %></span>
-									<% end %>
-									<h5><%= simple_format(recipe.body) %></h5>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-8 col-xs-8">
-									<%= attachment_image_tag(recipe.user, :image, fallback: "no_image.jpg", size: '40x40', class: "img-circle") %>
-									<%= recipe.user.name %>さん <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-								</div>
-								<div class="col-md-4 col-xs-4">
-									<p>
-										<span class="glyphicon glyphicon-heart" style="color: tomato;"><%= recipe.likes.count %></span>&nbsp;
-										<span class="glyphicon glyphicon-comment"><%= recipe.comments.count %></span>
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				<% end %>
-			<% end %>
-		</div>
+        <%= render 'recipes/index', recipes: @recipes %>
 	</div>
 </div>
 

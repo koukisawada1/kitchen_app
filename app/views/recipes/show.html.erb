@@ -1,43 +1,44 @@
-<div class="container">
+<div class="container recipe-user">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
         		        <h3><%= @recipe.title %></h3>
-                    </div>
-                </div>
-        	</div>
-        	<div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-body">
+                        <% @recipe.tags.each do |tag| %>
+                            <span class="badge"> <%= tag.name %></span>
+                        <% end %>
         		        <h4><%= simple_format(@recipe.body) %></h4>
                     </div>
                 </div>
         	</div>
-        	<div class="col-md-7">
+        	<div class="col-sm-7 col-xs-12">
         		<%= attachment_image_tag(@recipe, :image, fallback: "no_image2.jpg", class: "img-responsive") %>
         	</div>
-        	<div class="col-md-5">
-        		<div class="col-md-3">
-        			<%= attachment_image_tag(@recipe.user, :image, fallback: "no_image.jpg", size: '80x80', class: "img-circle") %>
-        		</div>
-        		<div class="col-md-9">
-        			<%= link_to user_path(@recipe.user) do %>
-        				<h4><%= @recipe.user.name %>さんのレシピ</h4>
-        			<% end %>
-                    <% if @recipe.user == current_user %>
-                        <div class="col-md-6">
-                            <%= link_to "レシピを編集する", edit_recipe_path(@recipe), class: "btn btn-primary btn-sm" %>
-                        </div>
-                        <div class="col-md-6">
-                            <%= link_to "レシピを削除する", recipe_path(@recipe), "data-confirm" => "レシピを削除します。よろしいですか？", class: "btn btn-danger btn-sm", method: :delete %>
-                        </div>
-                    <% end %>
-                    <!-- フォローボタンの表示 -->
-                    <%= render 'relationships/follow', user: @recipe.user %>
-        		</div>
-                <div class="col-md-12">
+        	<div class="col-sm-5 col-xs-12">
+                <div class="row">
+            		<div class="col-sm-3 col-xs-3">
+            			<%= attachment_image_tag(@recipe.user, :image, fallback: "no_image.jpg", size: '80x80', class: "img-circle") %>
+            		</div>
+            		<div class="col-sm-9 col-xs-9">
+            			<%= link_to user_path(@recipe.user) do %>
+            				<h4><%= @recipe.user.name %>さん  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></h4>
+            			<% end %>
+                        <% if @recipe.user == current_user %>
+                            <div class="row">
+                                <div class="col-sm-6 col-xs-6">
+                                    <%= link_to "レシピを編集する", edit_recipe_path(@recipe), class: "btn btn-primary btn-sm" %>
+                                </div>
+                                <div class="col-sm-6 col-xs-6">
+                                    <%= link_to "レシピを削除する", recipe_path(@recipe), "data-confirm" => "レシピを削除します。よろしいですか？", class: "btn btn-danger btn-sm", method: :delete %>
+                                </div>
+                            </div>
+                        <% end %>
+                        <!-- フォローボタンの表示 -->
+                        <%= render 'relationships/follow', user: @recipe.user %>
+            		</div>
+                </div>
+                <div class="col-md-12 material">
                     <div class="panel panel-default">
                         <div class="panel-heading"><h4>材料</h4></div>
                         <div class="panel-body">
@@ -49,7 +50,7 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container recipe-show">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
         	<div class="col-md-7">

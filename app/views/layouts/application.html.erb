@@ -18,9 +18,9 @@
         <div class="row">
 
           <div class="col-md-4">
-            <%= link_to root_path do %>
-              <p class="title"><span class="glyphicon glyphicon-cutlery">10分キッチン</span></p>
-            <% end %>
+            <p class="title">
+              <span class="glyphicon glyphicon-cutlery"></span> <%= link_to "SmartKitchen", root_path %>
+            </p>
           </div>
           <!-- 検索フォーム（モーダル） -->
           <a class="js-modal-open open-btn" href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
@@ -37,21 +37,21 @@
               </div>
               <!-- 検索モーダルジャンル一覧 -->
               <div class="row">
-                <div class="col-md-10 col-md-offset-1 col-xs-offset-1">
+                <div class="col-md-8 col-md-offset-2">
                   <div class="row">
                     <div class="col-md-4 col-xs-6">
                       <a class="genre-modal-open" href="#">
-                        <span class="glyphicon glyphicon-search" aria-hidden="true"> ジャンルから探す</span>
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"> ジャンル</span>
                       </a>
                     </div>
                     <div class="col-md-4 col-xs-6">
                       <a class="type-modal-open" href="#">
-                        <span class="glyphicon glyphicon-search" aria-hidden="true"> 種別から探す</span>
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"> 種別</span>
                       </a>
                     </div>
                     <div class="col-md-4 col-xs-6">
                       <a class="tag-modal-open" href="#">
-                        <span class="glyphicon glyphicon-search" aria-hidden="true"> タグから探す</span>
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"> タグ</span>
                       </a>
                     </div>
                   </div>
@@ -64,7 +64,7 @@
                     <%= link_to recipes_path(genre_id: genre.id) do %>
                       <div class="col-md-4 col-xs-4 text-center">
                         <div class="col-md-12 modal-contents">
-                          <%= attachment_image_tag(genre, :image, fallback: "no_image2.jpg", class: "img-responsive", style: "height: 150px;") %>
+                          <%= attachment_image_tag(genre, :image, fallback: "no_image2.jpg", class: "img-responsive", style: "height: 180px;") %>
                           <p><%= genre.name %></p>
                         </div>
                       </div>
@@ -167,7 +167,7 @@
 
     <footer>
       <div class="copyright">
-        <p class="contact">© 2020 - kitchen-app</p>
+        <p class="contact">© 2020 - SmartKitchen</p>
       </div>
       <div class="sns">
         <a href="#" class="contact">Contact</a>
