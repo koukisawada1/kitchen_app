@@ -49,7 +49,7 @@ a {
 .body-image2 {
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.35);
+  background-color: rgba(0,0,0,0.4);
   position: fixed;
   left: 0;
   top: 0;
@@ -347,7 +347,6 @@ main {
   }
 }
 .top-contents {
-  background: rgba(0,0,0,0.4);
   height: 200px;
   padding-top: 40px;
 }
@@ -355,20 +354,24 @@ main {
   .top-content-text {
     padding: auto;
     span {
-      transition: all, 0.4s;
-      font-size: 90px;
+      transition: all, 0.2s;
+      font-size: 120px;
     }
     h4 {
-      font-size: 27px;
+      font-size: 35px;
     }
   }
 }
 .top-content-text {
   text-align: center;
-  font-size: 20px;
   color: #FFFFFF;
   span {
-    font-size: 70px;  }
+    font-size: 90px;
+    margin-bottom: 25px;
+    }
+  h4 {
+    font-size: 22px;
+  }
 }
 
 /*-----レシピ一覧-----*/

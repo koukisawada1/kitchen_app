@@ -25,6 +25,17 @@ class Recipe < ApplicationRecord
     	likes.where(user_id: user.id).exists?
     end
 
+    # 検索機能
+    def self.search(search)
+      if search
+        Recipe.where(['title LIKE ? OR body LIKE ? OR body LIKE ? OR body LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
+      else
+      	flash[:alert] = "1文字以上入力してください"
+        Recipe.all
+      end
+    end
+
+    # タグ追加機能
     def save_recipes(tags)
     current_tags = self.tags.pluck(:name) unless self.tags.nil?
     old_tags = current_tags - tags

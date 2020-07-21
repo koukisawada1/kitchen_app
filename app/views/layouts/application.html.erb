@@ -29,6 +29,10 @@
             <div class="modal__content">
               <div class="search-form">
                 <div class="input-group" style="width: 80%;">
+                  <%= form_tag(recipes_path,:method => 'get') do %>
+                    <%= text_field_tag :search %>
+                    <%= submit_tag 'Search', :name => nil %>
+                  <% end %>
                   <input type="text" class="form-control" placeholder="テキスト入力欄">
                   <span class="input-group-btn">
                     <button type="button" class="btn btn-default">検索</button>

@@ -13,8 +13,10 @@ class RecipesController < ApplicationController
 			@tag = Tag.find(params[:tag_id])
 			@recipes = @tag.recipes.page(params[:page]).reverse_order
 			@title = @tag.name
+		elsif params[:search]
+			@recipes = Recipe.page(params[:page]).search(params[:search])
+			@title = "検索結果 ’ #{params[:search]} ’"
 		else
-			# @recipes = Recipe.find(Like.group(:recipe_id).order('count(recipe_id) desc').pluck(:recipe_id)).page(params[:page])
 			@recipes = Recipe.all.page(params[:page]).reverse_order
 			@title = "全てのレシピ"
 		end
