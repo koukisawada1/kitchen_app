@@ -52,6 +52,7 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano3-puma'
   gem 'capistrano-rbenv'
+  gem 'rubocop-airbnb'
 end
 
 group :test do
@@ -74,10 +75,9 @@ gem "bootstrap-sass", '~> 3.3.6'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem "jquery-rails"
-gem "kaminari",'~> 1.2.1'
+gem "kaminari", '~> 1.2.1'
 gem "font-awesome-rails"
 gem 'rails-i18n'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
-

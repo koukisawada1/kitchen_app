@@ -1,7 +1,5 @@
 class Genre < ApplicationRecord
+  attachment :image
 
-	attachment :image
-
-	has_many :recipes
-
+  has_many :recipes
 end
