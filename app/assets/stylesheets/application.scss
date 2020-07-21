@@ -49,7 +49,7 @@ a {
 .body-image2 {
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.55);
+  background-color: rgba(255,255,255,0.4);
   position: fixed;
   left: 0;
   top: 0;
@@ -58,9 +58,6 @@ a {
 
 /*-----ヘッダー------*/
 header {
-	/*background-color: #FFFFFF;*/
-	height: 80px;
-  background-color:rgba(255,255,255,0.1);
 	.login-user {
 		margin-top: 16px;
 	}
@@ -72,7 +69,7 @@ header {
     top: 20px;
     font-size: 40px;
     z-index: 10;
-    color: #FFFFFF;
+    color: black;
     strong {
       font-size: 50px;
     }
@@ -83,7 +80,7 @@ header {
 #hm-icon{
   position: fixed;
   right: 35px;
-  top: 20px;
+  top: 18px;
   z-index: 10;
 }
 .menu-trigger,
@@ -93,8 +90,6 @@ header {
   box-sizing: border-box;
 }
 #hm-icon {
-  background-color: #FFFFFF;
-  border-radius: 20px;
   padding: 18px 10px 0px 10px;
 }
 .menu-trigger {
@@ -138,7 +133,7 @@ header {
   position: fixed;
   right: 0;
   top: 0;
-  background-color:rgba(0,0,0,0.7);
+  background-color:rgba(0,0,0,0.8);
   color: #fff;
   width: 100%;
   min-height: 100%;
@@ -184,8 +179,6 @@ header {
   right: 95px;
   top: 19px;
   z-index: 10;
-  background-color: #FFFFFF;
-  border-radius: 20px;
   padding: 12px 11px 8px 11px;
 }
 .close-btn {
@@ -245,7 +238,7 @@ header {
   color: #FFFFFF;
   p {
     font-size: 16px;
-    color: #FFFFFF;
+    color: black;
   }
 }
 .modal-contents {
@@ -290,7 +283,6 @@ header {
     height: 14px;
     content: '';
     border-radius: 50%;
-    background: black;
   }
 }
 
@@ -320,31 +312,31 @@ main {
 .top-image {
   width: 100%;
   height: 1400px;
-  background-color:rgba(255,255,255,0.1);
+  background-color:rgba(0,0,0,0.1);
 }
 .top-image-content {
   margin: auto;
   text-align: center;
   h3 {
     font-family: 'Amatic SC', cursive;
-    font-size: 90px;
-    color: #FFFFFF;
-    padding-top: 225px;
+    font-size: 80px;
+    color: black;
+    padding-top: 250px;
     padding-bottom: 85px;
     margin: 0;
     strong {
-      font-size: 110px;
+      font-size: 100px;
     }
   }
   h4 {
     font-size: 25px;
-    color: #FFFFFF;
+    color: black;
   }
 }
 .top-image-body {
   margin-top: 400px;
   text-align: center;
-  color: #FFFFFF;
+  color: black;
   font-size: 20px;
 }
 .top-image-text2 {
@@ -375,7 +367,7 @@ main {
 }
 .top-content-text {
   text-align: center;
-  color: #FFFFFF;
+  color: black;
   span {
     font-size: 90px;
     margin-bottom: 25px;
@@ -391,13 +383,13 @@ main {
 }
 .recipe-index {
   margin: 100px 0;
-  border-top: solid 2px #FFFFFF;
+  border-top: solid 2px black;
 }
 .recipe-items {
   padding-top: 10px;
   margin-bottom: 15px;
   /*border : solid 1px #DCDCDC;
-  background-color: #FFFFFF;*/
+  background-color: black;*/
 }
 .recipes {
   padding: 5px;
@@ -413,7 +405,7 @@ main {
   }
 }
 .top-recipe-title {
-  color: #FFFFFF;
+  color: black;
   h3 {
     font-size: 34px;
   }
@@ -424,15 +416,16 @@ main {
     padding: 12px 20px;
     border-radius: 20px;
     font-size: 20px;
-    color: #FFFFFF;
-    border: solid 2px #FFFFFF;
-    color: #FFFFFF;
+    color: black;
+    border: solid 1px black;
+    color: black;
+    background-color: #FFFFFF;
   }
 }
 /*-----ログイン・登録ページ-----*/
 .login {
   margin-top: 50px;
-  background-color: #FFFFFF;
+  background-color: black;
   border : solid 1px #DCDCDC;
 }
 .top-image-modal-open {
@@ -446,8 +439,7 @@ main {
 .recipe-show {
   margin-top: 30px;
   tr {
-    background: rgba(255,255,255,0.8);
-    border-bottom: solid 2px black;
+    background: rgba(255,255,255,0.9);
   }
   .comment {
     p {
@@ -456,7 +448,6 @@ main {
     }
   }
   h3 {
-    color: #FFFFFF;
     font-size: 25px;
     span {
       font-size: 30px;
@@ -464,10 +455,10 @@ main {
   }
 }
 .recipe-user {
-  margin-top: 50px;
+  margin-top: 160px;
   .col-sm-9 {
     h4 {
-      color: #FFFFFF;
+      color: black;
       font-size: 20px;
     }
   }
@@ -478,9 +469,9 @@ main {
 
 /*-----レシピ投稿・編集ペーシ-----*/
 .recipe-form {
-  margin-top: 50px;
+  margin-top: 160px;
   h3, h4, .form-group {
-    color: #FFFFFF;
+    color: black;
   }
   .select {
     margin: 40px 0;
@@ -497,6 +488,9 @@ main {
   }
   h4 {
     font-size: 22px;
+    select {
+      padding-bottom: 5px;
+    }
   }
   h5 {
     font-size: 19px;
@@ -507,45 +501,53 @@ main {
   }
 }
 .form-box {
-    position: relative;
-    margin-bottom: 30px;
-    padding: 25px 10px 7px;
-    border: solid 2px #FFC107;
-    background-color: #FFFFFF;
+  background: #104300;
+  margin: 1em 0;
+  padding: 1em 1em 0 1em;
+  border: 8px solid #a60;
+  box-shadow: 2px 2px 4px #999, 2px 2px 2px #020 inset;
+  color: #FFFFFF;
 }
-.form-box .form-box-title {
-  position: absolute;
-  display: inline-block;
-  top: -2px;
-  left: -2px;
-  padding: 0 9px;
-  height: 30px;
-  line-height: 30px;
-  font-size: 20px;
-  background: #FFC107;
-  color: #ffffff;
-  font-weight: bold;
+.form-box-title {
+    font-size: 19px;
+    text-shadow: 0px 0px 1px #fff;
 }
 .form-box-body {
-  p {
     margin-top: 10px;
+    margin-bottom: 30px;
     padding: 0;
     font-size: 17px;
-  }
+    text-shadow: 0px 0px 1px #fff;
+}
+.chalk1{
+  display: block;
+  margin-top: 10px;
+  margin-left: 90%;
+  border: solid 3px #fff;
+  width: 15px;
+  border-radius: 3px 2px 0 2px;
+}
+.chalk2{
+  display: block;
+  margin-top: -6px;
+  margin-left: calc(90% - 30px);
+  border: solid 3px #ffee58;
+  width: 20px;
+  border-radius: 3px 2px 0 2px;
 }
 
 /*-----ユーザー詳細ペーシ-----*/
 .user-profile {
-  margin: 40px 0;
+  margin-top: 160px;
+  margin-bottom: 40px;
   h3 {
-    color: #FFFFFF;
     font-size: 28px;
     span {
       font-size: 35px;
     }
   }
   h4 {
-    color: #FFFFFF;
+    color: black;
     margin-top: 35px;
     font-size: 24px;
   }
@@ -554,9 +556,10 @@ main {
   }
 }
 .user-show {
+  margin-top: 50px;
   tr {
-    background: rgba(255,255,255,0.8);
-    border-bottom: solid 2px black;
+    background: rgba(255,255,255,0.9);
+    border-bottom: solid 2px silver;
     h4 {
       color: black;
       margin-top: 10px;
@@ -568,14 +571,14 @@ main {
   }
   li {
     font-size: 18px;
-    color: #FFFFFF;
+    color: black;
     a {
-      color: #FFFFFF;
+      color: black;
     }
   }
   .tab-content {
     h3 {
-      color: #FFFFFF;
+      color: black;
     }
   }
   td {
@@ -584,7 +587,6 @@ main {
     }
   }
 }
-
 .user-show-nav {
   padding: 15px;
 }
@@ -592,6 +594,21 @@ main {
   margin-top: 30px;
 }
 
+/*-----ユーザ情報編集ページ-----*/
+.user-profile {
+  margin-top: 110px;
+  margin-bottom: 40px;
+  h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  h4 {
+    font-size: 18px;
+  }
+  span {
+      font-size: 35px;
+  }
+}
 
 /*-----フッター-----*/
 footer {
@@ -613,7 +630,7 @@ footer .copyright p {
   line-height: 70px;
   padding-left: 10%;
   letter-spacing: 1px;
-  color: #ffffff;
+  color: black;
   font-size: 14px;
   background-color: #9E9E9E;
 }
@@ -800,13 +817,13 @@ footer .sns .contact {
     transform: skewY(-45deg) translateX(12.5em);
   }
 }
-$color: #FFFFFF;
+$color: black;
 
+/*-----トップページボタン-----*/
 .top-button {
   padding: 10px 50px;
   text-align: center;
   text-decoration: none;
-  color: $color;
   border: 2px solid $color;
   font-size: 24px;
   display: inline-block;
@@ -816,7 +833,7 @@ $color: #FFFFFF;
   overflow: hidden;
   &:before {
     content: "";
-    background-color: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.9);
     height: 100%;
     width: 3em;
     display: block;
@@ -827,7 +844,7 @@ $color: #FFFFFF;
     transition: none;
   }
   &:hover {
-    background-color: tomato;
+    background-color: silver;
     color: #fff;
     border-bottom: 4px solid darken($color, 10%);
     &:before {

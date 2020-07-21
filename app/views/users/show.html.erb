@@ -4,7 +4,7 @@
             <div class="col-sm-6 col-xs-6">
             	<%= attachment_image_tag(@user, :image, fallback: "no_image.jpg", size: '230x230', class: "img-circle") %>
             </div>
-            <div class="col-sm-6 col-xs-16">
+            <div class="col-sm-6 col-xs-6">
             	<h3><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%= @user.name %>さん</h3>
             	<h4><%= simple_format(@user.introduction) %></h4>
             	<% if @user == current_user %>
@@ -18,7 +18,7 @@
             </div>
         </div>
     </div>
-    <div class="row user-profile user-show">
+    <div class="row user-show">
         <div class="col-md-10 col-md-offset-1">
             <ul class="nav nav-tabs user-show-nav">
                 <div class="col-sm-3 col-xs-3 text-center">

@@ -1,11 +1,11 @@
 <div class="container">
-    <div class="row">
+    <div class="row user-profile">
     	<div class="col-md-10 col-md-offset-1">
-			<h4>編集画面</h4>
+			<h3>編集画面</h3>
 			<%= form_for(@user) do |f| %>
 				<%= render 'layouts/error', model: @user %>
 				<div class="col-md-5 text-left">
-					<%= f.label :image, "プロフィール画像" %>
+					<h4><%= f.label :image, "プロフィール画像" %></h4>
 					<div class="product-image">
 	            		<%= attachment_image_tag(@user, :image, fallback: "no_image.jpg", size: '230x230', class: "img-circle") %>
 	          		</div>
@@ -15,15 +15,15 @@
 				</div>
 				<div class="col-md-6 col-md-offset-1">
 					<div class="form-group">
-						<%= f.label :name, "名前" %>
+						<h4><%= f.label :name, "名前" %></h4>
 						<%= f.text_field :name, placeholder: "名前", class: "form-control" %>
 					</div>
 					<div class="form-group">
-						<%= f.label :email, "メールアドレス" %>
+						<h4><%= f.label :email, "メールアドレス" %></h4>
 						<%= f.text_field :email, placeholder: "メールアドレス", class: "form-control" %>
 					</div>
 					<div class="form-group">
-						<%= f.label :introduction, "自己紹介文" %>
+						<h4><%= f.label :introduction, "自己紹介文" %></h4>
 						<%= f.text_area :introduction, placeholder: "自己紹介文", :size => "61x5", class: "form-control" %>
 					</div>
 				</div>
