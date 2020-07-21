@@ -22,34 +22,38 @@ class Recipe < ApplicationRecord
 
 	# recipeにいいねしていたらtureを返す
 	def liked_by?(user)
-    	likes.where(user_id: user.id).exists?
-    end
+  	likes.where(user_id: user.id).exists?
+  end
+
+  def self.create_all_ranks
+    Recipe.joins(:likes).group(:recipe_id).order('count(user_id) desc')
+  end
 
     # 検索機能
-    def self.search(search)
-      if search
-        Recipe.where(['title LIKE ? OR body LIKE ? OR body LIKE ? OR body LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
-      else
-      	flash[:alert] = "1文字以上入力してください"
-        Recipe.all
-      end
+  def self.search(search)
+    if search
+      Recipe.where(['title LIKE ? OR body LIKE ? OR body LIKE ? OR body LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
+    else
+      flash[:alert] = "1文字以上入力してください"
+      Recipe.all
     end
+  end
 
-    # タグ追加機能
-    def save_recipes(tags)
+  # タグ追加機能
+  def save_recipes(tags)
     current_tags = self.tags.pluck(:name) unless self.tags.nil?
     old_tags = current_tags - tags
     new_tags = tags - current_tags
 
-    # Destroy
+  # Destroy
     old_tags.each do |old_name|
       self.tags.delete Tag.find_by(name:old_name)
-    end
+  end
 
     # Create
-    new_tags.each do |new_name|
-      blog_tag = Tag.find_or_create_by(name:new_name)
-      self.tags << blog_tag
-    end
+  new_tags.each do |new_name|
+    blog_tag = Tag.find_or_create_by(name:new_name)
+    self.tags << blog_tag
   end
+end
 end

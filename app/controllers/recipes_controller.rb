@@ -16,9 +16,15 @@ class RecipesController < ApplicationController
 		elsif params[:search]
 			@recipes = Recipe.page(params[:page]).search(params[:search])
 			@title = "検索結果 ’ #{params[:search]} ’"
+		elsif params[:ranks]
+			@recipes = Recipe.create_all_ranks.page(params[:page])
+			@title = "ランキング"
+		elsif params[:new_recipes]
+			@recipes = Recipe.page(params[:page]).order(created_at: :desc)
+			@title = "新着レシピ"
 		else
-			@recipes = Recipe.all.page(params[:page]).reverse_order
-			@title = "全てのレシピ"
+			@recipes = Recipe.page(params[:page]).reverse_order
+			@title = "すべてのレシピ"
 		end
 	end
 
