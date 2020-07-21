@@ -26,7 +26,7 @@
 html,body {
 	height: 100%;
   width: 100%;
-  font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+  font-family: sans-serif;
   /*background-image: url(/assets/top-image.jpg);*/
   background-repeat: no-repeat;
   background-size: cover;
@@ -49,7 +49,7 @@ a {
 .body-image2 {
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.5);
   position: fixed;
   left: 0;
   top: 0;
@@ -290,10 +290,14 @@ header {
   }
 }
 
-.genre-modal-open, .type-modal-open, .tag-modal-open {
+.genre-modal-open, .type-modal-open, .tag-modal-open, .ranks, .new_recipes {
   font-size: 20px;
   text-align: center;
   color: #FFFFFF;
+  margin-bottom: 15px;
+}
+.new_recipes {
+  text-align: left;
 }
 .genre-modal-close, .type-modal-close, .tag-modal-close {
   padding: 12px 20px;
@@ -467,12 +471,59 @@ main {
 
 /*-----レシピ投稿・編集ペーシ-----*/
 .recipe-form {
-  margin-top: 100px;
+  margin-top: 50px;
   h3, h4, .form-group {
     color: #FFFFFF;
   }
-  .genre {
-    margin-top: 20px;
+  .select {
+    margin: 40px 0;
+  }
+  .select-top {
+    margin: 70px 0 40px 0;
+  }
+  .recipe-title {
+    margin-top: 40px;
+  }
+  h3 {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+  h4 {
+    font-size: 22px;
+  }
+  h5 {
+    font-size: 19px;
+  }
+  label {
+    font-size: 18px;
+    padding-right: 15px;
+  }
+}
+.form-box {
+    position: relative;
+    margin-bottom: 30px;
+    padding: 25px 10px 7px;
+    border: solid 2px #FFC107;
+    background-color: #FFFFFF;
+}
+.form-box .form-box-title {
+  position: absolute;
+  display: inline-block;
+  top: -2px;
+  left: -2px;
+  padding: 0 9px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 20px;
+  background: #FFC107;
+  color: #ffffff;
+  font-weight: bold;
+}
+.form-box-body {
+  p {
+    margin-top: 10px;
+    padding: 0;
+    font-size: 17px;
   }
 }
 
@@ -489,7 +540,7 @@ main {
   h4 {
     color: #FFFFFF;
     margin-top: 35px;
-    font-size: 25px;
+    font-size: 24px;
   }
   .btn {
     margin-top: 10px;
