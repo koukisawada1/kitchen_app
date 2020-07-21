@@ -49,7 +49,7 @@ a {
 .body-image2 {
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.55);
   position: fixed;
   left: 0;
   top: 0;
@@ -70,15 +70,11 @@ header {
     position: fixed;
     left: 40px;
     top: 20px;
-    font-size: 36px;
+    font-size: 40px;
     z-index: 10;
     color: #FFFFFF;
-    a {
-      font-size: 38px;
-      color: #FFFFFF;
-    }
-    span {
-      font-size: 45px;
+    strong {
+      font-size: 50px;
     }
   }
 }
@@ -221,9 +217,17 @@ header {
   top: 14%;
   transform: translate(-50%,-50%);
   width: 80%;
+  input {
+    height: 35px;
+    width: 70%;
+  }
+  .search-btn {
+    width: 20%;
+    margin: 0;
+  }
 }
 .search-form {
-  padding: 30px;
+  padding: 35px;
   margin-left: 10%;
   font-size: 20px;
 }
@@ -323,11 +327,14 @@ main {
   text-align: center;
   h3 {
     font-family: 'Amatic SC', cursive;
-    font-size: 100px;
+    font-size: 90px;
     color: #FFFFFF;
     padding-top: 225px;
     padding-bottom: 85px;
     margin: 0;
+    strong {
+      font-size: 110px;
+    }
   }
   h4 {
     font-size: 25px;
@@ -359,7 +366,7 @@ main {
     padding: auto;
     span {
       transition: all, 0.2s;
-      font-size: 120px;
+      font-size: 110px;
     }
     h4 {
       font-size: 35px;

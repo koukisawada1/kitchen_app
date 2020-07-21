@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>KitchenApp</title>
+    <title>SimpleKitchen</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -18,9 +18,11 @@
         <div class="row">
 
           <div class="col-md-4">
-            <p class="title">
-              <span class="glyphicon glyphicon-cutlery"></span> <%= link_to "SimpleKitchen", root_path %>
-            </p>
+            <%= link_to root_path do %>
+              <p class="title">
+                <strong>S</strong>imple<strong>K</strong>itchen
+              </p>
+            <% end %>
           </div>
           <!-- 検索フォーム（モーダル） -->
           <a class="js-modal-open open-btn" href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
@@ -28,10 +30,10 @@
             <div class="modal__bg js-modal-close"></div>
             <div class="modal__content">
               <div class="search-form">
-                <div class="input-group" style="width: 80%;">
+                <div class="input-group" style="width: 100%;">
                   <%= form_tag(recipes_path,:method => 'get') do %>
-                    <%= text_field_tag :search, class: "form-control" %>
-                    <%= submit_tag '検索', :name => nil, class: "btn btn-default" %>
+                    <%= text_field_tag :search %>
+                    <%= submit_tag '検索', :name => nil, class: "search-btn" %>
                   <% end %>
                 </div>
               </div>
@@ -181,7 +183,7 @@
 
     <footer>
       <div class="copyright">
-        <p class="contact">© 2020 - SmartKitchen</p>
+        <p class="contact">© 2020 - SimpleKitchen</p>
       </div>
       <div class="sns">
         <a href="#" class="contact">Contact</a>
