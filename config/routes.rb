@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'about' => 'homes#about'
   get 'search' => 'recipes#search'
+  post '/homes/guest_sign_in', to: 'homes#new_guest'
 
   resources :users, only: [:show, :edit, :update] do
     resource :relationships, only: [:create, :destroy]

@@ -49,7 +49,7 @@ a {
 .body-image2 {
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(255,255,255,0.2);
   position: fixed;
   left: 0;
   top: 0;
@@ -73,6 +73,19 @@ header {
     strong {
       font-size: 50px;
     }
+  }
+}
+
+.alert {
+  text-align: center;
+  width: 100%;
+  margin-top: 100px;
+  height: 60px;
+  font-size: 20px;
+  a {
+    font-size: 24px;
+    color: silver;
+    margin-bottom: 5px;
   }
 }
 
@@ -311,8 +324,7 @@ main {
 /*-----トップページ-----*/
 .top-image {
   width: 100%;
-  height: 1400px;
-  background:rgba(0,0,0,0.1);
+  height: 1200px;
 }
 .top-image-content {
   margin: auto;
@@ -322,7 +334,7 @@ main {
     font-size: 80px;
     color: black;
     padding-top: 250px;
-    padding-bottom: 85px;
+    padding-bottom: 70px;
     margin: 0;
     strong {
       font-size: 100px;
@@ -330,14 +342,16 @@ main {
   }
   h4 {
     font-size: 25px;
-    color: black;
   }
 }
 .top-image-body {
   margin-top: 400px;
+  padding-top: 250px;
+  padding-bottom: 320px;
   text-align: center;
   color: black;
-  font-size: 20px;
+  font-size: 22px;
+  background: rgba(255,255,255,0.5);
 }
 .top-image-text2 {
   margin-top: 40px;
@@ -351,7 +365,7 @@ main {
 }
 .top-contents {
   height: 200px;
-  padding-top: 40px;
+  padding-top: 100px;
 }
 .top-contents:hover {
   .top-content-text {
@@ -374,6 +388,42 @@ main {
     }
   h4 {
     font-size: 22px;
+  }
+}
+/*-----トップページボタン-----*/
+.top-button {
+  padding: 8px 40px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 22px;
+  display: inline-block;
+  border-radius: 0.3em;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  margin: 15px;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid;
+  &:before {
+    content: "";
+    background: rgba(255,255,255,0.9);
+    height: 100%;
+    width: 3em;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -4.5em;
+    transform: skewX(-45deg) translateX(0);
+    transition: none;
+  }
+  &:hover {
+    background-color: silver;
+    color: #fff;
+    border-bottom: 4px solid darken(black, 10%);
+    &:before {
+      transform: skewX(-45deg) translateX(25em);
+     transition: all 0.6s ease-in-out;
+    }
   }
 }
 
@@ -405,9 +455,9 @@ main {
   }
 }
 .top-recipe-title {
-  color: black;
   h3 {
-    font-size: 34px;
+    font-size: 35px;
+    font-weight: 800;
   }
 }
 .index-back {
@@ -467,6 +517,11 @@ main {
   .material {
     margin-top: 30px;
   }
+}
+
+/*-----レシピコメントモーダル-----*/
+.comment-modal-content {
+  display: none;
 }
 
 /*-----レシピ投稿・編集ペーシ-----*/
@@ -819,40 +874,3 @@ footer .sns .contact {
     transform: skewY(-45deg) translateX(12.5em);
   }
 }
-$color: black;
-
-/*-----トップページボタン-----*/
-.top-button {
-  padding: 10px 50px;
-  text-align: center;
-  text-decoration: none;
-  border: 2px solid $color;
-  font-size: 24px;
-  display: inline-block;
-  border-radius: 0.3em;
-  transition: all 0.2s ease-in-out;
-  position: relative;
-  overflow: hidden;
-  &:before {
-    content: "";
-    background: rgba(255,255,255,0.9);
-    height: 100%;
-    width: 3em;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: -4.5em;
-    transform: skewX(-45deg) translateX(0);
-    transition: none;
-  }
-  &:hover {
-    background-color: silver;
-    color: #fff;
-    border-bottom: 4px solid darken($color, 10%);
-    &:before {
-      transform: skewX(-45deg) translateX(13.5em);
-     transition: all 0.5s ease-in-out;
-    }
-  }
-}
-

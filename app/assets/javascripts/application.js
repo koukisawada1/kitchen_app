@@ -61,6 +61,20 @@ $(function(){
         $('.tag-modal').fadeOut();
         return false;
     });
+//　-----コメントフォームモーダル-----
+    $('.comment-modal-open').on('click',function(){
+        $('.comment-modal-content').fadeIn();
+        return false;
+    });
+    $('.comment-modal-close').on('click',function(){
+        $('.comment-modal-content').fadeOut();
+        return false;
+    });
+// -----フラッシュメッセージ削除ボタン-----
+    $('.alert-close').on('click',function(){
+        $('.alert').fadeOut();
+        return false;
+    });
 
 // -----レシピ/ユーザー画像プレビュー-----
     function readURL(input) {

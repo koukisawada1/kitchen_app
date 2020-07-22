@@ -7,6 +7,9 @@
 				<% if user_signed_in? %>
 					<h4 class="text-center">ようこそ <%= current_user.name %>さん</h4>
 				<% else %>
+					<div class="col-sm-12 text-center">
+						<%= link_to 'ゲストログイン（閲覧用）', homes_guest_sign_in_path, method: :post, class: "top-button" %>
+					</div>
 					<div class="col-sm-6 text-center">
 					    <%= link_to "ログイン", new_user_session_path, class: "top-button" %>
 					</div>

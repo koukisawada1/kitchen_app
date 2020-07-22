@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.save
       flash[:notice] = "コメントを投稿しました"
-      redirect_to recipe_path(@recipe)
+      render :index
     else
       @comments = @recipe.comments
       flash[:alert] = "入力内容を確認してください"

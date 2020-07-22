@@ -24,6 +24,7 @@ class Recipe < ApplicationRecord
     likes.where(user_id: user.id).exists?
   end
 
+  # いいね順
   def self.create_all_ranks
     Recipe.joins(:likes).group(:recipe_id).order('count(user_id) desc')
   end
@@ -33,7 +34,6 @@ class Recipe < ApplicationRecord
     if search
       Recipe.where(['title LIKE ? OR body LIKE ? OR body LIKE ? OR body LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
     else
-      flash[:alert] = "1文字以上入力してください"
       Recipe.all
     end
   end

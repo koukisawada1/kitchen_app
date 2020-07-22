@@ -15,6 +15,9 @@ class RecipesController < ApplicationController
     elsif params[:search]
       @recipes = Recipe.page(params[:page]).search(params[:search])
       @title = "検索結果 ’ #{params[:search]} ’"
+      if @recipes.empty?
+        flash[:alert] = "1文字以上入力してください"
+      end
     elsif params[:ranks]
       @recipes = Recipe.create_all_ranks.page(params[:page])
       @title = "ランキング"
