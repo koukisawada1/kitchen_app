@@ -4,11 +4,11 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.recipe_id = @recipe.id
     @comment.user_id = current_user.id
+    @comments = @recipe.comments.order(created_at: :desc)
     if @comment.save
       flash[:notice] = "コメントを投稿しました"
       render :index
     else
-      @comments = @recipe.comments
       flash[:alert] = "入力内容を確認してください"
       render "recipes/show"
     end

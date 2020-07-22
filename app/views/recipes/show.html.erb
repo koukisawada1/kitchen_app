@@ -96,17 +96,19 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12 text-center" id="comment_form">
-            <button class="btn btn-primary comment-modal-open text-center" >
-                コメントをする
-            </button>
-            <!-- コメント投稿ボタン・フォーム（モーダル） -->
-            <%= render 'comments/new', recipe: @recipe, comment: @comment %>
+<% if user_signed_in? %>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center" id="comment_form">
+                <button class="btn btn-primary comment-modal-open text-center" >
+                    コメントをする
+                </button>
+                <!-- コメント投稿ボタン・フォーム（モーダル） -->
+                <%= render 'comments/new', recipe: @recipe, comment: @comment %>
+            </div>
         </div>
     </div>
-</div>
+<% end %>
 <div id="comments">
     <!-- コメント一覧表示 -->
     <%= render 'comments/index', comments: @comments %>

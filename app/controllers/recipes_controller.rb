@@ -14,8 +14,8 @@ class RecipesController < ApplicationController
       @title = @tag.name
     elsif params[:search]
       @recipes = Recipe.page(params[:page]).search(params[:search])
-      if @recipes.empty?
-        flash[:alert] = "’ #{params[:search]} ’に一致する情報は見つかりませんでした。"
+      if @recipes.blank?
+        @title = "’ #{params[:search]} ’に一致する情報は見つかりませんでした。"
       else
         @title = "次の検索結果を表示しています ’ #{params[:search]} ’"
       end
