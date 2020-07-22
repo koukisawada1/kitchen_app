@@ -14,9 +14,10 @@ class RecipesController < ApplicationController
       @title = @tag.name
     elsif params[:search]
       @recipes = Recipe.page(params[:page]).search(params[:search])
-      @title = "検索結果 ’ #{params[:search]} ’"
       if @recipes.empty?
-        flash[:alert] = "1文字以上入力してください"
+        flash[:alert] = "’ #{params[:search]} ’に一致する情報は見つかりませんでした。"
+      else
+        @title = "次の検索結果を表示しています ’ #{params[:search]} ’"
       end
     elsif params[:ranks]
       @recipes = Recipe.create_all_ranks.page(params[:page])
