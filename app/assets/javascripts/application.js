@@ -19,13 +19,13 @@
 
 $(function(){
 
-// ハンバーガーメニュー
+// -----ハンバーガーメニュー-----
 	$('.menu-trigger').on('click', function(event) {
     $(this).toggleClass('active');
     $('#sp-menu').fadeToggle();
     event.preventDefault();
      });
-// ヘッダー検索フォーム
+// -----ヘッダー検索フォーム-----
     $('.js-modal-open').on('click',function(){
         $('.js-modal').fadeIn();
         return false;
@@ -34,7 +34,7 @@ $(function(){
         $('.js-modal, .genre-modal, .type-modal, .tag-modal').fadeOut();
         return false;
     });
-// ジャンル一覧モーダル
+// -----ジャンル一覧モーダル------
     $('.genre-modal-open').on('click',function(){
         $('.genre-modal').fadeIn();
         return false;
@@ -43,7 +43,7 @@ $(function(){
         $('.genre-modal').fadeOut();
         return false;
     });
-// 種別一覧モーダル
+// -----種別一覧モーダル-----
     $('.type-modal-open').on('click',function(){
         $('.type-modal').fadeIn();
         return false;
@@ -52,7 +52,7 @@ $(function(){
         $('.type-modal').fadeOut();
         return false;
     });
-// タグ一覧モーダル
+// -----タグ一覧モーダル-----
     $('.tag-modal-open').on('click',function(){
         $('.tag-modal').fadeIn();
         return false;
@@ -62,16 +62,20 @@ $(function(){
         return false;
     });
 
-
-// 画像プレビューs
-    // inputのidから情報の取得
-    $('#product-image').on('change', function (e) {
-// ここから既存の画像のurlの取得
-    var reader = new FileReader();
-    reader.onload = function (e) {
-        $(".image").attr('src', e.target.result);
+// -----レシピ/ユーザー画像プレビュー-----
+    function readURL(input) {
+        if(input.files && input.files[0]){
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('.image').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
     }
-// ここまで
-    reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+    $("#recipe_image").change(function(){
+        readURL(this);
+    });
+    $("#user_image").change(function(){
+        readURL(this);
     });
 });

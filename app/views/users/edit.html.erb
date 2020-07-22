@@ -10,7 +10,7 @@
 	            		<%= attachment_image_tag(@user, :image, fallback: "no_image.jpg", size: '230x230', class: "img-circle") %>
 	          		</div>
 	          		<div class="image-select">
-						<%= f.attachment_field :image %>
+						<span class="btn btn-file btn-info"><%= f.attachment_field :image %></span>
 					</div>
 				</div>
 				<div class="col-md-6 col-md-offset-1">
