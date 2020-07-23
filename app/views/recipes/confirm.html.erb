@@ -1,18 +1,20 @@
-<div class="container">
+<div class="container recipe-confirm">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-  		<h3 class="text-center">レシピ投稿確認</h3>
+  		<h3><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> レシピ投稿確認</h3>
   	</div>
   </div>
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <div class="col-md-7">
-        <p>料理画像</p>
-        <%= attachment_image_tag(@recipe, :image, fallback: "no_image2.jpg", size: '300x300') %>
+        <%= attachment_image_tag(@recipe, :image, fallback: "no_image2.jpg", size: '400x350') %>
       </div>
       <div class="col-md-5">
         <h4><%= @recipe.title %></h4>
-        <h4><%= simple_format(@recipe.body) %></h4>
+        <% @recipe.tags.each do |tag| %>
+          <span class="badge"><%= tag.name %></span>
+        <% end %>
+        <h5><%= simple_format(@recipe.body) %></h5>
       </div>
       <div class="col-md-5">
         <table class="table table-bordered">
@@ -35,27 +37,24 @@
             </tr>
           </tbody>
         </table>
-        <% @recipe.tags.each do |tag| %>
-          <h4><span class="badge">＃<%= tag.name %></span></h4>
-        <% end %>
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row confirm-content">
     <div class="col-md-10 col-md-offset-1">
       <div class="col-md-7">
         <div class="panel panel-default">
-          <div class="panel-heading"><h4>作り方</h4></div>
+          <div class="panel-heading"><p><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 作り方</p></div>
           <div class="panel-body">
-            <h4><%= simple_format(@recipe.make) %></h4>
+            <p><%= simple_format(@recipe.make) %></p>
           </div>
         </div>
       </div>
       <div class="col-md-5">
         <div class="panel panel-default">
-          <div class="panel-heading"><h4>材料</h4></div>
+          <div class="panel-heading"><p><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 材料</p></div>
             <div class="panel-body">
-              <h4><%= simple_format(@recipe.material) %></h4>
+              <p><%= simple_format(@recipe.material) %></p>
             </div>
           </div>
         </div>
@@ -63,11 +62,11 @@
     </div>
   </div>
     <div class="row">
-      <div class="col-md-4 col-md-offset-4 confirm-btn">
-        <%= link_to "閉じる", user_path(@recipe.user), class: "btn btn-primary", style: "width: 100%;" %>
+      <div class="col-sm-4 col-xs-4 col-sm-offset-4 col-xs-offset-4 confirm-btn">
+        <%= link_to "完了", user_path(@recipe.user), class: "btn btn-success btn-lg", style: "width: 100%;" %>
       </div>
-      <div class="col-md-4 col-md-offset-4 confirm-btn">
-        <%= link_to "書き直す", edit_recipe_path(@recipe), class: "btn btn-primary", style: "width: 100%;" %>
+      <div class="col-sm-4 col-xs-4 col-sm-offset-4 col-xs-offset-4 confirm-btn">
+        <%= link_to "修正する", edit_recipe_path(@recipe), class: "btn btn-primary btn-lg", style: "width: 100%;" %>
       </div>
     </div>
   </div>

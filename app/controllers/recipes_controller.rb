@@ -72,7 +72,6 @@ class RecipesController < ApplicationController
     tag_list = params[:recipe][:name].split(",")
     if @recipe.update(recipe_params)
       @recipe.save_recipes(tag_list)
-      flash[:notice] = "レシピを更新しました"
       redirect_to confirm_recipe_path(@recipe)
     else
       flash[:alert] = "入力内容を確認してください"

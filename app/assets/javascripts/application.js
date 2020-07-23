@@ -76,17 +76,6 @@ $(function(){
         return false;
     });
 
-    $(function() {
-        var h = $(window).height();
-  
-        $('#wrap').css('display','none');
-        $('.loader').height(h).css('display','block');
-    });
-  
-    $(window).load(function () { //全ての読み込みが完了したら実行
-        $('.loader').delay(600).fadeOut(300);
-        $('#wrap').css('display', 'block');
-    });
 
 // -----レシピ/ユーザー画像プレビュー-----
     function readURL(input) {

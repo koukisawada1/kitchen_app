@@ -74,20 +74,22 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-xs-12 top-recipe-title">
-            <p>人気のレシピ</p>
+		<div class="top-recipe-title">
+            <p><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span> 人気のレシピ</p>
         </div>
-        <%= render 'recipes/index', recipes: @like_recipes %>
-	</div>
+    </div>
+    <%= render 'recipes/index', recipes: @like_recipes %>
 	<div class="col-md-12 text-center index-back">
 		<p><%= link_to "人気レシピを見る", recipes_path(ranks: 1), class: "top-button" %></p>
 	</div>
+</div>
+<div class="container">
 	<div class="row">
-		<div class="col-xs-12 top-recipe-title">
-            <p>新着レシピ</p>
+		<div class="top-recipe-title">
+            <p><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span> 新着レシピ</p>
     	</div>
-        <%= render 'recipes/index', recipes: @recipes %>
-	</div>
+    </div>
+    <%= render 'recipes/index', recipes: @recipes %>
 	<div class="col-md-12 text-center index-back">
 		<p><%= link_to "新着レシピを見る", recipes_path(new_recipes: 2), class: "top-button" %></p>
 	</div>

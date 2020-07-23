@@ -22,17 +22,19 @@
         <h4>
           <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> <%= f.label :quantity, "分量" %>
         </h4>
-        <h4>
-          <%= f.select :quantity, ["-- 選択してください --",*(1..4)], class: "form-control", required: true %> 人前
-        </h4>
+        <div class="input-group">
+          <%= f.select :quantity, [*(1..4)],{ include_blank: '選択してください'}, { class: 'form-control', required: true} %>
+          <span class="input-group-addon" id="basic-addon2">人前</span>
+        </div>
       </div>
       <div class="form-group">
         <h4>
           <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> <%= f.label :price, "費用" %>
         </h4>
-        <h4>
-          <%= f.select :price, ["-- 選択してください --",100,200,300,400,500], class: "form-control", required: true %> 円前後
-        </h4>
+        <div class="input-group">
+          <%= f.select :price, [100,200,300,400,500],{ include_blank: '選択してください'}, { class: 'form-control', required: true} %>
+          <span class="input-group-addon" id="basic-addon2">円前後</span>
+        </div>
       </div>
     </div>
   </div>
@@ -105,18 +107,21 @@
   </div>
   <div class="row select-top">
     <div class="col-md-12">
-      <h4><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 料理ジャンル</h4>
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <% @genres.each do |genre| %>
-              <label><%= f.radio_button :genre_id, genre.id, required: true %><%= genre.name %></label>
-          <% end %>
+      <div class="form-group">
+        <h4><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 料理ジャンル</h4>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <% @genres.each do |genre| %>
+                <label><%= f.radio_button :genre_id, genre.id, required: true %><%= genre.name %></label>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div class="row select">
     <div class="col-md-12">
+      <div class="form-group">
       <h4><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 料理種別</h4>
       <div class="panel panel-default">
         <div class="panel-body">
@@ -125,14 +130,17 @@
           <% end %>
         </div>
       </div>
+      </div>
     </div>
   </div>
   <div class="row select">
     <div class="col-md-12">
-      <h4><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> タグをつける（タグを複数つける場合は『 , 』で区切ってください）</h4>
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <%= f.text_field :name, value: @tag_list, class: "form-control" %>
+      <div class="form-group">
+        <h4><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> タグをつける（タグを複数つける場合は『 , 』で区切ってください）</h4>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= f.text_field :name, value: @tag_list, class: "form-control" %>
+          </div>
         </div>
       </div>
     </div>

@@ -1,15 +1,14 @@
 <div class="container recipe-index-contents">
     <div class="row">
 		<div class="top-recipe-title">
-            <p><%= @title %></p>
+            <p><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span> <%= @title %></p>
         </div>
     </div>
-        <%= render 'recipes/index', recipes: @recipes %>
-		<div class="text-center">
-			<%= paginate @recipes %>
-		</div>
-		<div class="col-md-12 text-center index-back">
-			<p><%= link_to "レシピ一覧に戻る", recipes_path, class: "top-button" %></p>
-		</div>
+    <%= render 'recipes/index', recipes: @recipes %>
+	<div class="text-center">
+		<%= paginate @recipes %>
+	</div>
+	<div class="col-md-12 text-center index-back">
+		<p><%= link_to "レシピ一覧に戻る", recipes_path, class: "top-button" %></p>
 	</div>
 </div>

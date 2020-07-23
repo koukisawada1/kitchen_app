@@ -11,8 +11,6 @@
   </head>
 
   <body>
-  <div class="loader">Loading...</div>
-  <div id="wrap">
   <div class="body-image"></div>
   <div class="body-image2"></div>
     <header>
@@ -146,7 +144,7 @@
           <div id="sp-menu">
             <ul>
               <% if user_signed_in? %>
-                <li><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>　<%= link_to 'トップページ', root_path %></li>
+                <li><span class="glyphicon glyphicon-home" aria-hidden="true"></span>　<%= link_to 'トップページ', root_path %></li>
                 <li><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>　<%= link_to 'About', about_path %></li>
                 <li><span class="glyphicon glyphicon-user" aria-hidden="true"></span>　<%= link_to 'マイページ', user_path(current_user.id) %></li>
                 <li><span class="glyphicon glyphicon-th" aria-hidden="true"></span>　<%= link_to 'レシピ一覧', recipes_path %></li>
@@ -155,7 +153,7 @@
                 </li>
                 <li><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>　<%= link_to 'ログアウト', destroy_user_session_path, method: :delete, "data-confirm" => "ログアウトします。よろしいですか？" %></li>
               <% else %>
-                <li><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>　<%= link_to 'トップページ', root_path %></li>
+                <li><span class="glyphicon glyphicon-home" aria-hidden="true"></span>　<%= link_to 'トップページ', root_path %></li>
                 <li><span class="glyphicon glyphicon-th" aria-hidden="true"></span>　<%= link_to 'レシピ一覧', recipes_path %></li>
                 <li><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>　<%= link_to 'About', about_path %></li>
                 <li><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>　<%= link_to 'ログイン', new_user_session_path %></li>
@@ -175,7 +173,7 @@
           <%= flash[:notice] %>
         </span>
       </div>
-    <% elsif flash[:alert] %>
+    <% elsif flash[:alert] %>s
       <div class="alert alert-danger slert-close" role="alert">
         <span>
           <%= flash[:alert] %>
@@ -198,6 +196,5 @@
         <a href="#" class="insta"><i class="fa fa-instagram fa-fw" aria-hidden="true"></i></a>
       </div>
     </footer>
-  </div>
   </body>
 </html>

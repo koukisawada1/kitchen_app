@@ -316,7 +316,7 @@ main {
 /*-----トップページ-----*/
 .top-image {
   width: 100%;
-  height: 1200px;
+  height: 1100px;
 }
 .top-image-content {
   margin: auto;
@@ -340,11 +340,11 @@ main {
 .top-image-body {
   margin-top: 300px;
   padding-top: 250px;
-  padding-bottom: 420px;
+  padding-bottom: 200px;
   text-align: center;
   color: black;
   font-size: 22px;
-  background: rgba(255,255,255,0.5);
+  font-weight: 600;
 }
 .top-image-text2 {
   margin-top: 40px;
@@ -415,7 +415,7 @@ main {
     background: rgba(255,255,255,0.8);
     margin-top: 80px;
     padding: 10px;
-    border-bottom: solid 1px black;
+    border-bottom: solid 1.5px black;
   }
 }
 .index-back {
@@ -449,9 +449,13 @@ main {
     }
   }
   h3 {
-    font-size: 25px;
+    font-size: 30px;
+    font-weight: 600;
+    background: rgba(255,255,255,0.8);
+    padding: 10px;
+    border-bottom: solid 1.5px black;
     span {
-      font-size: 30px;
+      font-size: 35px;
     }
   }
 }
@@ -475,9 +479,10 @@ main {
 
 /*-----レシピ投稿・編集ペーシ-----*/
 .recipe-form {
-  margin-top: 160px;
-  h3, h4, .form-group {
-    color: black;
+  margin-top: 130px;
+  .form-group {
+    background: rgba(255,255,255,0.9);
+    padding-top: 2px;
   }
   .select {
     margin: 40px 0;
@@ -490,13 +495,17 @@ main {
   }
   h3 {
     font-size: 30px;
+    font-weight: 600;
+    background: rgba(255,255,255,0.8);
+    padding: 10px;
+    border-bottom: solid 1.5px black;
     margin-bottom: 30px;
+    span {
+      font-size: 35px;
+    }
   }
   h4 {
-    font-size: 22px;
-    select {
-      padding-bottom: 5px;
-    }
+    font-size: 20px;
   }
   h5 {
     font-size: 19px;
@@ -507,7 +516,7 @@ main {
   }
 }
 .form-box {
-  background: #104300;
+  background: rgba(50,100,0,0.9);
   margin: 1em 0;
   padding: 1em 1em 0 1em;
   border: 8px solid #a60;
@@ -541,6 +550,58 @@ main {
   width: 20px;
   border-radius: 3px 2px 0 2px;
 }
+.btn-lg {
+  font-size: 24px;
+}
+
+/*-----レシピ投稿・編集確認ページ-----*/
+.recipe-confirm {
+  margin-top: 130px;
+  h3 {
+    font-size: 30px;
+    font-weight: 600;
+    background: rgba(255,255,255,0.8);
+    padding: 10px;
+    border-bottom: solid 1.5px black;
+    margin-bottom: 30px;
+    span {
+      font-size: 35px;
+    }
+  }
+  h4 {
+    font-size: 25px;
+    background: rgba(255,255,255,0.8);
+    padding: 5px;
+    border-bottom: 1px solid;
+  }
+  h5 {
+    font-size: 22px;
+    background: rgba(255,255,255,0.8);
+    padding: 5px;
+    border-bottom: 1px solid;
+  }
+  table {
+    background: rgba(255,255,255,0.8);
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  span {
+    font-size: 15px;
+  }
+  p {
+    font-size: 20px;
+    span {
+      font-size: 25px;
+    }
+  }
+  .confirm-content {
+    margin-top: 50px;
+  }
+  .btn {
+    font-size: 10px;
+  }
+}
+
 
 /*-----ユーザー詳細ペーシ-----*/
 .user-profile {
@@ -606,13 +667,29 @@ main {
   margin-bottom: 40px;
   h3 {
     font-size: 30px;
-    margin-bottom: 20px;
+    font-weight: 600;
+    background: rgba(255,255,255,0.8);
+    padding: 10px;
+    border-bottom: solid 1.5px black;
+    margin-bottom: 30px;
+    span {
+      font-size: 30px;
+    }
   }
   h4 {
-    font-size: 18px;
+    font-size: 20px;
+    background: rgba(255,255,255,0.8);
+    border-bottom: solid 1.5px black;
+    padding: 10px;
   }
-  span {
-      font-size: 35px;
+  h5 {
+    font-size: 19px;
+  }
+  .btn-lg {
+    margin-top: 50px;
+  }
+  .img-circle {
+    margin-bottom: 30px;
   }
 }
 
