@@ -1,6 +1,7 @@
 <div class="container recipe-user">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
+            <p class="recipe-show-title"><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span> レシピ詳細ページ</p>
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
@@ -49,8 +50,6 @@
         	</div>
         </div>
     </div>
-</div>
-<div class="container recipe-show">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
         	<div class="col-md-7">
@@ -95,10 +94,8 @@
             </div>
         </div>
     </div>
-</div>
-<% if user_signed_in? %>
-    <div class="container">
-        <div class="row">
+    <div class="row">
+        <% if user_signed_in? %>
             <div class="col-sm-12 text-center" id="comment_form">
                 <button class="btn btn-primary comment-modal-open text-center" >
                     コメントをする
@@ -106,13 +103,15 @@
                 <!-- コメント投稿ボタン・フォーム（モーダル） -->
                 <%= render 'comments/new', recipe: @recipe, comment: @comment %>
             </div>
-        </div>
+        <% end %>
     </div>
-<% end %>
-<div id="comments">
-    <!-- コメント一覧表示 -->
-    <%= render 'comments/index', comments: @comments %>
+    <div id="comments">
+        <!-- コメント一覧表示 -->
+        <%= render 'comments/index', comments: @comments %>
+    </div>
 </div>
+
+
 
 
 

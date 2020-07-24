@@ -2,17 +2,17 @@
 <!-- モーダル・ダイアログ -->
 <div class="col-sm-10 col-sm-offset-1">
 	<div class="comment-modal-content">
-			<%= render 'layouts/error', model: comment %>
-			<%= form_for [recipe, comment], remote: true do |f| %>
-				<div class="modal-body">
-					<%= f.text_area :comment, class: "form-control" %>
-				</div>
-				<div class="modal-footer">
-					<p>
-						<button class="btn btn-default comment-modal-close">閉じる</button>&nbsp;
-						<%= f.submit "投稿", class: "btn btn-primary" %>
-					</p>
-				</div>
-			<% end %>
+		<%= render 'layouts/error', model: comment %>
+		<%= form_for [recipe, comment], remote: true do |f| %>
+			<div class="modal-body">
+				<%= f.text_area :comment, class: "form-control" %>
+			</div>
+			<div class="modal-footer">
+				<p>
+					<button class="btn btn-default comment-modal-close">閉じる</button>&nbsp;
+					<%= f.submit "投稿", class: "btn btn-primary" %>
+				</p>
+			</div>
+		<% end %>
 	</div>
 </div>

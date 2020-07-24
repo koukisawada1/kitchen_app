@@ -49,7 +49,7 @@ a {
 .body-image2 {
   width: 100%;
   height: 100%;
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.15);
   position: fixed;
   left: 0;
   top: 0;
@@ -316,7 +316,7 @@ main {
 /*-----トップページ-----*/
 .top-image {
   width: 100%;
-  height: 1000px;
+  height: 1100px;
 }
 .top-image-content {
   margin: auto;
@@ -338,7 +338,7 @@ main {
   }
 }
 .top-image-body {
-  margin-top: 300px;
+  margin-top: 330px;
   padding-bottom: 150px;
   text-align: center;
   color: black;
@@ -350,7 +350,7 @@ main {
   line-height: 40px;
 }
 .top-nav {
-  margin: 200px 0;
+  margin-bottom: 200px;
   .col-xs-6 {
     margin-bottom: 15px;
   }
@@ -381,10 +381,15 @@ main {
     font-size: 22px;
   }
 }
+.top-recipe-index {
+  background-color: #FFFFFF;
+}
 
 /*-----レシピ一覧-----*/
 .recipe-index-contents {
-  margin-top: 80px;
+  margin-top: 150px;
+  padding: 10px;
+  background-color: #FFFFFF;
 }
 .recipe-index {
   margin-bottom: 100px;
@@ -392,8 +397,6 @@ main {
 .recipe-items {
   padding-top: 10px;
   margin-bottom: 15px;
-  /*border : solid 1px #DCDCDC;
-  background-color: black;*/
 }
 .recipes {
   padding: 5px;
@@ -411,10 +414,12 @@ main {
   p {
     font-size: 30px;
     font-weight: 600;
-    background: rgba(255,255,255,0.8);
-    margin-top: 80px;
     padding: 10px;
     border-bottom: solid 1.5px black;
+    span {
+      color:  #CD853F;
+      font-size: 40px;
+    }
   }
 }
 .index-back {
@@ -437,7 +442,7 @@ main {
 
 /*-----レシピ詳細ページ------*/
 .recipe-show {
-  margin-top: 30px;
+  margin-top: 10px;
   tr {
     background: rgba(255,255,255,0.9);
   }
@@ -459,15 +464,25 @@ main {
   }
 }
 .recipe-user {
+  padding: 40px;
+  background-color: #FFFFFF;
   margin-top: 160px;
   .col-sm-9 {
     h4 {
-      color: black;
       font-size: 20px;
     }
   }
   .material {
     margin-top: 30px;
+  }
+}
+.recipe-show-title {
+  font-size: 30px;
+  padding-bottom: 20px;
+  font-weight: 600;
+  span {
+    font-size: 40px;
+    color:  #CD853F;
   }
 }
 
@@ -479,9 +494,10 @@ main {
 /*-----レシピ投稿・編集ペーシ-----*/
 .recipe-form {
   margin-top: 130px;
+  background-color: #FFFFFF;
+  padding-bottom: 40px;
   .form-group {
-    background: rgba(255,255,255,0.9);
-    padding-top: 2px;
+    padding: 1px 5px;
   }
   .select {
     margin: 40px 0;
@@ -501,6 +517,7 @@ main {
     margin-bottom: 30px;
     span {
       font-size: 35px;
+      color:  #CD853F;
     }
   }
   h4 {
@@ -512,6 +529,11 @@ main {
   label {
     font-size: 18px;
     padding-right: 15px;
+  }
+  .col-md-7 {
+    h4 {
+      background: rgba(255,255,255,0.8);
+    }
   }
 }
 .form-box {
@@ -556,31 +578,30 @@ main {
 /*-----レシピ投稿・編集確認ページ-----*/
 .recipe-confirm {
   margin-top: 130px;
+  background: rgba(255,255,255,0.9);
+  padding-bottom: 40px;
   h3 {
     font-size: 30px;
     font-weight: 600;
-    background: rgba(255,255,255,0.8);
     padding: 10px;
     border-bottom: solid 1.5px black;
     margin-bottom: 30px;
     span {
       font-size: 35px;
+      color:  #CD853F;
     }
   }
   h4 {
     font-size: 25px;
-    background: rgba(255,255,255,0.8);
     padding: 5px;
     border-bottom: 1px solid;
   }
   h5 {
     font-size: 22px;
-    background: rgba(255,255,255,0.8);
     padding: 5px;
     border-bottom: 1px solid;
   }
   table {
-    background: rgba(255,255,255,0.8);
     font-size: 18px;
     margin-top: 20px;
   }
@@ -597,15 +618,26 @@ main {
     margin-top: 50px;
   }
   .btn {
-    font-size: 10px;
+    font-size: 18px;
   }
 }
 
 
 /*-----ユーザー詳細ペーシ-----*/
 .user-profile {
-  margin-top: 160px;
+  margin-top: 130px;
   margin-bottom: 40px;
+  padding: 40px;
+  background-color: #FFFFFF;
+  .user-show-title {
+    font-size: 30px;
+    font-weight: 600;
+    padding-bottom: 30px;
+    span {
+      font-size: 40px;
+      color: #AAAAAA;
+    }
+  }
   h3 {
     font-size: 28px;
     span {
@@ -613,9 +645,7 @@ main {
     }
   }
   h4 {
-    color: black;
     margin-top: 35px;
-    font-size: 24px;
   }
   .btn {
     margin-top: 10px;
@@ -627,22 +657,21 @@ main {
     background: rgba(255,255,255,0.9);
     border-bottom: solid 2px silver;
     h4 {
-      color: black;
       margin-top: 10px;
-      font-size: 20px;
+      font-size: 14px;
     }
     .btn {
       margin-top: 40px;
     }
   }
   li {
-    font-size: 18px;
+    font-size: 16px;
     color: black;
-    a {
-      color: black;
-    }
   }
   .tab-content {
+    h4 {
+      font-size: 16px;
+    }
     h3 {
       color: black;
     }
@@ -661,23 +690,24 @@ main {
 }
 
 /*-----ユーザ情報編集ページ-----*/
-.user-profile {
+.user-profile-edit {
   margin-top: 110px;
   margin-bottom: 40px;
+  background: rgba(255,255,255,0.9);
+  padding-bottom: 40px;
   h3 {
     font-size: 30px;
     font-weight: 600;
-    background: rgba(255,255,255,0.8);
     padding: 10px;
     border-bottom: solid 1.5px black;
     margin-bottom: 30px;
     span {
       font-size: 30px;
+      color:  #CD853F;
     }
   }
   h4 {
     font-size: 20px;
-    background: rgba(255,255,255,0.8);
     border-bottom: solid 1.5px black;
     padding: 10px;
   }
@@ -696,7 +726,7 @@ main {
 footer {
 	width: 100%;
 	height: 60px;
-	margin-top: 150px;
+	margin-top: 50px;
   background-color: #9E9E9E;
   text-align: center;
   z-index: 1;
@@ -822,6 +852,7 @@ footer .sns .contact {
   }
 }
 
+/*-----トップページボタン-----*/
 a.top-button {
   margin: 20px;
   position: relative;
@@ -948,54 +979,11 @@ a.top-button {
   }
 }
 
-/*-----トップページボタン-----*/
 @keyframes sheen {
   0% {
     transform: skewY(-45deg) translateX(0);
   }
   100% {
     transform: skewY(-45deg) translateX(12.5em);
-  }
-}
-.loader,
-.loader:after {
-  border-radius: 50%;
-  width: 10em;
-  height: 10em;
-}
-.loader {
-  display: none;
-  margin: 60px auto;
-  font-size: 10px;
-  position: relative;
-  text-indent: -9999em;
-  border-top: 1.1em solid rgba(0, 255, 0, 0.9);
-  border-right: 1.1em solid rgba(0, 255, 0, 0.9);
-  border-bottom: 1.1em solid rgba(0, 255, 0, 0.9);
-  border-left: 1.1em rgba(0, 255, 255, 0.9);
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-animation: load8 1.1s infinite linear;
-  animation: load8 1.1s infinite linear;
-}
-@-webkit-keyframes load8 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@keyframes load8 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
   }
 }

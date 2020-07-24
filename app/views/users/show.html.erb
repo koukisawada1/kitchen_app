@@ -1,11 +1,16 @@
-<div class="container">
-    <div class="row user-profile">
+<div class="container user-profile">
+    <div class="row">
         <div class="col-md-10 col-md-offset-1">
+            <% if @user == current_user %>
+                <p class="user-show-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> マイページ</p>
+            <% else %>
+                <p class="user-show-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%= @user.name %>さんのページ</p>
+            <% end %>
             <div class="col-sm-6 col-xs-6">
             	<%= attachment_image_tag(@user, :image, fallback: "no_image.jpg", size: '230x230', class: "img-circle") %>
             </div>
             <div class="col-sm-6 col-xs-6">
-            	<h3><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%= @user.name %>さん</h3>
+            	<h3><%= @user.name %>さん</h3>
             	<h4><%= simple_format(@user.introduction) %></h4>
             	<% if @user == current_user %>
                     <div class="col-md-6 btn">
