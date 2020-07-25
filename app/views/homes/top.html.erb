@@ -19,56 +19,6 @@
 				<% end %>
 			</div>
 		</div>
-		<div class="top-image-body">
-			<div class="top-image-text1">
-				<p>レシピの投稿・共有サイトです。</p>
-			</div>
-			<div class="top-image-text2">
-				<p>自分が考えた短時間・低価格で簡単なレシピを投稿することができ、<br>普段あまり料理をしない人に対してもハードルの低いレシピを共有することができます。</p>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="top-nav">
-	<div class="container">
-	    <div class="row">
-	      	<div class="col-sm-3 col-xs-6">
-	      		<%= link_to new_recipe_path do %>
-				    <div class="top-contents">
-				    	<div class="top-content-text">
-				    		<p><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 	<h4>レシピを書く</h4></p>
-				    	</div>
-				    </div>
-				<% end %>
-			</div>
-			<div class="col-sm-3 col-xs-6">
-				<%= link_to recipes_path do %>
-				    <div class="top-contents">
-				    	<div class="top-content-text">
-				    		<p><span class="glyphicon glyphicon-th" aria-hidden="true"></span> <h4>レシピ一覧</h4></p>
-				    	</div>
-				    </div>
-				<% end %>
-			</div>
-			<div class="col-sm-3 col-xs-6">
-				<a class="js-modal-open" href="#">
-				    <div class="top-contents">
-				    	<div class="top-content-text">
-				    		<p><span class="glyphicon glyphicon-search" aria-hidden="true"></span> <h4>レシピを探す</h4></p>
-				    	</div>
-				    </div>
-				</a>
-			</div>
-			<div class="col-sm-3 col-xs-6">
-				<%= link_to about_path do %>
-				    <div class="top-contents">
-				    	<div class="top-content-text">
-				    		<p><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> <h4>About</h4></p>
-				    	</div>
-				    </div>
-				<% end %>
-			</div>
-		</div>
 	</div>
 </div>
 <div class="container top-recipe-index">
@@ -81,6 +31,8 @@
 	<div class="col-md-12 text-center index-back">
 		<p><%= link_to "人気レシピを見る", recipes_path(ranks: 1), class: "top-button" %></p>
 	</div>
+</div>
+<div class="container top-recipe-index">
 	<div class="row">
 		<div class="top-recipe-title">
             <p><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span> 新着レシピ</p>
@@ -91,4 +43,5 @@
 		<p><%= link_to "新着レシピを見る", recipes_path(new_recipes: 2), class: "top-button" %></p>
 	</div>
 </div>
+
 
