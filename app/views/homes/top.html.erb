@@ -8,6 +8,9 @@
 					<h4 class="text-center">ようこそ <%= current_user.name %>さん</h4>
 				<% else %>
 					<div class="col-sm-12 text-center">
+						<p><%= link_to "→はじめて利用する方へ", about_path %></p>
+					</div>
+					<div class="col-sm-12 text-center">
 						<%= link_to 'ゲストログイン（閲覧用）', homes_guest_sign_in_path, method: :post, class: "top-button" %>
 					</div>
 					<div class="col-sm-6 text-center">

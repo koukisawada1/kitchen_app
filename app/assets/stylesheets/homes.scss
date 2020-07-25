@@ -2,3 +2,51 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/*-----aboutページ-----*/
+.about-main {
+	height: 600px;
+	text-align: center;
+	margin: 120px 20px auto;
+	background-color: #FFFFFF;
+	.about-main-title {
+		margin-top: 110px;
+		p {
+			font-size: 60px;
+			font-family: 'Amatic SC', cursive;
+		}
+		strong {
+			font-size: 80px;
+			font-family: 'Amatic SC', cursive;
+		}
+		h3 {
+			font-size: 40px;
+			background: linear-gradient(transparent 60%, #ffddbc 0%);
+			margin: 30px auto;
+			width: 720px;
+			text-align: center;
+		}
+	}
+	.about-main-body {
+		margin: 40px auto;
+		h4 {
+			font-size: 20px;
+		}
+		p {
+			font-size: 18px;
+			margin: 10px auto;
+		}
+	}
+}
+
+.about {
+
+}
+
+.about-index {
+	.about-index-contents {
+
+	}
+	.about-box {
+
+	}
+}

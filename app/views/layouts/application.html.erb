@@ -49,7 +49,7 @@
                       <% end %>
                     </div>
                     <div class="col-md-6 col-xs-6">
-                      <%= link_to recipes_path(new_recipes: 2) do %>
+                      <%= link_to recipes_path(new_recipes: 1) do %>
                         <div class="new_recipes">
                           <span class="glyphicon glyphicon-ok" aria-hidden="true"> 新着レシピ</span>
                         </div>
@@ -104,7 +104,7 @@
                         </div>
                       </div>
                     <% end %>
-                  <% end %>
+                 <% end %>
                 </div>
                 <div class="col-xs-12 text-center">
                   <a class="type-modal-close top-button" href="#">閉じる</a>
@@ -118,14 +118,14 @@
                     <%= link_to recipes_path(tag_id: tag.id) do %>
                       <div class="col-md-3 col-xs-6 text-center">
                         <div class="col-md-12">
-                          <h4><%= tag.name %></h4>
+                          <h4># <%= tag.name %></h4>
                         </div>
                       </div>
                     <% end %>
                   <% end %>
                 </div>
                 <div class="col-xs-12 text-center top-button">
-                  <a class="tag-modal-close" href="#">閉じる</a>
+                  <a class="tag-modal-close top-button" href="#">閉じる</a>
                 </div>
               </div>
 
