@@ -1,7 +1,5 @@
 class Recipe < ApplicationRecord
 
-  # default_scope -> { order("likes.user_id desc") }
-
   attachment :image
 
   belongs_to :genre
