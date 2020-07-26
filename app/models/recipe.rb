@@ -27,7 +27,7 @@ class Recipe < ApplicationRecord
   # いいね順
   def self.create_all_ranks
     Recipe.joins(:likes).group(:recipe_id).order(Arel.sql('count(user_id) desc'))
-    # Recipe.joins(:likes).group(:recipe_id).order('count(user_id) desc') この記述だと本番環境でエラーが出る
+    # Recipe.joins(:likes).group(:recipe_id).order('count(user_id) desc') この記述だと警告分が出る
   end
 
   # 検索機能
