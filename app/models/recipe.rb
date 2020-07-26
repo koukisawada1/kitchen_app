@@ -1,4 +1,7 @@
 class Recipe < ApplicationRecord
+
+  # default_scope -> { order("likes.user_id desc") }
+
   attachment :image
 
   belongs_to :genre
@@ -24,9 +27,10 @@ class Recipe < ApplicationRecord
     likes.where(user_id: user.id).exists?
   end
 
+
   # いいね順
   def self.create_all_ranks
-    Recipe.joins(:likes).group(:recipe_id).order(Arel.sql('count(user_id) desc'))
+    Recipe.joins(:likes).group(:recipe_id).order(Arel.sql('count(likes.user_id) desc'))
     # Recipe.joins(:likes).group(:recipe_id).order('count(user_id) desc') この記述だと警告分が出る
   end
 
