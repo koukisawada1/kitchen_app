@@ -5,6 +5,7 @@ class LikesController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @like = @recipe.likes.new(user_id: current_user.id)
     @like.save
+    @recipe.create_notification_by(current_user)
   end
 
   def destroy

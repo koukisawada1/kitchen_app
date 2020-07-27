@@ -7,6 +7,12 @@ Rails.application.routes.draw do
   get 'search' => 'recipes#search'
   post '/homes/guest_sign_in', to: 'homes#new_guest'
 
+  resources :notifications, only: [:index] do
+    collection do
+      delete :destroy_all
+    end
+  end
+
   resources :users, only: [:show, :edit, :update] do
     resource :relationships, only: [:create, :destroy]
   end
