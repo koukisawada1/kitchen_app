@@ -12,6 +12,9 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   # userがどrecipeにいいねしているかを表示する
   has_many :like_recipes, through: :likes, source: :recipe
+  has_many :browsing_histories, dependent: :destroy
+  # userのrecipe閲覧履歴の取得
+  has_many :browsing_historie_recipes, through: :browsing_histories, source: :recipe
   has_many :comments, dependent: :destroy
   # フォロー取得
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy

@@ -39,6 +39,18 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @comment = Comment.new
     @comments = @recipe.comments.order(created_at: :desc)
+    new_history = @recipe.browsing_histories.new
+    new_history.user_id = current_user.id
+    if current_user.browsing_histories.exists?(recipe_id: params[:id])
+      old_history = current_user.browsing_histories.find_by(recipe_id: params[:id])
+      old_history.destroy
+    end
+    new_history.save
+    histories_stock_limit = 12
+    histories = current_user.browsing_histories.all
+    if histories.count > histories_stock_limit
+      histories[0].destroy
+    end
   end
 
   def new
