@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :browsing_histories, only: [:index]
+
   resources :users, only: [:show, :edit, :update] do
     resource :relationships, only: [:create, :destroy]
   end

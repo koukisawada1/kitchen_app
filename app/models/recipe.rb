@@ -6,7 +6,8 @@ class Recipe < ApplicationRecord
   belongs_to :type
   belongs_to :user
   has_many :comments
-  has_many :likes
+  has_many :likes, dependent: :destroy
+  has_many :browsing_histories, dependent: :destroy
   has_many :recipe_tags, dependent: :destroy
   has_many :tags, through: :recipe_tags
   has_many :notifications, dependent: :destroy
