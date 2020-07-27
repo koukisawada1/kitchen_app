@@ -780,10 +780,7 @@ footer .sns .contact {
   margin-top: 30px;
 }
 
-/*-----レシピ詳細ページ-----*/
-
-
-/*⬇-----レスポンシブ　スマホ-----*/
+/*-----レスポンシブ　スマホ-----*/
 /*-----フッター-----*/
 @media (max-width: 767px) {
   .contents {
@@ -937,6 +934,58 @@ a.top-button {
   background: #b25552;
   border-radius: 5px 0 0 5px;
 }
+
+/*-----通知------*/
+.notification {
+  margin-top: 120px;
+  background-color: #FFFFFF;
+  h3 {
+    font-size: 25px;
+    background: linear-gradient(transparent 60%, #ffddbc 0%);
+    width: 100px;
+    margin: 15px auto;
+  }
+  .notification-items {
+    p {
+    padding: 5px;
+    border-bottom: solid 0.5px silver;
+    }
+  }
+  h5 {
+    font-size: 20px;
+    i {
+      font-size: 25px;
+    }
+  }
+  h4 {
+    margin: 20px auto;
+  }
+  h2 {
+    text-align: center;
+    .top-button {
+    font-size: 16px;
+    margin: 30px auto;
+    }
+  }
+}
+/*-----通知アイコン-----*/
+.notification-icon {
+  position: fixed;
+  right: 168px;
+  top: 35px;
+  z-index: 10;
+  .fas {
+    font-size: 38px;
+  }
+  .fa {
+    position: fixed;
+    right: 165px;
+    top: 25px;
+    z-index: 11;
+    font-size: 20px;
+  }
+}
+
 
 /*-----トップページシャッターアニメーション-----*/
 .shutter{

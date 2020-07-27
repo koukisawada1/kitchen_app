@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comments = @recipe.comments.order(created_at: :desc)
     if @comment.save
+      @comment.recipe.create_notification_comment!(current_user, @comment.id)
       flash[:notice] = "コメントを投稿しました"
       render :index
     else

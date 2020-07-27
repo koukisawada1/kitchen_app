@@ -163,6 +163,17 @@
           </div>
         </div>
       </div>
+      <!-- 通知アイコン -->
+      <% if user_signed_in? %>
+        <div class="notification-icon">
+          <% if unchecked_notifications.any? %>
+            <i class="fa fa-circle" style="color: red;"></i>
+          <% end %>
+          <%= link_to notifications_path do %>
+            <i class="fas fa-bell"></i>
+          <% end %>
+        </div>
+      <% end %>
     </header>
 
 
