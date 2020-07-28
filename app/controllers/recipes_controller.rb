@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+
   def index
     if params[:genre_id]
       @genre = Genre.find(params[:genre_id])
@@ -83,6 +84,9 @@ class RecipesController < ApplicationController
   def edit
     @recipe = Recipe.find(params[:id])
     @tag_list = @recipe.tags.pluck(:name).join(",")
+    if @recipe.user != current_user
+      redirect_to root_path, notice: "不正なアクセスです"
+    end
   end
 
   def update
@@ -99,6 +103,9 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe = Recipe.find(params[:id])
+    if @recipe.user != current_user
+      redirect_to root_path, notice: "不正なアクセスです"
+    end
     @recipe.destroy
     redirect_to user_path(current_user.id)
   end

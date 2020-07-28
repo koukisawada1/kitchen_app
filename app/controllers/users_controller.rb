@@ -7,6 +7,9 @@ class UsersController < ApplicationController
   end
 
   def edit
+    if @user != current_user
+      redirect_to root_path, notice: "不正なアクセスです"
+    end
   end
 
   def update
@@ -17,16 +20,6 @@ class UsersController < ApplicationController
       flash[:alert] = "入力情報を確認してください"
       render "edit"
     end
-  end
-
-  def unsubscribe
-    if @user != current_user
-      flash[:alert] = "不正なアクセスです"
-      redirect_to root_path
-    end
-  end
-
-  def leave
   end
 
   private

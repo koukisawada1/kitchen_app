@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   def header_action
     @genres = Genre.all
     @types = Type.all
-    @tags = Tag.all
+    @tags = Tag.all.limit(12)
   end
 
   Refile.secret_key = '44a1cadb2e1af5580b9e05dd2fa2c7a04094b1614c97910eab056096c40e67f1ceec4e6496f03d7de3d503de5dfadfa41db1ff48ae537ec788164727c6b46a46'
