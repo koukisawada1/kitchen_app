@@ -73,7 +73,7 @@
                   </div>
                 </div>
               </div>
-
+              <!-- 検索モーダルジャンル一覧 -->
               <div class="genre-modal">
                 <div class="row">
                   <% @genres.each do |genre| %>
@@ -91,7 +91,6 @@
                   <a class="genre-modal-close top-button" href="#">閉じる</a>
                 </div>
               </div>
-
               <!-- 検索モーダル種別一覧 -->
               <div class="type-modal">
                 <div class="row">
@@ -110,7 +109,6 @@
                   <a class="type-modal-close top-button" href="#">閉じる</a>
                 </div>
               </div>
-
               <!-- 検索モーダルタグ一覧 -->
               <div class="tag-modal">
                 <div class="row">
@@ -128,12 +126,12 @@
                   <a class="tag-modal-close top-button" href="#">閉じる</a>
                 </div>
               </div>
-
-
+              <!-- 検索モーダル閉じるボタン -->
               <a class="js-modal-close close-btn" href=""><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
             </div>
           </div>
           <!-- ハンバーガーメニュー -->
+          <!-- アイコン -->
           <div id="hm-icon">
             <a class="menu-trigger" href="#">
               <span></span>
@@ -141,6 +139,7 @@
               <span></span>
             </a>
           </div>
+          <!-- メニュー中身 -->
           <div id="sp-menu">
             <ul>
               <% if user_signed_in? %>
@@ -178,7 +177,7 @@
     </header>
 
 
-<!-- フラッシュメッセージ -->
+    <!-- フラッシュメッセージ -->
     <% if flash[:notice] %>
       <div class="alert alert-success alert-close" role="alert">
         <span>
@@ -197,6 +196,7 @@
       <%= yield %>
     </main>
 
+    <!-- フッター -->
     <footer>
       <div class="copyright">
         <p class="contact">© 2020 - SimpleKitchen</p>

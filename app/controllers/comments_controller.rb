@@ -1,11 +1,14 @@
 class CommentsController < ApplicationController
+  # コメント保存
   def create
     @recipe = Recipe.find(params[:recipe_id])
     @comment = Comment.new(comment_params)
     @comment.recipe_id = @recipe.id
     @comment.user_id = current_user.id
+    # コメントを新しい順に表示
     @comments = @recipe.comments.order(created_at: :desc)
     if @comment.save
+      # コメントしたユーザーへ通知
       @comment.recipe.create_notification_comment!(current_user, @comment.id)
       flash[:notice] = "コメントを投稿しました"
       render :index
@@ -15,9 +18,11 @@ class CommentsController < ApplicationController
     end
   end
 
+  # コメント削除
   def destroy
     @recipe = Recipe.find(params[:recipe_id])
     @comment = Comment.find_by(id: params[:id], recipe_id: @recipe.id)
+    # コメントを新しい順に表示
     @comments = @recipe.comments.order(created_at: :desc)
     if @comment.user_id != current_user.id
       flash[:alert] = "不正なアクセスです"
