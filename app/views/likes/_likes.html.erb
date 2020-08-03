@@ -1,5 +1,8 @@
+<!-- いいねボタンテンプレート -->
 <p class="text-center">
+	<!-- レシピにいいねしていた場合 -->
 	<% if recipe.liked_by?(current_user) %>
+		<!-- いいねを外す -->
 		<%= link_to recipe_likes_path(recipe), method: :delete, "data-confirm" => "マイレシピから削除します。よろしいですか？", remote: true do %>
 				<button type="button" class="btn btn-default">
 					<span class="glyphicon glyphicon-heart" style="color: tomato;"></span>
@@ -7,6 +10,7 @@
 				</button>
 		<% end %>
 	<% else %>
+		<!-- いいねする -->
 		<%= link_to recipe_likes_path(recipe), method: :post, remote: true do %>
 			<button type="button" class="btn btn-warning">
 				<span class="glyphicon glyphicon-heart" style="color: tomato;"></span>

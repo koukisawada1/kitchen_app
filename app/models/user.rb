@@ -30,7 +30,7 @@ class User < ApplicationRecord
 
   # バリテーション
   validates :email, presence: true, uniqueness: true
-  validates :introduction, length: { maximum: 200 }
+  validates :introduction, length: { maximum: 100 }
   validates :name, presence: true, length: { in: 2..20 }
 
   # ユーザーをフォローする
@@ -57,7 +57,9 @@ class User < ApplicationRecord
   end
 
   def create_notification_follow!(current_user)
-    temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])
+    temp = Notification.where([
+      "visiter_id = ? and visited_id = ? and action = ? ", current_user.id, id, 'follow',
+    ])
     if temp.blank?
       notification = current_user.active_notifications.new(
         visited_id: id,
@@ -66,5 +68,4 @@ class User < ApplicationRecord
       notification.save if notification.valid?
     end
   end
-  
 end

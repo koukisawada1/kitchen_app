@@ -1,3 +1,4 @@
+<!-- ユーザ詳細ページ -->
 <div class="container user-profile">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -23,44 +24,41 @@
             </div>
         </div>
     </div>
+    <!-- ユーザ詳細ページタブ -->
     <div class="row user-show">
         <div class="col-md-10 col-md-offset-1">
-            <ul class="nav nav-tabs user-show-nav">
-                <div class="col-sm-3 col-xs-3 text-center">
-                    <li class="active"><a href="#ContentA" data-toggle="tab">投稿レシピ <span class="badge"> <%= @user.recipes.count %> </span></a></li>
+            <div class="area">
+                <input type="radio" name="tab_name" id="tab1" checked>
+                <label class="tab_class" for="tab1">投稿レシピ <span class="badge"> <%= @user.recipes.count %> </span></label>
+                <div class="content_class">
+                    <p>
+                        <% if @user.recipes.empty? %>
+                            <h3 class="text-center"><%= @user.name %>さんが投稿したレシピはありません</h3>
+                        <% else %>
+                            <%= render 'user_recipes', recipes: @user.recipes %>
+                        <% end %>
+                    </p>
                 </div>
-                <div class="col-sm-3 col-xs-3 text-center">
-                    <li><a href="#ContentB" data-toggle="tab">お気に入り <span class="badge"> <%= @user.like_recipes.count %> </span></a></li>
+                <input type="radio" name="tab_name" id="tab2" >
+                <label class="tab_class" for="tab2">お気に入り <span class="badge"> <%= @user.like_recipes.count %> </span></label>
+                <div class="content_class">
+                    <p>
+                        <% if @user.like_recipes.empty? %>
+                            <h3 class="text-center">お気に入りレシピはありません</h3>
+                        <% else %>
+                            <%= render 'user_recipes', recipes: @user.like_recipes %>
+                        <% end %>
+                    </p>
                 </div>
-                <div class="col-sm-3 col-xs-3 text-center">
-                    <li><a href="#ContentC" data-toggle="tab">フォロー中 <span class="badge"> <%= @user.following_user.count %> </span></a></li>
+                <input type="radio" name="tab_name" id="tab3" >
+                <label class="tab_class" for="tab3">フォロー中 <span class="badge"> <%= @user.following_user.count %> </span></label>
+                <div class="content_class">
+                    <p><%= render 'relationships/index', users: @user.following_user %></p>
                 </div>
-                <div class="col-sm-3 col-xs-3 text-center">
-                    <li><a href="#ContentD" data-toggle="tab">フォロワー <span class="badge"> <%= @user.follower_user.count %> </span></a></li>
-                </div>
-            </ul>
-            <div class="tab-content">
-                <div class="tab-pane active" id="ContentA">
-                    <!-- 投稿したレシピがあるかで判断 -->
-                    <% if @user.recipes.empty? %>
-                        <h3 class="text-center"><%= @user.name %>さんが投稿したレシピはありません</h3>
-                    <% else %>
-                        <%= render 'user_recipes', recipes: @user.recipes %>
-                    <% end %>
-                </div>
-                <div class="tab-pane" id="ContentB">
-                    <!-- お気に入りレシピがあるか判断 -->
-                    <% if @user.like_recipes.empty? %>
-                        <h3 class="text-center">お気に入りレシピはありません</h3>
-                    <% else %>
-                        <%= render 'user_recipes', recipes: @user.like_recipes %>
-                    <% end %>
-                </div>
-                <div class="tab-pane" id="ContentC">
-                    <%= render 'relationships/index', users: @user.following_user %>
-                </div>
-                <div class="tab-pane" id="ContentD">
-                    <%= render 'relationships/index', users: @user.follower_user %>
+                <input type="radio" name="tab_name" id="tab4" >
+                <label class="tab_class" for="tab4">フォロワー <span class="badge"> <%= @user.follower_user.count %> </span></label>
+                <div class="content_class">
+                  <p><%= render 'relationships/index', users: @user.follower_user %></p>
                 </div>
             </div>
         </div>

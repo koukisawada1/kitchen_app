@@ -1,3 +1,4 @@
+<!-- 通知一覧ページ -->
 <div class="container notification">
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
@@ -15,7 +16,7 @@
 			<% else %>
 			    <h4>通知はありません</h4>
 			<% end %>
-			<h2><%= link_to "マイページへ", user_path(current_user), class: "top-button" %></h2>
+			<h2><%= link_to "戻る", :back, class: "top-button" %></h2>
 		</div>
 	</div>
 </div>_

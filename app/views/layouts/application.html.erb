@@ -73,14 +73,14 @@
                   </div>
                 </div>
               </div>
-
+              <!-- 検索モーダルジャンル一覧 -->
               <div class="genre-modal">
                 <div class="row">
                   <% @genres.each do |genre| %>
                     <%= link_to recipes_path(genre_id: genre.id) do %>
                       <div class="col-md-4 col-xs-4 text-center">
                         <div class="col-md-12 modal-contents">
-                          <%= attachment_image_tag(genre, :image, fallback: "no_image2.jpg", class: "img-responsive", style: "height: 180px;") %>
+                          <%= attachment_image_tag(genre, :image, fallback: "no_image2.jpg") %>
                           <p><%= genre.name %></p>
                         </div>
                       </div>
@@ -91,7 +91,6 @@
                   <a class="genre-modal-close top-button" href="#">閉じる</a>
                 </div>
               </div>
-
               <!-- 検索モーダル種別一覧 -->
               <div class="type-modal">
                 <div class="row">
@@ -99,7 +98,7 @@
                     <%= link_to recipes_path(type_id: type.id) do %>
                       <div class="col-md-3 col-xs-4 text-center">
                         <div class="col-md-12 modal-contents">
-                          <%= attachment_image_tag(type, :image, fallback: "no_image2.jpg", class: "img-responsive", style: "height: 175px;") %>
+                          <%= attachment_image_tag(type, :image, fallback: "no_image2.jpg") %>
                           <p><%= type.name %></p>
                         </div>
                       </div>
@@ -110,7 +109,6 @@
                   <a class="type-modal-close top-button" href="#">閉じる</a>
                 </div>
               </div>
-
               <!-- 検索モーダルタグ一覧 -->
               <div class="tag-modal">
                 <div class="row">
@@ -128,12 +126,12 @@
                   <a class="tag-modal-close top-button" href="#">閉じる</a>
                 </div>
               </div>
-
-
+              <!-- 検索モーダル閉じるボタン -->
               <a class="js-modal-close close-btn" href=""><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
             </div>
           </div>
           <!-- ハンバーガーメニュー -->
+          <!-- アイコン -->
           <div id="hm-icon">
             <a class="menu-trigger" href="#">
               <span></span>
@@ -141,6 +139,7 @@
               <span></span>
             </a>
           </div>
+          <!-- メニュー中身 -->
           <div id="sp-menu">
             <ul>
               <% if user_signed_in? %>
@@ -171,14 +170,14 @@
             <i class="fa fa-circle" style="color: red;"></i>
           <% end %>
           <%= link_to notifications_path do %>
-            <i class="fas fa-bell"></i>
+            <i class="far fa-bell"></i>
           <% end %>
         </div>
       <% end %>
     </header>
 
 
-<!-- フラッシュメッセージ -->
+    <!-- フラッシュメッセージ -->
     <% if flash[:notice] %>
       <div class="alert alert-success alert-close" role="alert">
         <span>
@@ -197,6 +196,7 @@
       <%= yield %>
     </main>
 
+    <!-- フッター -->
     <footer>
       <div class="copyright">
         <p class="contact">© 2020 - SimpleKitchen</p>

@@ -6,6 +6,7 @@
     </div>
     <%= render 'recipes/index', recipes: @recipes %>
 	<div class="text-center">
+		<!-- ページネーション -->
 		<%= paginate @recipes %>
 	</div>
 	<div class="col-md-12 text-center index-back">
