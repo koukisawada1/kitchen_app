@@ -1,3 +1,10 @@
+<% if flash[:comment_alert] %>s
+  <div class="alert alert-danger alert-close" role="alert">
+     <span>
+       <%= flash[:comment_alert] %>
+     </span>
+  </div>
+<% end %>
 <!-- コメント一覧 -->
 <div class="recipe-show">
     <div class="row">
