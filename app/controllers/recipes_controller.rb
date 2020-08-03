@@ -82,7 +82,7 @@ class RecipesController < ApplicationController
     @type = @recipe.type
   end
 
-  　 # レシピの保存
+  # レシピの保存
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user_id = current_user.id

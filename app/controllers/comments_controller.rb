@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.recipe_id = @recipe.id
     @comment.user_id = current_user.id
+    # Google Natural Language APIを用いて感情表現スコアを取得
     @comment.score = Language.get_data(comment_params[:comment])
     # コメントを新しい順に表示
     @comments = @recipe.comments.order(created_at: :desc)
