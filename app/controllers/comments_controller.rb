@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.recipe_id = @recipe.id
     @comment.user_id = current_user.id
+    @comment.score = Language.get_data(comment_params[:comment])
     # コメントを新しい順に表示
     @comments = @recipe.comments.order(created_at: :desc)
     if @comment.save
@@ -13,8 +14,8 @@ class CommentsController < ApplicationController
       flash[:notice] = "コメントを投稿しました"
       render :index
     else
-      flash[:alert] = "入力内容を確認してください"
-      render "recipes/show"
+      flash[:comment_alert] = "空白、100文字以上、ネガティブ表現の含まれるコメントは投稿できません"
+      render :index
     end
   end
 
