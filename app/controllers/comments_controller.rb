@@ -4,14 +4,15 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.recipe_id = @recipe.id
     @comment.user_id = current_user.id
+    @comment.score = Language.get_data(comment_params[:comment])
     @comments = @recipe.comments.order(created_at: :desc)
     if @comment.save
       @comment.recipe.create_notification_comment!(current_user, @comment.id)
       flash[:notice] = "コメントを投稿しました"
       render :index
     else
-      flash[:alert] = "入力内容を確認してください"
-      render "recipes/show"
+      flash[:comment_alert] = "空白、100文字以上、ネガティブ表現の含まれるコメントは投稿できません"
+      render :index
     end
   end
 
