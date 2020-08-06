@@ -60,7 +60,6 @@ a {
 header {
   .title {
     font-family: 'Amatic SC', cursive;
-    font-size: 100px;
     position: fixed;
     left: 40px;
     top: 20px;
@@ -72,6 +71,11 @@ header {
     }
   }
 }
+@media (max-width: 767px) {
+  .title {
+    display: none;
+  }
+}
 
 .alert {
   text-align: center;
@@ -79,6 +83,16 @@ header {
   margin-top: 100px;
   height: 60px;
   font-size: 20px;
+}
+@media (max-width: 767px) {
+  .alert {
+    text-align: center;
+    width: 100%;
+    margin-top: 100px;
+    height: 40px;
+    font-size: 15px;
+    padding: auto;
+  }
 }
 
 /*-----ハンバーガーメニュー------*/
@@ -144,7 +158,6 @@ header {
   min-height: 100%;
   display: none;
   z-index: 9;
-  font-size: 25px;
   a {
     font-size: 25px;
   }
@@ -176,6 +189,20 @@ header {
 #sp-menu span {
   color: black;
 }
+@media (max-width: 767px) {
+  #sp-menu {
+
+  a {
+    font-size: 18px;
+  }
+  span {
+    font-size: 22px;
+  }
+}
+  #sp-menu ul {
+    width: 60%;
+  }
+}
 
 /*-----検索フォームモーダル-----*/
 .open-btn {
@@ -200,7 +227,6 @@ header {
   width: 100%;
 }
 .modal__bg{
-/*  background: rgba(255,255,255,0.8);*/
   background-color: #FFFFFF;
   height: 100%;
   position: absolute;
@@ -277,6 +303,47 @@ header {
 }
 .new_recipes {
   text-align: left;
+}
+@media (max-width: 767px) {
+  .genre-modal-open, .type-modal-open, .tag-modal-open, .ranks, .new_recipes {
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .modal-contents {
+    margin-bottom: 20px;
+    height: 115px;
+    padding: 5px;
+    img {
+      margin-bottom: 10px;
+      width: 100%;
+      height: 80px;
+    }
+    p {
+      font-size: 12px;
+    }
+  }
+  .tag-modal {
+    h4 {
+      font-size: 15px;
+      padding: 5px;
+    }
+  }
+  .input-group {
+    input {
+    height: 20px;
+    width: 70%;
+    }
+    .search-btn {
+      font-size: 13px;
+    }
+  }
+  .close-btn {
+  font-size: 20px;
+  position: fixed;
+  right: 30px;
+  top: 10px;
+  }
 }
 
 /*-----メイン共通-----*/
@@ -363,6 +430,28 @@ main {
   background-color: #FFFFFF;
   padding-bottom: 50px;
 }
+@media (max-width: 767px) {
+  .top-image {
+    width: 100%;
+    height: 450px;
+  }
+  .top-image-content {
+    margin: auto;
+    text-align: center;
+    h3 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 40px;
+      color: black;
+      padding-top: 130px;
+      padding-bottom: 40px;
+      margin: 0;
+      text-shadow: 0px 0px 1px black;
+      strong {
+        font-size: 50px;
+      }
+    }
+  }
+}
 
 /*-----レシピ一覧-----*/
 .recipe-index-contents {
@@ -406,6 +495,18 @@ main {
 .index-back {
   margin-top: 60px;
 }
+@media (max-width: 767px) {
+  .top-recipe-title {
+    p {
+      font-size: 25px;
+      font-weight: 600;
+      background: linear-gradient(transparent 60%, #ffddbc 0%);
+      span {
+        font-size: 30px;
+      }
+    }
+  }
+}
 /*-----ログイン・登録ページ-----*/
 .login {
   margin-top: 150px;
@@ -419,6 +520,8 @@ main {
 }
 .top-recipe-title {
   margin: 30px;
+}
+@media (max-width: 767px) {
 }
 
 /*-----レシピ詳細ページ------*/
@@ -467,7 +570,49 @@ main {
     color:  #CD853F;
   }
 }
-
+@media (max-width: 767px) {
+  .recipe-show {
+    margin-top: 10px;
+    .comment {
+      p {
+        margin-top: 25px;
+        font-size: 16px;
+      }
+    }
+    h3 {
+      font-size: 30px;
+      font-weight: 600;
+      background: rgba(255,255,255,0.8);
+      padding: 10px;
+      border-bottom: solid 1.5px black;
+      span {
+        font-size: 35px;
+      }
+    }
+  }
+  .recipe-user {
+    padding: 40px;
+    background-color: #FFFFFF;
+    margin-top: 120px;
+    .material, .make {
+      margin-top: 30px;
+    }
+  }
+  .recipe-show-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    background: linear-gradient(transparent 60%, #ffddbc 0%);
+    span {
+      font-size: 30px;
+      color:  #CD853F;
+    }
+  }
+  h4 {
+    font-size: 15px;
+  }
+}
+ß
 /*-----レシピコメントモーダル-----*/
 .comment-modal-content {
   display: none;
@@ -556,6 +701,8 @@ main {
 .btn-lg {
   font-size: 24px;
 }
+@media (max-width: 767px) {
+}
 
 /*-----レシピ投稿・編集確認ページ-----*/
 .recipe-confirm {
@@ -602,6 +749,8 @@ main {
   .btn {
     font-size: 18px;
   }
+}
+@media (max-width: 767px) {
 }
 
 
@@ -671,6 +820,8 @@ main {
 .image-select {
   margin-top: 30px;
 }
+@media (max-width: 767px) {
+}
 
 /*-----ユーザ情報編集ページ-----*/
 .user-profile-edit {
@@ -704,12 +855,27 @@ main {
     margin-bottom: 30px;
   }
 }
-.tab{overflow:hidden;}
-.tab li{background:#ccc; padding:5px 25px; float:left; margin-right:1px;}
-.tab li.select{background:#eee;}
-.tab-content li{background:#eee; padding:20px;}
-.hide {display:none;}
-
+.tab{
+  overflow:hidden;
+}
+.tab li{
+  background:#ccc;
+  padding:5px 25px;
+  float:left;
+  margin-right:1px;
+}
+.tab li.select{
+  background:#eee;
+}
+.tab-content li{
+  background:#eee;
+  padding:20px;
+}
+.hide {
+  display:none;
+}
+@media (max-width: 767px) {
+}
 
 /*-----フッター-----*/
 footer {
@@ -782,60 +948,7 @@ footer .sns .contact {
 .confirm-btn {
   margin-top: 30px;
 }
-
-/*-----レスポンシブ　スマホ-----*/
-/*-----フッター-----*/
 @media (max-width: 767px) {
-  .contents {
-    margin-bottom: 200px;
-  }
-  footer {
-    height: auto;
-  }
-  footer .copyright {
-    width: 100%;
-  }
-  footer .copyright p {
-    padding: 0;
-    text-align: center;
-  }
-  footer .sns {
-    width: 100%;
-  }
-  #sp-menu ul {
-    width: 50%;
-    a {
-      font-size: 25px;
-    }
-  }
-/*-----ユーザ詳細ページ-----*/
-  .genre-modal {
-    .img-responsive {
-      height: 100px;
-    }
-  }
-/*-----ユーザ詳細ページ-----*/
-  .user-show {
-    td {
-      .row {
-        margin-top: 10px;
-      }
-    }
-  }
-/*-----ユーザ詳細ページ-----*/
-  .recipe-user {
-    .col-sm-3, .col-sm-9 {
-      margin-top: 20px;
-    }
-  }
-}
-/*-----レシピ一覧-----*/
-@media screen and (min-width:767px) {
-  .recipes {
-    .img-responsive {
-      height: 300px;
-    }
-  }
 }
 
 /*-----トップページボタン-----*/
@@ -896,6 +1009,17 @@ a.top-button {
     }
   }
 }
+@media (max-width: 767px) {
+  a.top-button {
+    margin: 10px;
+    border: 1px solid;
+    border-radius: 3rem;
+    padding: 0.8rem 3rem 0.8rem 2rem;
+    line-height: 1;
+    font-size: 14px;
+  }
+}
+
 
 /*-----リボン-----*/
 .ribbon {
@@ -937,6 +1061,8 @@ a.top-button {
   background: #b25552;
   border-radius: 5px 0 0 5px;
 }
+@media (max-width: 767px) {
+}
 
 /*-----通知------*/
 .notification {
@@ -971,6 +1097,7 @@ a.top-button {
     }
   }
 }
+
 /*-----通知アイコン-----*/
 .notification-icon {
   position: fixed;
@@ -1042,6 +1169,11 @@ input:checked + .tab_class + .content_class {
     animation: shutterOpen 1.6s forwards;
   }
 }
+@media (max-width: 767px) {
+  .shutter {
+    display: none;
+  }
+}
 
 .content{
   animation: contentScale 2s forwards;
@@ -1094,3 +1226,67 @@ input:checked + .tab_class + .content_class {
     transform: skewY(-45deg) translateX(12.5em);
   }
 }
+
+@media (max-width: 767px) {
+  .top-image-content {
+    margin: auto;
+    text-align: center;
+    h3 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 40px;
+      color: black;
+      padding-top: 170px;
+      padding-bottom: 40px;
+      margin: 0;
+      text-shadow: 0px 0px 1px black;
+      strong {
+        font-size: 50px;
+      }
+    }
+  }
+  .contents {
+    margin-bottom: 200px;
+  }
+  footer {
+    height: auto;
+  }
+  footer .copyright {
+    width: 100%;
+  }
+  footer .copyright p {
+    padding: 0;
+    text-align: center;
+  }
+  footer .sns {
+    width: 100%;
+  }
+/*-----ユーザ詳細ページ-----*/
+  .genre-modal {
+    .img-responsive {
+      height: 100px;
+    }
+  }
+/*-----ユーザ詳細ページ-----*/
+  .user-show {
+    td {
+      .row {
+        margin-top: 10px;
+      }
+    }
+  }
+/*-----ユーザ詳細ページ-----*/
+  .recipe-user {
+    .col-sm-3, .col-sm-9 {
+      margin-top: 20px;
+    }
+  }
+}
+/*-----レシピ一覧-----*/
+@media screen and (min-width:767px) {
+  .recipes {
+    .img-responsive {
+      height: 300px;
+    }
+  }
+}
+
