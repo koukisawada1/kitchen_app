@@ -7,14 +7,14 @@
             <% else %>
                 <p class="user-show-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%= @user.name %>さんのページ</p>
             <% end %>
-            <div class="col-sm-6 col-xs-6">
+            <div class="col-sm-6 col-xs-5">
             	<%= attachment_image_tag(@user, :image, fallback: "no_image.jpg", size: '230x230', class: "img-circle") %>
             </div>
-            <div class="col-sm-6 col-xs-6">
+            <div class="col-sm-6 col-xs-7">
             	<h3><%= @user.name %>さん</h3>
             	<h4><%= simple_format(@user.introduction) %></h4>
             	<% if @user == current_user %>
-                    <div class="col-md-6 btn">
+                    <div class="col-md-6 col-xs-12 btn">
                         <p><%= link_to "プロフィールを編集する", edit_user_path(@user), class: "btn btn-default" %></p>
                     </div>
             	<% end %>

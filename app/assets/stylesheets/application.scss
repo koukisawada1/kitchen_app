@@ -535,6 +535,9 @@ main {
       margin-top: 25px;
       font-size: 16px;
     }
+    .comment-text2 {
+      display: none;
+    }
   }
   h3 {
     font-size: 30px;
@@ -575,18 +578,32 @@ main {
     margin-top: 10px;
     .comment {
       p {
-        margin-top: 25px;
-        font-size: 16px;
+        margin-top: 5px;
+        font-size: 10px;
+      }
+      .comment-text {
+        display: none;
+      }
+      .comment-text2 {
+        display: block;
+      }
+      a {
+        font-size: 12px;
+        padding: 3px;
       }
     }
+    img {
+      height: 40px;
+      width: 40px;
+    }
     h3 {
-      font-size: 30px;
+      font-size: 16px;
       font-weight: 600;
       background: rgba(255,255,255,0.8);
       padding: 10px;
       border-bottom: solid 1.5px black;
       span {
-        font-size: 35px;
+        font-size: 22px;
       }
     }
   }
@@ -612,7 +629,7 @@ main {
     font-size: 15px;
   }
 }
-ß
+
 /*-----レシピコメントモーダル-----*/
 .comment-modal-content {
   display: none;
@@ -702,6 +719,22 @@ main {
   font-size: 24px;
 }
 @media (max-width: 767px) {
+  .recipe-form {
+    margin-top: 120px;
+    h3 {
+      font-size: 20px;
+      span {
+        font-size: 25px;
+      }
+    }
+  }
+  .recipe-img {
+    height: 300px;
+    width: 300px;
+  }
+  h5 {
+    font-size: 19px;
+  }
 }
 
 /*-----レシピ投稿・編集確認ページ-----*/
@@ -821,6 +854,88 @@ main {
   margin-top: 30px;
 }
 @media (max-width: 767px) {
+  .user-profile {
+    img {
+      height: 100px;
+      width: 100px;
+    }
+    .user-show-title {
+      font-size: 20px;
+      margin-bottom: 30px;
+      span {
+        font-size: 30px;
+      }
+    }
+    h3 {
+      font-size: 20px;
+      span {
+        font-size: 25px;
+      }
+    }
+    h4 {
+      margin-top: 35px;
+    }
+    .btn {
+      font-size: 14px;
+      padding: 3px;
+    }
+  }
+  .user-show {
+    margin-top: 50px;
+    .tab_class {
+      font-size: 10px;
+      span {
+        font-size: 10px;
+        padding: 2px 4px;
+      }
+    }
+    tr {
+      h4 {
+        margin-top: 5px;
+        font-size: 13px;
+      }
+      h5 {
+        font-size: 12px;
+      }
+      .btn {
+        margin-top: 40px;
+      }
+      .recipe-user {
+        display: none;
+      }
+      img {
+        height: 80px;
+        width: 80px;
+      }
+    }
+    li {
+      font-size: 16px;
+      color: black;
+    }
+    .tab-content {
+      h4 {
+        font-size: 16px;
+      }
+      h3 {
+        font-size: 14px;
+      }
+    }
+    td {
+      .row {
+        margin-top: 30px;
+      }
+      .btn {
+        font-size: 12px;
+        padding: 1px;
+      }
+    }
+  }
+  .user-show-nav {
+    padding: 15px;
+  }
+  .image-select {
+    margin-top: 30px;
+  }
 }
 
 /*-----ユーザ情報編集ページ-----*/

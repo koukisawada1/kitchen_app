@@ -11,9 +11,9 @@
                 <td>
                     <h4><%= recipe.title %></h4>
                     <h5><%= simple_format(recipe.body) %></h5>
-                    <h5>分量：<%= recipe.quantity %>人前  費用：<%= recipe.price %>円前後</h5>
+                    <h5 class="recipe-user">分量：<%= recipe.quantity %>人前  費用：<%= recipe.price %>円前後</h5>
                 </td>
-                <td>
+                <td class="recipe-user">
                     <div class="row">
                         <div class="col-md-3">
                             <%= link_to user_path(recipe.user) do %>
