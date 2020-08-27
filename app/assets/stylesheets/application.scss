@@ -58,16 +58,24 @@ a {
 
 /*-----ヘッダー------*/
 header {
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #FFF;
+  z-index: 999;
+  opacity: 0.9;
   .title {
     font-family: 'Amatic SC', cursive;
     position: fixed;
     left: 40px;
-    top: 20px;
-    font-size: 40px;
+    top: 10px;
+    font-size: 35px;
     z-index: 10;
     color: black;
     strong {
-      font-size: 50px;
+      font-size: 45px;
     }
   }
 }
@@ -99,7 +107,7 @@ header {
 #hm-icon{
   position: fixed;
   right: 35px;
-  top: 18px;
+  top: 8px;
   z-index: 10;
 }
 .menu-trigger,
@@ -209,7 +217,7 @@ header {
   font-size: 34px;
   position: fixed;
   right: 95px;
-  top: 19px;
+  top: 9px;
   z-index: 10;
   padding: 12px 11px 8px 11px;
 }
@@ -1217,7 +1225,7 @@ a.top-button {
 .notification-icon {
   position: fixed;
   right: 165px;
-  top: 33px;
+  top: 23px;
   z-index: 10;
   .far {
     font-size: 40px;
