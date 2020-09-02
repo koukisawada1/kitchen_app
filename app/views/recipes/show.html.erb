@@ -8,7 +8,9 @@
                     <div class="panel-body">
         		        <h3><%= @recipe.title %></h3>
                         <% @recipe.tags.each do |tag| %>
-                            <span class="badge"> <%= tag.name %></span>
+                            <%= link_to recipes_path(tag_id: tag.id) do %>
+                                <span class="badge"> <%= tag.name %></span>
+                            <% end %>
                         <% end %>
         		        <h4><%= simple_format(@recipe.body) %></h4>
                     </div>
@@ -68,11 +70,19 @@
                         <tbody>
                             <tr>
                                 <td class="active">ジャンル</td>
-                                <td><%= @recipe.genre.name %></td>
+                                <td>
+                                    <%= link_to recipes_path(genre_id: @recipe.genre.id) do %>
+                                        <%= @recipe.genre.name %>
+                                    <% end %>
+                                </td>
                             </tr>
                             <tr>
                                 <td class="active">種別</td>
-                                <td><%= @recipe.type.name %></td>
+                                <td>
+                                    <%= link_to recipes_path(type_id: @recipe.type.id) do %>
+                                        <%= @recipe.type.name %>
+                                    <% end %>
+                                </td>
                             </tr>
                             <tr>
                                 <td class="active">分量</td>
