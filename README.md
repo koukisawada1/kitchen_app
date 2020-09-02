@@ -21,7 +21,7 @@ https://docs.google.com/spreadsheets/d/1cHzf254C4QrGq12S41KhiE_CmjBfOHp2rfOdHCt1
 
 ##環境
 ###フロントエンド
-* Bootstrap4
+* Bootstrap3
 * Scss(BEM)
 * JavaScript, jQuery,Ajax
 
